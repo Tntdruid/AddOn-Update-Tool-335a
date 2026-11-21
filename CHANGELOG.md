@@ -1,33 +1,63 @@
-# Changelog
+<p align="center"><img src="assets/logo.png" width="72" alt="" /></p>
 
-## [0.2.0] - 2026-11-21
+<h1 align="center">Changelog</h1>
 
-### Added
-- **Browse** tab: a catalog of 225 verified 3.3.5a addons with categories, search, popularity sorting and one-click install. Addons you already have can be linked with "Link installed".
-- The catalog is fetched from the repository, so it can grow without a new app release. Without a connection the bundled copy is used.
-- `tools/build-catalog.js` builds the catalog from GitHub. It keeps only repos whose main addon has `## Interface: 30300`, and `tools/catalog-config.json` holds overrides.
-- **Changes** button: shows the commits between the installed version and the new one before you update, and explains it when a force-push has rewritten the history.
-- Missing dependencies: warns when a required `## Dependencies` entry is not installed and installs it from the catalog with one click, including right after an install.
-- Repo links: a "Repo ↗" button on each addon, a GitHub link with the version in the status bar, and an About section in Settings.
-- "Find repo…" suggests catalog matches first.
+<p align="center">All notable changes to AddOn Update Tool 3.3.5a.<br />
+Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a/releases">Releases</a> page.</p>
 
-### Fixed
-- The version in the app no longer shows Electron's version when the app is started via a custom entry point.
+---
 
-## [0.1.0] - 2026-11-21
+## [Unreleased]
 
-First release.
+### 🐛 Fixed
+- Commit hashes ("old → new") in the *Installed* column no longer wrap onto two lines.
 
-### Added
-- Desktop GUI (Electron) for updating World of Warcraft 3.3.5a addons from GitHub, GitLab and Gitea/Codeberg.
-- Add addons from a URL. A `wotlk`/`3.3.5` branch is chosen automatically when one exists; Wrath Classic branches are skipped.
-- Update checks cached with ETags, so a 304 response does not count against GitHub's rate limit.
-- Warns about addons whose `## Interface` targets a newer client than 3.3.5a.
-- Smart folder detection: fixes `Repo-master` folders, finds nested addons, keeps embedded libs, and lists multi-module repos (e.g. DBM) under their main folder.
-- Staged installs with automatic rollback if an install fails; the last 5 versions per addon are kept and can be restored with one click.
-- "Installed, not linked" view, with repo suggestions from `.toc` metadata and a GitHub search filtered to WoW addons.
-- Linking one folder to a collection repo installs only that folder.
-- Import of `config.yaml`/`config.json` from the original AddOns-Update-Tool.
-- Optional per-host access tokens, encrypted with Windows DPAPI.
-- Play button that starts Wow.exe.
-- GitHub Actions: tests run on every push, and a portable exe is built into a release for every `v*` tag.
+---
+
+## [0.2.0] — 2026-11-21
+
+> **Find, inspect and fix.** Browse a catalog of 225 verified 3.3.5a addons, see what an update changes before you install it, and fix missing dependencies with one click.
+
+<img src="assets/screenshots/browse.png" alt="Browse tab" width="720" />
+
+### ✨ New
+- **Browse tab.** A catalog of **225 verified 3.3.5a addons**, including ElvUI, DBM, WeakAuras, Skada, Details, Auctionator and Bagnon. It has categories and search and is sorted by popularity. Click *Install* to add one, or *Link installed* for addons you already have.
+- **See what's new.** The *Changes* button lists the commits between your version and the latest, with author, date and link, before you update.
+- **Missing dependencies.** If an addon needs something you don't have (e.g. `DBM-Core`), you get a warning and an *Install* button that fetches it from the catalog. This also happens right after an install.
+- **Repo links.** Each addon has a *Repo ↗* button, the status bar shows the version and links to GitHub, and *Settings → About* links to releases and issues.
+
+### ⚡ Improved
+- The catalog is fetched from this repository, so it grows without a new app release. Offline, the bundled copy is used.
+- *Find repo…* suggests the catalog match first.
+
+### 🐛 Fixed
+- The version shown in the app was Electron's version in some cases.
+
+### 🧰 For contributors
+- `tools/build-catalog.js` builds the catalog from GitHub and keeps only addons whose `.toc` says `Interface: 30300`. `tools/catalog-config.json` holds overrides.
+
+---
+
+## [0.1.0] — 2026-11-21
+
+> **First release.** A modern, GUI-based take on [AddOns-Update-Tool](https://github.com/alchem1ster/AddOns-Update-Tool): pick your Wow.exe, paste a URL, and stay up to date.
+
+<img src="assets/screenshots/managed.png" alt="Managed addons" width="720" />
+
+### ✨ New
+- **Desktop app** for updating addons from **GitHub, GitLab and Codeberg/Gitea**.
+- **Smart branch picking.** A `wotlk` or `3.3.5` branch is chosen automatically when one exists. Wrath *Classic* branches are skipped.
+- **Cheap update checks.** Responses are cached with ETags, so checks barely touch GitHub's 60-requests-per-hour limit.
+- **Compatibility warnings** for addons built for newer clients than 3.3.5a.
+- **Smart folder detection.** Fixes `Repo-master` folder names, finds nested addons, keeps embedded libs, and handles multi-module repos such as DBM.
+- **Safe installs with one-click rollback.** Files are staged first, and the last 5 versions of each addon are kept.
+- **Installed, not linked.** Finds a repository for addons you already have.
+- **Import** of `config.yaml` / `config.json` from the original tool.
+- **Optional access tokens**, encrypted with Windows DPAPI, and a **▶ Play** button.
+
+### 🧰 For contributors
+- GitHub Actions run the tests on every push and build a portable `.exe` release for every `v*` tag.
+
+[Unreleased]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/releases/tag/v0.1.0
