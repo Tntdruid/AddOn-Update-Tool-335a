@@ -6,7 +6,7 @@ const fs = require('node:fs/promises');
 const { spawn } = require('node:child_process');
 const { Settings } = require('./settings');
 const { Updater, wowDirFrom } = require('../core/updater');
-const { parseLegacyConfig } = require('../core/state');
+const { parseConfigEntries, configRawUrl } = require('../core/state');
 const { HttpClient } = require('../core/http');
 const { loadCatalog } = require('../core/catalog');
 const bundledCatalog = require('../catalog/addons.json');
@@ -170,27 +170,36 @@ function registerIpc() {
   });
   handle('addons:changeBranch', async (id, b) => (await getUpdater()).changeBranch(id, b));
   handle('addons:suggest', async (folder, title, hints) => (await getUpdater()).suggest(folder, title, hints));
-  handle('addons:import', async () => {
-    const r = await dialog.showOpenDialog(win, {
-      title: 'Import config from AddOns-Update-Tool',
-      filters: [{ name: 'Config', extensions: ['yaml', 'yml', 'json'] }],
-      properties: ['openFile'],
-    });
-    if (r.canceled || !r.filePaths[0]) return null;
-    const entries = parseLegacyConfig(await fs.readFile(r.filePaths[0], 'utf8'));
-    const u = await getUpdater();
-    const results = [];
-    for (const e of entries) {
-      try {
-        const res = await u.add(e.url, { branch: e.branch || undefined });
-        log(`Imported ${res.addon.id}`);
-        results.push({ url: e.url, ok: true });
-      } catch (err) {
-        log(`${e.url}: ${err.message}`, err.message.includes('already') ? 'warn' : 'error');
-        results.push({ url: e.url, ok: false, error: err.message });
-      }
+  // Step 1: read a config (file dialog, or an https URL) and preview its entries.
+  handle('import:read', async (url) => {
+    let text;
+    let label;
+    if (url) {
+      const res = await fetch(configRawUrl(url), { headers: { 'User-Agent': 'AddonUpdateTool-335a' } });
+      if (!res.ok) throw new Error(`Could not download the config (HTTP ${res.status})`);
+      text = await res.text();
+      if (text.length > 1024 * 1024) throw new Error('That file is too large to be a config');
+      label = url;
+    } else {
+      const r = await dialog.showOpenDialog(win, {
+        title: 'Import config (AddOns-Update-Tool format)',
+        filters: [{ name: 'Config', extensions: ['yaml', 'yml', 'json', 'txt'] }],
+        properties: ['openFile'],
+      });
+      if (r.canceled || !r.filePaths[0]) return null;
+      text = await fs.readFile(r.filePaths[0], 'utf8');
+      label = path.basename(r.filePaths[0]);
     }
-    return results;
+    const entries = parseConfigEntries(text);
+    if (!entries.length) throw new Error('No repository URLs found in that file');
+    return { label, entries: (await getUpdater()).importPreview(entries) };
+  });
+  // Step 2: install the chosen entries, reporting progress to the log.
+  handle('import:run', async (entries) => {
+    const u = await getUpdater();
+    return u.importMany(entries, (done, total, r) => {
+      log(`[${done}/${total}] ${r.ok ? `Installed ${r.id}` : `${r.url}: ${r.error}`}`, r.ok ? 'info' : 'warn');
+    });
   });
   handle('shell:folder', async (which) => {
     const dir = settings.data.wowPath;

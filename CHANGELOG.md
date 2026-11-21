@@ -9,8 +9,29 @@ Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a
 
 ## [Unreleased]
 
+---
+
+## [0.3.0] — 2026-11-21
+
+> **Bring your list.** Import shared addon lists, such as the one from [WoW-3.3.5a-Addons](https://github.com/NoM0Re/WoW-3.3.5a-Addons), and pick what to install from a checklist. The catalog grows to 279 verified addons.
+
+<img src="assets/screenshots/import.png" alt="Import checklist" width="720" />
+
+### ✨ New
+- **Import checklist.** *Import config* now reads a file **or a link**, including shared lists where every entry is commented out with `#`. You get a checklist grouped by the list's own sections, with notes, "Installed" and "catalog ✓" badges, a filter, and *All / Catalog only / None* buttons. Progress shows while the addons install.
+- **Smarter branches.** If a config names a branch that no longer exists (e.g. `main` when the repo uses `master`), the best existing branch is used and you get a warning, instead of the install failing.
+
+### ⚡ Improved
+- **Catalog: 225 → 279 addons.** It now also includes the curated WoW-3.3.5a-Addons list; each addon is still checked for `Interface: 30300`.
+- The app uses whichever catalog copy is newer, the bundled one or the online one.
+- Searching in the import list also matches repository names.
+
 ### 🐛 Fixed
+- **You couldn't type in the *Add from URL* dialog**, and checkboxes inside dialogs couldn't be ticked. A keyboard and click handler cancelled the events. A new test guards against this.
 - Commit hashes ("old → new") in the *Installed* column no longer wrap onto two lines.
+
+### 🧰 For contributors
+- `tools/build-catalog.js` accepts `seedConfigs` (links to AddOns-Update-Tool configs) as trusted sources.
 
 ---
 
@@ -58,6 +79,7 @@ Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a
 ### 🧰 For contributors
 - GitHub Actions run the tests on every push and build a portable `.exe` release for every `v*` tag.
 
-[Unreleased]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/releases/tag/v0.1.0

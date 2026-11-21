@@ -1,6 +1,9 @@
 {
   "include": [],
   "exclude": [],
+  "seedConfigs": [
+    "https://github.com/NoM0Re/WoW-3.3.5a-Addons/blob/main/src/Addons/config.yaml"
+  ],
   "overrides": {
     "Zidras/DBM-Warmane": {
       "name": "Deadly Boss Mods (Warmane)",

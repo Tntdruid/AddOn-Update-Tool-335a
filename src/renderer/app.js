@@ -261,7 +261,9 @@ function addDialog(prefill = '', adopt = null) {
     });
   };
   $('#addGo').onclick = go;
-  body.onkeydown = (e) => e.key === 'Enter' && go();
+  body.onkeydown = (e) => {
+    if (e.key === 'Enter') go();
+  };
 }
 
 async function linkDialog(folder) {
@@ -338,6 +340,112 @@ function depsDialog(deps) {
       )
       .join('')}</div><div class="row-end"><button class="btn" data-act="close">Later</button></div>`);
   return body;
+}
+
+/* ---------- import ---------- */
+
+function importDialog() {
+  const body = modal(
+    'Import addons from a config',
+    `<p class="sub">Reads <code>config.yaml</code> / <code>config.json</code> in the AddOns-Update-Tool format, including shared lists where entries are commented out with <code>#</code>. You choose what to install.</p>
+     <div class="field"><label>From a link</label>
+       <div class="inline"><input id="importUrl" placeholder="https://github.com/…/config.yaml" /><button class="btn primary" id="importLoadUrl">Load</button></div></div>
+     <div class="field"><label>From a file on this PC</label><button class="btn" id="importPick">Choose file…</button></div>`,
+  );
+  const load = (btn, url) =>
+    withBusy(btn, async () => {
+      const r = await call(api.importRead, url || null);
+      if (r) importChecklist(r);
+    });
+  $('#importLoadUrl').onclick = (e) => {
+    const url = $('#importUrl').value.trim();
+    if (url) load(e.currentTarget, url);
+  };
+  $('#importPick').onclick = (e) => load(e.currentTarget, null);
+  body.onkeydown = (e) => {
+    if (e.key === 'Enter' && e.target.id === 'importUrl') $('#importLoadUrl').click();
+  };
+}
+
+function importChecklist({ label, entries }) {
+  const sectionName = (s) => (s || 'Other').replace(/\s*\(https?:[^)]*\)/g, '').replace(/\s+AddOns$/i, '').trim() || 'Other';
+  const groups = new Map();
+  entries.forEach((e, i) => {
+    const key = sectionName(e.section);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ ...e, i });
+  });
+  const checked = new Set(entries.map((e, i) => (e.enabled && e.valid && !e.managed ? i : -1)).filter((i) => i >= 0));
+
+  const body = modal(
+    `Import from ${label.length > 48 ? `…${label.slice(-46)}` : label}`,
+    `<div class="import-tools"><input id="importFilter" type="search" placeholder="Filter ${entries.length} addons…" />
+       <button class="btn small ghost" data-sel="all">All</button>
+       <button class="btn small ghost" data-sel="catalog" title="Only addons verified in the catalog">Catalog only</button>
+       <button class="btn small ghost" data-sel="none">None</button></div>
+     <div class="import-list">${[...groups]
+       .map(
+         ([name, items]) => `<div class="import-group" data-group><div class="import-head">${esc(name)}</div>${items
+           .map(
+             (e) => `<label class="import-row${e.valid && !e.managed ? '' : ' disabled'}" data-text="${esc(`${e.name} ${e.url} ${e.note || ''} ${name}`.toLowerCase())}">
+               <input type="checkbox" data-i="${e.i}" ${checked.has(e.i) ? 'checked' : ''} ${e.valid && !e.managed ? '' : 'disabled'} />
+               <span class="grow"><span class="name">${esc(e.name)}</span> <span class="sub">${esc(e.owner || '')}${e.branch ? ` · ${esc(e.branch)}` : ''}</span>
+               ${e.note ? `<span class="desc">${esc(e.note)}</span>` : ''}</span>
+               ${e.managed ? '<span class="badge ok">Installed</span>' : e.inCatalog ? '<span class="badge muted" title="Verified 3.3.5a addon in the catalog">catalog ✓</span>' : ''}
+               ${e.valid ? '' : '<span class="badge error">bad URL</span>'}</label>`,
+           )
+           .join('')}</div>`,
+       )
+       .join('')}</div>
+     <div class="row-end"><span class="sub" id="importCount" style="margin-right:auto"></span>
+       <button class="btn" data-act="close">Cancel</button><button class="btn primary" id="importGo">Install selected</button></div>`,
+  );
+
+  const boxes = () => [...body.querySelectorAll('input[data-i]')];
+  const update = () => {
+    const n = boxes().filter((b) => b.checked).length;
+    $('#importCount').textContent = `${n} selected`;
+    $('#importGo').disabled = !n;
+    $('#importGo').textContent = n ? `Install ${n} selected` : 'Install selected';
+  };
+  body.addEventListener('change', update);
+  body.querySelectorAll('[data-sel]').forEach(
+    (b) =>
+      (b.onclick = () => {
+        const mode = b.dataset.sel;
+        for (const box of boxes()) {
+          if (box.disabled || box.closest('.import-row').hidden) continue;
+          box.checked = mode === 'all' || (mode === 'catalog' && entries[Number(box.dataset.i)].inCatalog);
+        }
+        update();
+      }),
+  );
+  $('#importFilter').oninput = (e) => {
+    const f = e.target.value.trim().toLowerCase();
+    body.querySelectorAll('.import-row').forEach((row) => (row.hidden = Boolean(f) && !row.dataset.text.includes(f)));
+    body.querySelectorAll('[data-group]').forEach((g) => (g.hidden = ![...g.querySelectorAll('.import-row')].some((r) => !r.hidden)));
+  };
+  $('#importGo').onclick = (e) =>
+    withBusy(e.currentTarget, async () => {
+      const chosen = boxes()
+        .filter((b) => b.checked)
+        .map((b) => entries[Number(b.dataset.i)])
+        .map(({ url, branch }) => ({ url, branch }));
+      state.importing = { done: 0, total: chosen.length };
+      body.querySelectorAll('input').forEach((i) => (i.disabled = true));
+      try {
+        const r = await call(api.importRun, chosen);
+        const failed = r.filter((x) => !x.ok);
+        const installed = r.filter((x) => x.ok && !x.skipped).length;
+        closeModal();
+        toast(failed.length ? `Installed ${installed}, ${failed.length} failed (see log)` : `Installed ${installed} addon${installed === 1 ? '' : 's'}`, failed.length > 0);
+        if (failed.length) $('#log').hidden = false;
+        await refresh();
+      } finally {
+        state.importing = null;
+      }
+    });
+  update();
 }
 
 /* ---------- catalog ---------- */
@@ -550,18 +658,24 @@ $('#btnCheck').onclick = checkAll;
 $('#btnUpdateAll').onclick = (e) => updateIds(null, e.currentTarget);
 $('#btnLaunch').onclick = (e) => withBusy(e.currentTarget, () => call(api.launch));
 $('#btnAdd').onclick = () => addDialog();
-$('#btnImport').onclick = (e) =>
+$('#btnImport').onclick = () => importDialog();
+$('#wowPath').onclick = $('#btnPickWelcome').onclick = (e) => {
   withBusy(e.currentTarget, async () => {
-    const r = await call(api.importConfig);
-    if (!r) return;
-    toast(`Imported ${r.filter((x) => x.ok).length} of ${r.length}`, r.some((x) => !x.ok && !/already/.test(x.error)));
-    await refresh();
+    if (await call(api.pickWow)) await refresh();
   });
-$('#wowPath').onclick = $('#btnPickWelcome').onclick = (e) => withBusy(e.currentTarget, async () => (await call(api.pickWow)) && refresh());
+};
 $('#modalClose').onclick = closeModal;
-$('#modal').onclick = (e) => e.target.id === 'modal' && closeModal();
-document.addEventListener('keydown', (e) => e.key === 'Escape' && closeModal());
-$('#logToggle').onclick = () => ($('#log').hidden = !$('#log').hidden);
+// Note: on* handler properties must not return false (that cancels the event),
+// so these use block bodies. See test/renderer-handlers.test.js.
+$('#modal').onclick = (e) => {
+  if (e.target.id === 'modal') closeModal();
+};
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+$('#logToggle').onclick = () => {
+  $('#log').hidden = !$('#log').hidden;
+};
 
 api.onLog((entry) => {
   const line = document.createElement('div');
@@ -572,6 +686,8 @@ api.onLog((entry) => {
   while (log.children.length > 300) log.firstChild.remove();
   log.scrollTop = log.scrollHeight;
   $('#logLast').textContent = entry.message;
+  const progress = /^\[(\d+)\/(\d+)\]/.exec(entry.message);
+  if (state.importing && progress && $('#importCount')) $('#importCount').textContent = `Installing ${progress[1]} of ${progress[2]}…`;
 });
 
 (async () => {

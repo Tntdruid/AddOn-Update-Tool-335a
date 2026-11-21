@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21",
+  "generated": "2026-11-21T17:58:20.206Z",
   "interface": 30300,
   "addons": [
     {
@@ -85,6 +85,17 @@
       "stars": 6
     },
     {
+      "name": "Abbreviated Status Text",
+      "url": "https://github.com/RomanSpector/AbbreviatedStatus",
+      "folders": [
+        "AbbreviatedStatus"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "RomanSpector",
+      "stars": 8
+    },
+    {
       "name": "Accountant Classic",
       "url": "https://github.com/darhanger/Accountant_Classic",
       "folders": [
@@ -152,6 +163,40 @@
       "stars": 6
     },
     {
+      "name": "AdiBags - Filter for BoE/BoA",
+      "url": "https://github.com/LundmarkJ/AdiBags-WotLK-Modules",
+      "folders": [
+        "AdiBags_BoE_BoA",
+        "AdiBags_Outfitter"
+      ],
+      "category": "Bags & inventory",
+      "description": "",
+      "author": "LundmarkJ",
+      "stars": 0
+    },
+    {
+      "name": "Afflicted3",
+      "url": "https://github.com/RomanSpector/Afflicted",
+      "folders": [
+        "Afflicted"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "RomanSpector",
+      "stars": 2
+    },
+    {
+      "name": "All Cheaters Must Die",
+      "url": "https://github.com/Zidras/AllCheatersMustDie",
+      "folders": [
+        "AllCheatersMustDie"
+      ],
+      "category": "Other",
+      "description": "Detect DoS attacks and auto-ignore perpetrator",
+      "author": "Zidras",
+      "stars": 8
+    },
+    {
       "name": "Arena Numbers",
       "url": "https://github.com/Poli93/ArenaNumbers",
       "folders": [
@@ -201,6 +246,17 @@
       "description": "Many TBC servers now run on the 3.3.5a client - so adapted addons are required",
       "author": "Schaka",
       "stars": 3
+    },
+    {
+      "name": "ArenaSpectatorX",
+      "url": "https://github.com/RomanSpector/ArenaSpectatorX",
+      "folders": [
+        "ArenaSpectatorX"
+      ],
+      "category": "PvP",
+      "description": "",
+      "author": "RomanSpector",
+      "stars": 2
     },
     {
       "name": "Ascension Subclass",
@@ -346,6 +402,37 @@
       "stars": 3
     },
     {
+      "name": "BattleGroundHealers",
+      "url": "https://github.com/KhalGH/BattleGroundHealers-WotLK",
+      "folders": [
+        "BattleGroundHealers"
+      ],
+      "category": "PvP",
+      "description": "WoW 3.3.5a Addon",
+      "author": "KhalGH",
+      "stars": 14
+    },
+    {
+      "name": "Big Wigs",
+      "url": "https://github.com/bkader/BigWigs-WoTLK",
+      "folders": [
+        "BigWigs",
+        "BigWigs_Citadel",
+        "BigWigs_Coliseum",
+        "BigWigs_CommonAuras",
+        "BigWigs_Naxxramas",
+        "BigWigs_Northrend",
+        "BigWigs_OnyxiasLair",
+        "BigWigs_Options",
+        "BigWigs_Transcriptor",
+        "BigWigs_Ulduar"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "",
+      "author": "bkader",
+      "stars": 4
+    },
+    {
       "name": "BigDebuffs",
       "url": "https://github.com/NeticSoul/BigDebuffs",
       "folders": [
@@ -390,6 +477,28 @@
       "stars": 38
     },
     {
+      "name": "Bloody Mask rev 1.0.2",
+      "url": "https://github.com/bkader/BloodyMask",
+      "folders": [
+        "BloodyMask"
+      ],
+      "category": "Combat & DPS",
+      "description": "Simulates Metro's Gas Mask effects based on your character's actions.",
+      "author": "bkader",
+      "stars": 0
+    },
+    {
+      "name": "BLT",
+      "url": "https://github.com/freix1/BLT_WotLK",
+      "folders": [
+        "BLT"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "freix1",
+      "stars": 13
+    },
+    {
       "name": "BNetToast",
       "url": "https://github.com/Crumdidlyumshis/BNetToast",
       "folders": [
@@ -421,6 +530,28 @@
       "description": "WoW 3.3.5 Interface addon for the mod-ollama-bot-buddy module.",
       "author": "DustinHendrickson",
       "stars": 9
+    },
+    {
+      "name": "Buffet",
+      "url": "https://github.com/Sattva-108/Buffet-WoTLK-3.3.5",
+      "folders": [
+        "Buffet"
+      ],
+      "category": "Combat & DPS",
+      "description": "Best Food, Drink and HP, MP Pots macroses.",
+      "author": "Sattva-108",
+      "stars": 0
+    },
+    {
+      "name": "ButtonFacade",
+      "url": "https://github.com/bkader/ButtonFacade",
+      "folders": [
+        "ButtonFacade"
+      ],
+      "category": "Interface & UI",
+      "description": "ButtonFacade for WoTLK with 28 Skins - All In One.",
+      "author": "bkader",
+      "stars": 6
     },
     {
       "name": "Carbonite 3.34",
@@ -513,6 +644,28 @@
       "description": "3.3.5a addon for mod-autosort. Adds a nice clickable broom icon on the backpack which can be used to cleanup your bags. Calls mod-autosort related commands for functionality.",
       "author": "silviu20092",
       "stars": 4
+    },
+    {
+      "name": "Comix",
+      "url": "https://github.com/bkader/Comix-WotLK",
+      "folders": [
+        "Comix"
+      ],
+      "category": "Other",
+      "description": "This is a fun addon that shows pictures and plays sounds depending on the situation.",
+      "author": "bkader",
+      "stars": 2
+    },
+    {
+      "name": "Compact Raid Frames",
+      "url": "https://github.com/RomanSpector/CompactRaidFrame",
+      "folders": [
+        "CompactRaidFrame"
+      ],
+      "category": "Unit frames",
+      "description": "",
+      "author": "RomanSpector",
+      "stars": 43
     },
     {
       "name": "Console Port LK",
@@ -854,6 +1007,116 @@
       "stars": 26
     },
     {
+      "name": "ElvUI Aura Bars Movers",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_AuraBarsMovers",
+      "folders": [
+        "ElvUI_AuraBarsMovers"
+      ],
+      "category": "Combat & DPS",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 3
+    },
+    {
+      "name": "ElvUI Bag Control",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_BagControl",
+      "folders": [
+        "ElvUI_BagControl"
+      ],
+      "category": "Bags & inventory",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 3
+    },
+    {
+      "name": "ElvUI Cast Bar Overlay",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_CastBarOverlay",
+      "folders": [
+        "ElvUI_CastBarOverlay"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 4
+    },
+    {
+      "name": "ElvUI Custom Tags",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_CustomTags",
+      "folders": [
+        "ElvUI_CustomTags"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 4
+    },
+    {
+      "name": "ElvUI Custom Tweaks",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_CustomTweaks",
+      "folders": [
+        "ElvUI_CustomTweaks"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 9
+    },
+    {
+      "name": "ElvUI Datatext Bar 2",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_DTBars2",
+      "folders": [
+        "ElvUI_DTBars2"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 4
+    },
+    {
+      "name": "ElvUI DataText Colors",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_DataTextColors",
+      "folders": [
+        "ElvUI_DataTextColors"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 2
+    },
+    {
+      "name": "ElvUI Enhanced",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_Enhanced",
+      "folders": [
+        "ElvUI_Enhanced"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 19
+    },
+    {
+      "name": "ElvUI Enhanced Friends List",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_EnhancedFriendsList",
+      "folders": [
+        "ElvUI_EnhancedFriendsList"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 6
+    },
+    {
+      "name": "ElvUI Extra Action Bars",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_ExtraActionBars",
+      "folders": [
+        "ElvUI_ExtraActionBars"
+      ],
+      "category": "Action bars",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 5
+    },
+    {
       "name": "ElvUI Extras",
       "url": "https://github.com/noname08662/ElvUI_Extras",
       "folders": [
@@ -863,6 +1126,17 @@
       "description": "A plugin for https://github.com/ElvUI-WotLK/ElvUI.",
       "author": "noname08662",
       "stars": 22
+    },
+    {
+      "name": "ElvUI Fix Role",
+      "url": "https://github.com/nerestaren/ElvUI_FixRole",
+      "folders": [
+        "ElvUI_FixRole"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "nerestaren",
+      "stars": 0
     },
     {
       "name": "ElvUI Improved Spec Switch",
@@ -876,6 +1150,17 @@
       "stars": 8
     },
     {
+      "name": "ElvUI Location Plus",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_LocPlus",
+      "folders": [
+        "ElvUI_LocPlus"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 2
+    },
+    {
       "name": "ElvUI LooTManager",
       "url": "https://github.com/unobtainable-dev/ElvUI_LootManager",
       "folders": [
@@ -887,9 +1172,19 @@
       "stars": 3
     },
     {
+      "name": "ElvUI Microbar Enhancement",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_MicrobarEnhancement",
+      "folders": [
+        "ElvUI_MicrobarEnhancement"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 4
+    },
+    {
       "name": "ElvUI Project Zidras",
       "url": "https://github.com/Zidras/ElvUI_ProjectZidras",
-      "branch": "awesome_wotlk",
       "folders": [
         "ElvUI_ProjectZidras"
       ],
@@ -897,6 +1192,50 @@
       "description": "Plugin for ElvUI (3.3.5a) - new features and various improvements",
       "author": "Zidras",
       "stars": 42
+    },
+    {
+      "name": "ElvUI Raid Markers",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_RaidMarkers",
+      "folders": [
+        "ElvUI_RaidMarkers"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 3
+    },
+    {
+      "name": "ElvUI Swing Bar",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_SwingBar",
+      "folders": [
+        "ElvUI_SwingBar"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 5
+    },
+    {
+      "name": "ElvUI Threat Improved",
+      "url": "https://github.com/nerestaren/ElvUI_ThreatImproved",
+      "folders": [
+        "ElvUI_ThreatImproved"
+      ],
+      "category": "Unit frames",
+      "description": "Plugin for ElvUI that aims to improve threat management, both in the Threat frame and in the NamePlates.",
+      "author": "nerestaren",
+      "stars": 2
+    },
+    {
+      "name": "ElvUI Visual Procs",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_VisualProcs",
+      "folders": [
+        "ElvUI_VisualProcs"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 11
     },
     {
       "name": "Emblem of Gold",
@@ -941,6 +1280,41 @@
       "description": "Equipence - Detailed gear overview for every character you inspect.",
       "author": "s0h2x",
       "stars": 6
+    },
+    {
+      "name": "EventTracker",
+      "url": "https://github.com/fondlez/EventTracker",
+      "folders": [
+        "EventTracker"
+      ],
+      "category": "Other",
+      "description": "A World of Warcraft addon to view detailed information on tracked events. Tested clients: 2.4.3 (TBC), 3.3.5a (WotLK), 4.3.4 (Cata), 5.4.8 (MoP)",
+      "author": "fondlez",
+      "stars": 1
+    },
+    {
+      "name": "EveryQuest",
+      "url": "https://github.com/NethanosGit/EveryQuest",
+      "folders": [
+        "EveryQuest",
+        "EveryQuest_Battlegrounds",
+        "EveryQuest_Classes",
+        "EveryQuest_Dungeons",
+        "EveryQuest_Eastern_Kingdoms",
+        "EveryQuest_Kalimdor",
+        "EveryQuest_Miscellaneous",
+        "EveryQuest_Northrend",
+        "EveryQuest_Outland",
+        "EveryQuest_Professions",
+        "EveryQuest_QuestGivers",
+        "EveryQuest_Raids",
+        "EveryQuest_World_Events",
+        "HandyNotes"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "EveryQuest+",
+      "author": "NethanosGit",
+      "stars": 35
     },
     {
       "name": "Faction Free Unit Popup",
@@ -1042,6 +1416,17 @@
       "stars": 12
     },
     {
+      "name": "FonzTracking",
+      "url": "https://github.com/fondlez/FonzTracking",
+      "folders": [
+        "FonzTracking"
+      ],
+      "category": "Maps & navigation",
+      "description": "World of Warcraft addon for TBC (2.4.3) and WotLK (3.3.5a): Resets minimap Tracking changes after shapeshifting.",
+      "author": "fondlez",
+      "stars": 1
+    },
+    {
       "name": "FrostAtom UI",
       "url": "https://github.com/FrostAtom/FrostAtomUI",
       "folders": [
@@ -1088,6 +1473,17 @@
       "stars": 5
     },
     {
+      "name": "GearScoreLite: Reborn",
+      "url": "https://github.com/Arcitec/GearScoreLite_Reborn",
+      "folders": [
+        "GearScoreLite"
+      ],
+      "category": "Other",
+      "description": "Helps you quickly and easily judge a player's level of gear. WoW 3.3.5.",
+      "author": "Arcitec",
+      "stars": 16
+    },
+    {
       "name": "German Dude",
       "url": "https://github.com/Hextv/GermanDude",
       "folders": [
@@ -1108,6 +1504,17 @@
       "description": "Classic version of Gladdy backported to 3.3.5a",
       "author": "JedborgWoW",
       "stars": 3
+    },
+    {
+      "name": "GladiusEx",
+      "url": "https://github.com/ManneN1/GladiusEx-WotLK",
+      "folders": [
+        "GladiusEx"
+      ],
+      "category": "PvP",
+      "description": "Backport of GladiusEx to WotLK.",
+      "author": "ManneN1",
+      "stars": 13
     },
     {
       "name": "GM MINI BAR[WotLK-AzerothCore]",
@@ -1503,6 +1910,17 @@
       "stars": 20
     },
     {
+      "name": "Mapster",
+      "url": "https://github.com/Sattva-108/Mapster",
+      "folders": [
+        "Mapster"
+      ],
+      "category": "Maps & navigation",
+      "description": "One of best maps for WoTLK.",
+      "author": "Sattva-108",
+      "stars": 6
+    },
+    {
       "name": "Masque",
       "url": "https://github.com/bkader/Masque-WoTLK",
       "folders": [
@@ -1561,6 +1979,17 @@
       "stars": 6
     },
     {
+      "name": "MLAutoLootBoE",
+      "url": "https://github.com/Homerocker/MLAutoLootBoE",
+      "folders": [
+        "MLAutoLootBoE"
+      ],
+      "category": "Bags & inventory",
+      "description": "Master Loot Auto Looter",
+      "author": "Homerocker",
+      "stars": 1
+    },
+    {
       "name": "Modern Map Markers",
       "url": "https://github.com/Drakensangs/ModernMapMarkers-WotLK",
       "folders": [
@@ -1602,6 +2031,28 @@
       "description": "Transmog Catalogue Addons for WotLK",
       "author": "ZhengPeiRu21",
       "stars": 31
+    },
+    {
+      "name": "MoveAnything",
+      "url": "https://github.com/sirus-addons/MoveAnything",
+      "folders": [
+        "MoveAnything"
+      ],
+      "category": "Other",
+      "description": "Addon MoveAnything",
+      "author": "sirus-addons",
+      "stars": 10
+    },
+    {
+      "name": "MuteChatWrongFaction",
+      "url": "https://github.com/fondlez/MuteChatWrongFaction",
+      "folders": [
+        "MuteChatWrongFaction"
+      ],
+      "category": "Other",
+      "description": "A simple World of Warcraft addon to mute system message \"You can only whisper to members of your alliance.\". Tested clients: 3.3.5a (WotLK) and 2.4.3 (TBC).",
+      "author": "fondlez",
+      "stars": 2
     },
     {
       "name": "Name Spoofer",
@@ -1714,6 +2165,18 @@
       "description": "Rewritten Omnibar for Warmanes WOTLK server patch 3.3.5",
       "author": "oscargforce",
       "stars": 6
+    },
+    {
+      "name": "OmniCC",
+      "url": "https://github.com/NoM0Re/OmniCC-WotLK",
+      "folders": [
+        "OmniCC",
+        "OmniCC_Config"
+      ],
+      "category": "Combat & DPS",
+      "description": "Cooldown count for everything",
+      "author": "NoM0Re",
+      "stars": 16
     },
     {
       "name": "OmniInventory",
@@ -1926,6 +2389,17 @@
       "stars": 19
     },
     {
+      "name": "pw_unitframes",
+      "url": "https://github.com/s0h2x/pw_unitframes",
+      "folders": [
+        "pw_unitframes"
+      ],
+      "category": "Unit frames",
+      "description": "Lightweight Unitframes Addon",
+      "author": "s0h2x",
+      "stars": 22
+    },
+    {
       "name": "Quartz",
       "url": "https://github.com/gareth-charles/Quartz",
       "folders": [
@@ -2051,6 +2525,25 @@
       "stars": 48
     },
     {
+      "name": "Raid Events",
+      "url": "https://github.com/Homerocker/RaidEvents",
+      "folders": [
+        "RaidEvents",
+        "RaidEventsBabySpice",
+        "RaidEventsBacklash",
+        "RaidEventsChokingGas",
+        "RaidEventsFishTrack",
+        "RaidEventsMalleableGoo",
+        "RaidEventsMDTracker",
+        "RaidEventsVampiricBite",
+        "RaidEventsVengefulShade"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "Homerocker",
+      "stars": 0
+    },
+    {
       "name": "RaidCluster",
       "url": "https://github.com/NoM0Re/RaidCluster",
       "folders": [
@@ -2060,6 +2553,17 @@
       "description": "RaidCluster is an addon designed to display clusters of players as counters that increment when players are close to each other.",
       "author": "NoM0Re",
       "stars": 3
+    },
+    {
+      "name": "RatingBuster",
+      "url": "https://github.com/Einherjarn/RatingBuster-3.3.5",
+      "folders": [
+        "RatingBuster"
+      ],
+      "category": "Other",
+      "description": "rating to percentage addon for wotlk, fixed fork",
+      "author": "Einherjarn",
+      "stars": 2
     },
     {
       "name": "Raven",
@@ -2072,6 +2576,17 @@
       "description": "Raven tracks Buffs & Debuffs in different ways. Backported from Retail to WotLK",
       "author": "bkader",
       "stars": 7
+    },
+    {
+      "name": "RecipeColor",
+      "url": "https://github.com/Drakensangs/RecipeColor-WotLK",
+      "folders": [
+        "RecipeColor"
+      ],
+      "category": "Bags & inventory",
+      "description": "World of Warcraft Wrath of the Lich King 3.3.5a addon that colors known recipes green in the bag, bank, mailbox, inbox, trade, loot & merchant frames.",
+      "author": "Drakensangs",
+      "stars": 2
     },
     {
       "name": "Refactor Gear",
@@ -2253,6 +2768,39 @@
       "stars": 3
     },
     {
+      "name": "SharedMedia",
+      "url": "https://github.com/bkader/SharedMedia",
+      "folders": [
+        "SharedMedia"
+      ],
+      "category": "Other",
+      "description": "SharedMedia, with lots of backgrounds, borders, fonts, statusbars and sounds.",
+      "author": "bkader",
+      "stars": 27
+    },
+    {
+      "name": "SharedMedia Additional Fonts",
+      "url": "https://github.com/NoM0Re/SharedMediaAdditionalFonts",
+      "folders": [
+        "SharedMediaAdditionalFonts"
+      ],
+      "category": "Other",
+      "description": "Inserts more than 30 additional fonts into LibSharedMedia's storage.",
+      "author": "NoM0Re",
+      "stars": 3
+    },
+    {
+      "name": "SharedMediaRetail",
+      "url": "https://github.com/NoM0Re/SharedMedia",
+      "folders": [
+        "SharedMediaRetail"
+      ],
+      "category": "Other",
+      "description": "Inserts media(fonts, bars, borders, etc) into LibSharedMedia's storage. They can then be selected by any addon that supports LibSharedMedia, a lot of them do.",
+      "author": "NoM0Re",
+      "stars": 3
+    },
+    {
       "name": "Simple Cast Bar",
       "url": "https://github.com/oxbar/SimpleCastBar",
       "folders": [
@@ -2310,6 +2858,17 @@
       "stars": 4
     },
     {
+      "name": "Soulstone",
+      "url": "https://github.com/pabhoz/Soulstone-WoW-Addon",
+      "folders": [
+        "Soulstone"
+      ],
+      "category": "Action bars",
+      "description": "Move your WoW 3.3.5a setup — action bars (both specs), macros, keybindings and talents — between characters, realms and servers.",
+      "author": "pabhoz",
+      "stars": 2
+    },
+    {
       "name": "SoundAlerter Enhanced",
       "url": "https://github.com/Cortes-Jeremy/SoundAlerter",
       "folders": [
@@ -2363,6 +2922,39 @@
       "description": "World of Warecraft WotLK Raid Addon Raidlead Addon Strichliste",
       "author": "sba5827",
       "stars": 3
+    },
+    {
+      "name": "Talented",
+      "url": "https://github.com/bkader/Talented_WoTLK",
+      "folders": [
+        "Talented"
+      ],
+      "category": "Interface & UI",
+      "description": "Talented All-In-One for 3.3.5",
+      "author": "bkader",
+      "stars": 32
+    },
+    {
+      "name": "TellMeWhen",
+      "url": "https://github.com/bkader/TellMeWhen_3.3.5",
+      "folders": [
+        "TellMeWhen"
+      ],
+      "category": "Combat & DPS",
+      "description": "Enhanced TellMeWhen for WoTLK",
+      "author": "bkader",
+      "stars": 19
+    },
+    {
+      "name": "TheClassicRace",
+      "url": "https://github.com/bkader/TheClassicRace-WotLK",
+      "folders": [
+        "TheClassicRace"
+      ],
+      "category": "Other",
+      "description": "TheClassicRace made compatible with WotLK. Jout my Discord server, I have more addons shared there and you might fight them interesting.",
+      "author": "bkader",
+      "stars": 0
     },
     {
       "name": "TheCollector",
@@ -2508,6 +3100,28 @@
       "stars": 3
     },
     {
+      "name": "UnitFrameLayers",
+      "url": "https://github.com/RomanSpector/UnitFrameLayers",
+      "folders": [
+        "UnitFrameLayers"
+      ],
+      "category": "Unit frames",
+      "description": "",
+      "author": "RomanSpector",
+      "stars": 11
+    },
+    {
+      "name": "unitscan",
+      "url": "https://github.com/Sattva-108/unitscan",
+      "folders": [
+        "unitscan"
+      ],
+      "category": "Other",
+      "description": "Backport of unitscan-rares with extra functionality, that already has all rares listed.",
+      "author": "Sattva-108",
+      "stars": 13
+    },
+    {
       "name": "VeilHUD",
       "url": "https://github.com/Zendevve/VeilHUD",
       "folders": [
@@ -2576,6 +3190,17 @@
       "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
       "author": "Bunny67",
       "stars": 184
+    },
+    {
+      "name": "What's Training? WotLK",
+      "url": "https://github.com/anhility/WhatsTraining_WotLK",
+      "folders": [
+        "WhatsTraining_WotLK"
+      ],
+      "category": "Other",
+      "description": "A backport of Fusionpit's WhatsTraining addon for WotLK",
+      "author": "anhility",
+      "stars": 10
     },
     {
       "name": "Why Can't I Hold All These Macro Icons?",

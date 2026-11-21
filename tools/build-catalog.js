@@ -20,6 +20,7 @@ const path = require('node:path');
 const { findAddons } = require('../src/core/archive');
 const { parseRepoUrl, pickBranch, sourceId } = require('../src/core/source');
 const { mapLimit } = require('../src/core/http');
+const { parseConfigEntries, configRawUrl } = require('../src/core/state');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'src', 'catalog', 'addons.json');
@@ -97,13 +98,41 @@ async function main() {
       await new Promise((r) => setTimeout(r, 2500)); // search API: 30 req/min
     }
   }
-  for (const url of config.include || []) {
-    const s = parseRepoUrl(url);
-    if (!repos.has(s.path.toLowerCase())) repos.set(s.path.toLowerCase(), await api(`https://api.github.com/repos/${s.path}`));
+  // Curated lists (AddOns-Update-Tool configs) are trusted sources: their entries skip
+  // the star threshold but still have to pass the Interface 30300 check below.
+  const forced = new Set();
+  const seeds = [...(config.include || []).map((url) => ({ url, branch: null }))];
+  for (const cfgUrl of config.seedConfigs || []) {
+    const res = await fetch(configRawUrl(cfgUrl));
+    if (!res.ok) throw new Error(`seed config ${cfgUrl}: HTTP ${res.status}`);
+    const entries = parseConfigEntries(await res.text());
+    const other = entries.filter((e) => !/github\.com/i.test(e.url)).length;
+    console.error(`seed ${cfgUrl}: ${entries.length} entries${other ? ` (${other} not on GitHub, skipped)` : ''}`);
+    seeds.push(...entries.filter((e) => /github\.com/i.test(e.url)));
   }
+  await mapLimit(seeds, 8, async (e) => {
+    let s;
+    try {
+      s = parseRepoUrl(e.url);
+    } catch {
+      return;
+    }
+    const key = s.path.toLowerCase();
+    try {
+      const meta = repos.get(key) || (await api(`https://api.github.com/repos/${s.path}`));
+      repos.set(meta.full_name.toLowerCase(), meta);
+      forced.add(meta.full_name.toLowerCase());
+      const branch = e.branch || s.branch;
+      if (branch && !(overrides[meta.full_name] && overrides[meta.full_name].branch)) {
+        overrides[meta.full_name] = { ...(overrides[meta.full_name] || {}), branch };
+      }
+    } catch (err) {
+      console.error(`seed ${e.url}: ${err.message}`);
+    }
+  });
   const candidates = [...repos.values()].filter((r) => {
-    const forced = (config.include || []).some((u) => sourceId(parseRepoUrl(u)) === `github.com/${r.full_name}`.toLowerCase());
-    if (forced) return true;
+    if (exclude.has(`github.com/${r.full_name}`.toLowerCase())) return false;
+    if (forced.has(r.full_name.toLowerCase())) return true;
     if (exclude.has(`github.com/${r.full_name}`.toLowerCase())) return false;
     if (r.archived || r.disabled) return false;
     return r.stargazers_count >= MIN_STARS;
@@ -113,7 +142,9 @@ async function main() {
   // 2. Verify
   const results = await mapLimit(candidates, 8, async (r) => {
     const branches = (await api(`https://api.github.com/repos/${r.full_name}/branches?per_page=100`)).map((b) => b.name);
-    const branch = pickBranch(branches, r.default_branch, overrides[r.full_name] && overrides[r.full_name].branch);
+    // Use a configured branch only if it exists (seed configs can be out of date).
+    const wantedBranch = overrides[r.full_name] && overrides[r.full_name].branch;
+    const branch = pickBranch(branches, r.default_branch, branches.includes(wantedBranch) ? wantedBranch : null);
     const tree = await api(`https://api.github.com/repos/${r.full_name}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
     const blobs = (tree.tree || []).filter((t) => t.type === 'blob').map((t) => t.path);
     const tocs = blobs.filter((p) => /\.toc$/i.test(p));
@@ -147,9 +178,10 @@ async function main() {
   // 3. Keep the best repo per main folder (forks of the same addon), highest stars first.
   const byFolder = new Map();
   let failed = 0;
-  for (const res of results) {
+  for (const [i, res] of results.entries()) {
     if (!res.ok) {
       failed++;
+      if (process.env.VERBOSE) console.error(`fail ${candidates[i].full_name}: ${res.error.message}`);
       continue;
     }
     const e = res.value;
@@ -160,7 +192,7 @@ async function main() {
   }
   const entries = [...byFolder.values()].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
   console.error(`${entries.length} verified 3.3.5a addons (${failed} repos failed to load)`);
-  const out = { generated: new Date().toISOString().slice(0, 10), interface: 30300, addons: entries };
+  const out = { generated: new Date().toISOString(), interface: 30300, addons: entries };
   if (DRY) console.log(JSON.stringify(out, null, 2));
   else {
     fs.mkdirSync(path.dirname(OUT), { recursive: true });

@@ -113,6 +113,61 @@ class Updater {
     return this.add(entry.url, { branch: entry.branch || undefined });
   }
 
+  /**
+   * Annotate parsed config entries for the import checklist: a display name,
+   * whether it's already managed, the catalog name, and whether the URL is usable.
+   */
+  importPreview(entries) {
+    const seen = new Set();
+    const out = [];
+    for (const e of entries) {
+      let s;
+      try {
+        s = src.parseRepoUrl(e.url);
+      } catch {
+        out.push({ ...e, id: null, name: e.url, valid: false, managed: false });
+        continue;
+      }
+      const id = src.sourceId(s);
+      if (seen.has(id)) continue;
+      seen.add(id);
+      const known = this.catalog.find((c) => c.id === id);
+      out.push({
+        ...e,
+        url: s.url,
+        branch: e.branch || s.branch || null,
+        id,
+        name: known ? known.name : s.repo.replace(/[-_.]?(3\.?3\.?5a?|wotlk|wrath)$/i, '').replace(/[-_]+/g, ' '),
+        owner: s.owner,
+        valid: true,
+        managed: Boolean(this.find(id)),
+        inCatalog: Boolean(known),
+      });
+    }
+    return out;
+  }
+
+  /**
+   * Install several entries one after another (keeps the API load polite).
+   * Already-managed entries are skipped, not reported as failures.
+   */
+  async importMany(entries, onProgress = () => {}) {
+    const results = [];
+    for (const e of entries) {
+      let r;
+      try {
+        const res = await this.add(e.url, { branch: e.branch || undefined });
+        r = { url: e.url, id: res.addon.id, ok: true, warnings: res.warnings };
+      } catch (err) {
+        const skipped = /already managed/.test(err.message);
+        r = { url: e.url, ok: skipped, skipped, error: skipped ? null : err.message };
+      }
+      results.push(r);
+      onProgress(results.length, entries.length, r);
+    }
+    return results;
+  }
+
   setCatalog(entries) {
     this.catalog = Array.isArray(entries) ? entries : [];
   }
@@ -122,14 +177,16 @@ class Updater {
     const s = src.parseRepoUrl(url);
     const ep = src.endpoints(s);
     const wanted = branch || s.branch;
-    let chosen = wanted;
-    let branches = [];
-    if (!chosen) {
-      const [repo, list] = await Promise.all([this.http.json(ep.repo), this.http.json(ep.branches).catch(() => [])]);
-      branches = src.branchNamesOf(list);
-      chosen = src.pickBranch(branches, src.defaultBranchOf(s, repo), null);
+    const branches = src.branchNamesOf(await this.http.json(ep.branches).catch(() => []));
+    // An explicit branch that exists (or that we can't verify) is used as-is.
+    if (wanted && (!branches.length || branches.includes(wanted))) {
+      return { source: s, branch: wanted, branchPinned: true, branches };
     }
-    return { source: s, branch: chosen, branchPinned: Boolean(wanted), branches };
+    // Shared configs often name a branch that was later renamed (e.g. "main" vs "master"):
+    // fall back to the best existing branch instead of failing with "Not found".
+    const repo = await this.http.json(ep.repo);
+    const chosen = src.pickBranch(branches, src.defaultBranchOf(s, repo), null);
+    return { source: s, branch: chosen, branchPinned: false, branches, ...(wanted ? { fallbackFrom: wanted } : {}) };
   }
 
   async headOf(addon) {
@@ -167,6 +224,7 @@ class Updater {
     this.state.addons.push(addon);
     try {
       const result = await this.install(addon);
+      if (r.fallbackFrom) result.warnings.unshift(`Branch "${r.fallbackFrom}" does not exist in ${r.source.path}; used "${r.branch}" instead`);
       return { addon, ...result, branches: r.branches };
     } catch (err) {
       this.state.addons = this.state.addons.filter((a) => a !== addon);

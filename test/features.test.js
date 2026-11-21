@@ -154,6 +154,14 @@ test('loadCatalog falls back to the bundled copy when offline', async () => {
   assert.equal((await loadCatalog(online, { addons: [] })).entries[0].name, 'B');
 });
 
+test('loadCatalog uses the newer copy (regression: an older remote catalog hid the bundled one)', async () => {
+  const remote = (generated) => ({ json: async () => ({ generated, addons: [{ name: 'Remote', url: 'https://github.com/r/r' }] }) });
+  const bundled = { generated: '2026-11-21', addons: [{ name: 'Bundled', url: 'https://github.com/b/b' }] };
+  assert.equal((await loadCatalog(remote('2026-11-20'), bundled)).source, 'bundled');
+  assert.equal((await loadCatalog(remote('2026-11-21'), bundled)).source, 'remote');
+  assert.equal((await loadCatalog(remote('2026-12-01'), bundled)).entries[0].name, 'Remote');
+});
+
 test('linking from the catalog installs every catalog folder, not just the local ones', async () => {
   const wow = await makeWow({ 'DBM-Core': { 'DBM-Core.toc': toc('DBM') } });
   const fetch = fakeFetch([

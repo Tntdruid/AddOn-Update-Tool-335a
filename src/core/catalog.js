@@ -69,13 +69,21 @@ function catalogFor(catalog, folderNames) {
  * @param {any} bundled bundled catalog JSON
  */
 async function loadCatalog(http, bundled) {
+  const local = { entries: normalizeCatalog(bundled), source: 'bundled', generated: generatedOf(bundled) };
   try {
-    const remote = normalizeCatalog(await http.json(REMOTE_CATALOG_URL));
-    if (remote.length) return { entries: remote, source: 'remote' };
+    const json = await http.json(REMOTE_CATALOG_URL);
+    const remote = { entries: normalizeCatalog(json), source: 'remote', generated: generatedOf(json) };
+    // Use whichever copy is newer, so an app release never shows an older remote catalog.
+    if (remote.entries.length && remote.generated >= local.generated) return remote;
   } catch {
     /* offline or not published yet */
   }
-  return { entries: normalizeCatalog(bundled), source: 'bundled' };
+  return local;
+}
+
+/** "YYYY-MM-DD" generation date of raw catalog JSON ("" when unknown). */
+function generatedOf(json) {
+  return json && typeof json.generated === 'string' ? json.generated : '';
 }
 
 module.exports = { normalizeCatalog, catalogFor, loadCatalog, REMOTE_CATALOG_URL };
