@@ -30,10 +30,16 @@
     },
     "win": {
       "target": "portable",
-      "signAndEditExecutable": false
+      "signAndEditExecutable": true,
+      "icon": "build/icon.png",
+      "signExecutable": false
     },
     "portable": {
       "artifactName": "AddonUpdateTool-${version}-portable.exe"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tntdruid/AddOn-Update-Tool-335a"
   }
 }

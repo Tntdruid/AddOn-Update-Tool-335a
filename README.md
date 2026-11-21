@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.png" width="128" alt="logo" /></p>
+
 # AddOn Update Tool 3.3.5a
 
 A desktop app that keeps World of Warcraft **3.3.5a (WotLK)** addons up to date from GitHub, GitLab and Gitea/Codeberg. It is a modern take on [alchem1ster/AddOns-Update-Tool](https://github.com/alchem1ster/AddOns-Update-Tool).

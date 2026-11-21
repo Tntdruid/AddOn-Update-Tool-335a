@@ -179,6 +179,7 @@ async function createWindow() {
     backgroundColor: '#14161b',
     title: 'AddOn Update Tool 3.3.5a',
     autoHideMenuBar: true,
+    ...(app.isPackaged ? {} : { icon: path.join(__dirname, '..', '..', 'build', 'icon.png') }),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
