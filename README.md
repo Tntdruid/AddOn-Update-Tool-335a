@@ -21,6 +21,10 @@ A desktop app that keeps World of Warcraft **3.3.5a (WotLK)** addons up to date 
 | Unknown addons | — | Lists installed addons that aren't linked to a repo and suggests repos from the `.toc` file and a GitHub search |
 | Tokens | — | Optional tokens per host, encrypted with Windows DPAPI |
 
+## Download
+
+Get `AddonUpdateTool-x.y.z-portable.exe` from [Releases](https://github.com/Tntdruid/AddOn-Update-Tool-335a/releases/latest). No installation is needed. Releases are built automatically by GitHub Actions when a `v*` tag is pushed.
+
 ## Usage
 
 1. Start the app and select `Wow.exe`. If the exe sits in the WoW folder, it finds the folder on its own.
