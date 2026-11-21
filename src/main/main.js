@@ -8,6 +8,12 @@ const { Settings } = require('./settings');
 const { Updater, wowDirFrom } = require('../core/updater');
 const { parseLegacyConfig } = require('../core/state');
 const { HttpClient } = require('../core/http');
+const { loadCatalog } = require('../core/catalog');
+const bundledCatalog = require('../catalog/addons.json');
+
+const REPO_URL = 'https://github.com/Tntdruid/AddOn-Update-Tool-335a';
+// Read from package.json: app.getVersion() reports Electron's version when started via a custom entry.
+const APP_VERSION = require('../../package.json').version;
 
 let win;
 let settings;
@@ -36,12 +42,29 @@ async function detectWowDir() {
   return null;
 }
 
+let catalog = { entries: [], source: 'none' };
+let catalogLoad = null;
+
+/** Load the addon catalog once (remote copy if reachable, else the bundled one). */
+function ensureCatalog(force = false) {
+  if (!catalogLoad || force) {
+    const client = new HttpClient({ tokens: settings.tokens() });
+    catalogLoad = loadCatalog(client, bundledCatalog).then((c) => {
+      catalog = c;
+      if (updater) updater.setCatalog(c.entries);
+      return c;
+    });
+  }
+  return catalogLoad;
+}
+
 async function getUpdater() {
   const dir = settings.data.wowPath;
   if (!dir) throw new Error('Choose your WoW 3.3.5a folder first');
+  await ensureCatalog();
   if (updater && updater.wowDir === dir) return updater;
   http = new HttpClient({ tokens: settings.tokens() });
-  updater = await new Updater(dir, { http, log }).load();
+  updater = await new Updater(dir, { http, log, catalog: catalog.entries }).load();
   return updater;
 }
 
@@ -68,7 +91,7 @@ function handle(channel, fn) {
 }
 
 function registerIpc() {
-  handle('settings:get', async () => settings.view());
+  handle('settings:get', async () => ({ ...settings.view(), version: APP_VERSION, repoUrl: REPO_URL }));
   handle('settings:set', async (patch) => {
     for (const k of ['autoCheck', 'closeOnLaunch']) if (k in patch) settings.data[k] = Boolean(patch[k]);
     await settings.save();
@@ -134,6 +157,17 @@ function registerIpc() {
     return r;
   });
   handle('addons:branches', async (id) => (await getUpdater()).branches(id));
+  handle('addons:changes', async (id) => (await getUpdater()).changes(id));
+  handle('addons:installDep', async (name) => {
+    const r = await (await getUpdater()).installDependency(name);
+    log(`Installed dependency ${name}`);
+    return r;
+  });
+  handle('catalog:refresh', async () => {
+    const c = await ensureCatalog(true);
+    log(`Catalog: ${c.entries.length} addons (${c.source})`);
+    return { count: c.entries.length, source: c.source };
+  });
   handle('addons:changeBranch', async (id, b) => (await getUpdater()).changeBranch(id, b));
   handle('addons:suggest', async (folder, title, hints) => (await getUpdater()).suggest(folder, title, hints));
   handle('addons:import', async () => {

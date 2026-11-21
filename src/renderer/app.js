@@ -5,7 +5,7 @@ const $ = (sel) => document.querySelector(sel);
 const esc = (s) =>
   String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-const state = { settings: null, overview: null, tab: 'managed', filter: '', busy: new Set() };
+const state = { settings: null, overview: null, tab: 'managed', filter: '', category: 'All', busy: new Set() };
 
 const STATUS_LABEL = {
   ok: 'Up to date',
@@ -81,6 +81,8 @@ function shortList(items, max = 4) {
 
 async function refresh() {
   state.settings = await call(api.settings);
+  $('#repoLink').dataset.url = state.settings.repoUrl;
+  $('#repoLink').textContent = `v${state.settings.version} · GitHub`;
   const hasWow = Boolean(state.settings.wowPath);
   $('#welcome').hidden = hasWow;
   $('#wowPath').textContent = hasWow ? state.settings.wowPath : 'No WoW folder selected';
@@ -110,6 +112,7 @@ function render() {
   if (ov && ov.rateLimit) $('#rate').textContent = `GitHub API: ${ov.rateLimit.remaining}/${ov.rateLimit.limit}`;
   renderManaged(managed);
   renderLocal(local);
+  renderCatalog();
   renderSettings();
 }
 
@@ -137,19 +140,33 @@ function renderManaged(list) {
       const compat = a.compat && a.compat !== 'unknown' && a.compat !== 'ok' ? `<span class="compat ${a.compat}">${COMPAT_LABEL[a.compat]}</span>` : '';
       return `<tr data-id="${esc(a.id)}">
         <td><div class="name">${esc(a.title)}${compat}</div>
-          <div class="sub" title="${esc(a.folders.join(', '))}">${esc(shortList(a.folders))}${a.missing.length ? ` · missing: ${esc(a.missing.join(', '))}` : ''}</div></td>
+          <div class="sub" title="${esc(a.folders.join(', '))}">${esc(shortList(a.folders))}${a.missing.length ? ` · missing: ${esc(a.missing.join(', '))}` : ''}</div>
+          ${depsHtml(a.missingDeps)}</td>
         <td><a data-act="open" data-url="${esc(a.url)}">${esc(a.id.replace(/^[^/]+\//, ''))}</a><div class="sub">${esc(a.provider)}</div></td>
         <td><button class="btn small ghost" data-act="branch" title="Change branch">${esc(a.branch)}</button></td>
         <td><span class="mono">${esc(sha)}${esc(newSha)}</span><div class="sub">${esc(a.version || '')}${a.version && a.commitDate ? ' · ' : ''}${esc(relTime(a.commitDate))}</div></td>
         <td><span class="badge ${a.ignored ? 'muted' : a.status}">${a.ignored ? 'Ignored' : STATUS_LABEL[a.status] || a.status}</span>${err}</td>
         <td class="actions">
+          ${a.status === 'update' ? '<button class="btn small" data-act="changes" title="What changed since your version">Changes</button>' : ''}
           ${a.status === 'update' || a.status === 'missing' || a.status === 'error' || a.status === 'not-installed' ? `<button class="btn small primary" data-act="update">${a.status === 'update' ? 'Update' : 'Reinstall'}</button>` : ''}
+          <button class="btn small ghost" data-act="open" data-url="${esc(a.url)}" title="Open the repository in your browser">Repo ↗</button>
           <button class="btn small" data-act="history" title="Backups / rollback">History</button>
           <button class="btn small ghost" data-act="more" title="More">⋯</button>
         </td></tr>`;
     })
     .join('');
   view.innerHTML = `<table><thead><tr><th>AddOn</th><th>Source</th><th>Branch</th><th>Installed</th><th>Status</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+/** Inline warning for missing required dependencies, with a one-click fix when the catalog knows them. */
+function depsHtml(deps) {
+  if (!deps || !deps.length) return '';
+  return deps
+    .map(
+      (d) => `<div class="dep-warn">⚠ Requires <b>${esc(d.name)}</b>${d.neededBy.length > 1 ? ` (${d.neededBy.length} modules)` : ''}
+        ${d.catalog ? `<button class="btn small" data-act="install-dep" data-dep="${esc(d.name)}">Install ${esc(d.catalog.name)}</button>` : `<button class="btn small ghost" data-act="find-dep" data-dep="${esc(d.name)}">Find…</button>`}</div>`,
+    )
+    .join('');
 }
 
 /* ---------- local ---------- */
@@ -165,9 +182,10 @@ function renderLocal(list) {
     .map(
       (a) => `<tr data-folder="${esc(a.folder)}">
         <td><div class="name">${esc(a.title)}<span class="compat ${a.compat}">${esc(COMPAT_LABEL[a.compat] || '')}${a.interface && a.compat !== 'ok' ? ` (${a.interface})` : ''}</span></div>
-          <div class="sub">${esc([a.folder, ...a.modules].join(', '))}</div></td>
+          <div class="sub">${esc(shortList([a.folder, ...a.modules]))}</div>
+          ${depsHtml(a.missingDeps)}</td>
         <td>${esc(a.version || '')}<div class="sub">${esc(a.author || '')}</div></td>
-        <td>${a.hints.length ? '<span class="badge ok">repo in .toc</span>' : ''}</td>
+        <td>${a.catalog ? '<span class="badge ok">in catalog</span>' : a.hints.length ? '<span class="badge ok">repo in .toc</span>' : ''}</td>
         <td class="actions"><button class="btn small primary" data-act="link">Find repo…</button></td></tr>`,
     )
     .join('');
@@ -182,6 +200,11 @@ function renderSettings() {
   if (!s) return;
   const has = (h) => s.tokenHosts.includes(h);
   $('#view-settings').innerHTML = `<div class="settings">
+    <h3>About</h3>
+    <p>AddOn Update Tool 3.3.5a · v${esc(s.version || '')}</p>
+    <div class="inline"><button class="btn" data-act="open" data-url="${esc(s.repoUrl)}">GitHub repository</button>
+      <button class="btn ghost" data-act="open" data-url="${esc(s.repoUrl)}/releases">Releases</button>
+      <button class="btn ghost" data-act="open" data-url="${esc(s.repoUrl)}/issues">Report a problem</button></div>
     <h3>WoW folder</h3>
     <p>${esc(s.wowPath || 'Not set')}</p>
     <div class="inline"><button class="btn" data-act="pick">Change…</button>
@@ -234,6 +257,7 @@ function addDialog(prefill = '', adopt = null) {
       closeModal();
       toast(`Installed ${r.installed.join(', ')} (${r.addon.branch})${r.warnings.length ? ` — ${r.warnings[0]}` : ''}`, r.warnings.length > 0);
       await refresh();
+      depsDialog(r.missingDeps);
     });
   };
   $('#addGo').onclick = go;
@@ -242,10 +266,15 @@ function addDialog(prefill = '', adopt = null) {
 
 async function linkDialog(folder) {
   const a = state.overview.unmanaged.find((x) => x.folder === folder);
-  const body = modal(`Find repository for “${a.title}”`, `<p class="sub">Searching…</p>`);
+  return searchDialog(a.folder, a.title, a.hints, a);
+}
+
+/** Search for a repository by addon name; `adopt` links existing local folders. */
+async function searchDialog(folder, title, hints, adopt) {
+  const body = modal(`Find repository for “${title}”`, `<p class="sub">Searching…</p>`);
   let cands = [];
   try {
-    cands = await call(api.suggest, a.folder, a.title, a.hints);
+    cands = await call(api.suggest, folder, title, hints);
   } catch (e) {
     body.innerHTML = `<p class="error-text">${esc(e.message)}</p>`;
   }
@@ -256,7 +285,7 @@ async function linkDialog(folder) {
           .map(
             (c, i) => `<div class="cand"><div class="grow"><div><a data-act="open" data-url="${esc(c.url)}">${esc(c.name)}</a>
           ${/3\.?3\.?5|wotlk|wrath/i.test(`${c.name} ${c.description}`) ? '<span class="tag335">3.3.5a</span>' : ''}
-          ${c.source === 'toc' ? '<span class="tag335">from .toc</span>' : ''}</div>
+          ${c.source === 'toc' ? '<span class="tag335">from .toc</span>' : ''}${c.source === 'catalog' ? '<span class="tag335">catalog</span>' : ''}</div>
           <div class="desc">${esc(c.description || '')}${c.stars != null ? ` · ★ ${c.stars}` : ''}${c.updated ? ` · ${esc(relTime(c.updated))}` : ''}</div></div>
           <button class="btn small primary" data-pick="${i}">Use</button></div>`,
           )
@@ -264,8 +293,103 @@ async function linkDialog(folder) {
       : '<p class="sub">No candidates found. Paste the URL instead.</p>'
   }
   <div class="row-end"><button class="btn" id="manual">Enter URL manually…</button></div>`;
-  body.querySelectorAll('[data-pick]').forEach((b) => (b.onclick = () => addDialog(cands[Number(b.dataset.pick)].url, a)));
-  $('#manual').onclick = () => addDialog('', a);
+  body.querySelectorAll('[data-pick]').forEach((b) => (b.onclick = () => addDialog(cands[Number(b.dataset.pick)].url, adopt)));
+  $('#manual').onclick = () => addDialog('', adopt);
+}
+
+async function changesDialog(id) {
+  const a = state.overview.addons.find((x) => x.id === id);
+  const body = modal(`What's new in ${a.title}`, '<p class="sub">Loading commits…</p>');
+  let r;
+  try {
+    r = await call(api.changes, id);
+  } catch (e) {
+    body.innerHTML = `<p class="error-text">${esc(e.message)}</p>`;
+    return;
+  }
+  const more = r.total > r.commits.length ? `<p class="sub">Showing ${r.commits.length} of ${r.total} commits.</p>` : '';
+  body.innerHTML = `${
+    r.unavailable
+      ? `<p class="sub">${esc(r.unavailable)}</p>`
+      : `<p class="sub">${r.total} new commit${r.total === 1 ? '' : 's'} on <b>${esc(a.branch)}</b> since your version (${esc((a.installedSha || '').slice(0, 7))}).</p>
+    <div class="list changes">${r.commits
+      .map(
+        (c) => `<div class="commit"><div><a data-act="open" data-url="${esc(c.url)}" class="mono">${esc(c.sha.slice(0, 7))}</a> ${esc(c.title)}</div>
+          ${c.body ? `<div class="desc wrap">${esc(c.body.slice(0, 400))}</div>` : ''}
+          <div class="desc">${esc(c.author || '')}${c.author && c.date ? ' · ' : ''}${esc(relTime(c.date))}</div></div>`,
+      )
+      .join('')}</div>${more}`
+  }
+  <div class="row-end"><button class="btn" data-act="close">Close</button><button class="btn primary" id="changesUpdate">Update now</button></div>`;
+  $('#changesUpdate').onclick = async (e) => {
+    await updateIds([id], e.currentTarget);
+    closeModal();
+  };
+}
+
+/** After an install: offer the missing dependencies in one dialog. */
+function depsDialog(deps) {
+  if (!deps || !deps.length) return;
+  const body = modal('Missing dependencies', `<p class="sub">The addon you installed needs these, but they aren't in your AddOns folder:</p>
+    <div class="list">${deps
+      .map(
+        (d) => `<div class="cand"><div class="grow"><div><b>${esc(d.name)}</b></div><div class="desc">Needed by ${esc(shortList(d.neededBy, 3))}${d.catalog ? ` · from ${esc(d.catalog.url.replace('https://', ''))}` : ''}</div></div>
+        ${d.catalog ? `<button class="btn small primary" data-act="install-dep" data-dep="${esc(d.name)}">Install</button>` : `<button class="btn small" data-act="find-dep" data-dep="${esc(d.name)}">Find…</button>`}</div>`,
+      )
+      .join('')}</div><div class="row-end"><button class="btn" data-act="close">Later</button></div>`);
+  return body;
+}
+
+/* ---------- catalog ---------- */
+
+function renderCatalog() {
+  const view = $('#view-catalog');
+  const ov = state.overview;
+  const list = ov ? ov.catalog : [];
+  $('#countCatalog').textContent = list.length;
+  if (!list.length) {
+    view.innerHTML = `<div class="empty">The catalog couldn't be loaded.<br /><button class="btn" data-act="catalog-refresh">Try again</button></div>`;
+    return;
+  }
+  const localFolders = new Set((ov.unmanaged || []).flatMap((u) => [u.folder, ...u.modules]).map((f) => f.toLowerCase()));
+  const cats = [...new Set(list.map((c) => c.category))].sort();
+  const shown = list
+    .filter((c) => (state.category === 'All' || c.category === state.category) && matches(c.name, c.description, c.author, c.folders.join(' ')))
+    .sort((a, b) => (b.stars || 0) - (a.stars || 0) || a.name.localeCompare(b.name));
+  view.innerHTML = `<div class="chips">${['All', ...cats]
+    .map((c) => `<button class="chip${state.category === c ? ' active' : ''}" data-act="category" data-cat="${esc(c)}">${esc(c)}</button>`)
+    .join('')}<button class="btn small ghost" data-act="catalog-refresh" title="Fetch the latest catalog" style="margin-left:auto">↻ Refresh</button></div>
+    <div class="grid">${shown
+      .map((c) => {
+        const local = !c.installed && c.folders.some((f) => localFolders.has(f.toLowerCase()));
+        const btn = c.installed
+          ? '<span class="badge ok">Installed</span>'
+          : local
+            ? `<button class="btn small" data-act="cat-link" data-cat-id="${esc(c.id)}" title="You have this addon; link it so it stays updated">Link installed</button>`
+            : `<button class="btn small primary" data-act="cat-install" data-cat-id="${esc(c.id)}">Install</button>`;
+        return `<div class="card"><div class="card-head"><div class="grow"><div class="name">${esc(c.name)}</div>
+          <div class="sub"><a data-act="open" data-url="${esc(c.url)}">${esc(c.author || '')}</a>${c.stars != null ? ` · ★ ${c.stars}` : ''} · ${esc(c.category)}</div></div>${btn}</div>
+          <div class="desc wrap">${esc(c.description || '')}</div>
+          ${c.folders.length > 1 ? `<div class="sub" title="${esc(c.folders.join(', '))}">${esc(shortList(c.folders, 3))}</div>` : ''}</div>`;
+      })
+      .join('')}</div>
+    ${shown.length ? '' : '<div class="empty">No addons match.</div>'}`;
+}
+
+async function catalogInstall(catId, btn, linkLocal) {
+  const c = state.overview.catalog.find((x) => x.id === catId);
+  await withBusy(btn, async () => {
+    const opts = { branch: c.branch || undefined };
+    if (linkLocal) {
+      const all = new Set(state.overview.unmanaged.flatMap((u) => [u.folder, ...u.modules]).map((f) => f.toLowerCase()));
+      opts.adoptFolders = c.folders.filter((f) => all.has(f.toLowerCase()));
+      opts.include = null; // the catalog knows the full folder list, so install all of it
+    }
+    const r = await call(api.add, c.url, opts);
+    toast(`Installed ${c.name}`);
+    await refresh();
+    depsDialog(r.missingDeps);
+  });
 }
 
 async function historyDialog(id) {
@@ -368,6 +492,27 @@ document.addEventListener('click', async (e) => {
   else if (act === 'branch') branchDialog(id);
   else if (act === 'more') moreDialog(id);
   else if (act === 'link') linkDialog(row.dataset.folder);
+  else if (act === 'changes') changesDialog(id);
+  else if (act === 'category') {
+    state.category = el.dataset.cat;
+    renderCatalog();
+  } else if (act === 'catalog-refresh')
+    withBusy(el, async () => {
+      const r = await call(api.refreshCatalog);
+      toast(`Catalog: ${r.count} addons`);
+      await refresh();
+    });
+  else if (act === 'cat-install') catalogInstall(el.dataset.catId, el, false);
+  else if (act === 'cat-link') catalogInstall(el.dataset.catId, el, true);
+  else if (act === 'find-dep') searchDialog(el.dataset.dep, el.dataset.dep, [], null);
+  else if (act === 'install-dep')
+    withBusy(el, async () => {
+      const r = await call(api.installDep, el.dataset.dep);
+      toast(`Installed ${el.dataset.dep}`);
+      await refresh();
+      if (!$('#modal').hidden) closeModal();
+      if (r && r.missingDeps && r.missingDeps.length) depsDialog(r.missingDeps);
+    });
   else if (act === 'pick') withBusy(el, async () => (await call(api.pickWow)) && refresh());
   else if (act === 'usewow') withBusy(null, async () => (await call(api.useWow, el.dataset.path), refresh()));
   else if (act === 'folder') api.openFolder(el.dataset.which);

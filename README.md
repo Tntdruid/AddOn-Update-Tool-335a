@@ -18,6 +18,9 @@ A desktop app that keeps World of Warcraft **3.3.5a (WotLK)** addons up to date 
 | Collection repos | — | Linking one folder to a repo with many addons installs only that folder |
 | Safety | Backup | Writes to staging first, then swaps folders in. If an install fails, the previous version is restored |
 | Rollback | Manual | Keeps the last 5 versions per addon. Restore with one click, and a restore can itself be undone |
+| Finding addons | Know the URL | **Browse** tab: a catalog of 200+ verified 3.3.5a addons (every entry has an `Interface: 30300` .toc), with categories and one-click install |
+| Before updating | — | **Changes** shows the commits between your version and the new one |
+| Dependencies | — | Warns when a required dependency (`## Dependencies`) is missing and installs it from the catalog with one click |
 | Unknown addons | — | Lists installed addons that aren't linked to a repo and suggests repos from the `.toc` file and a GitHub search |
 | Tokens | — | Optional tokens per host, encrypted with Windows DPAPI |
 
@@ -48,3 +51,12 @@ Structure:
 - `src/core/`: platform-independent logic (TOC parser, providers, archive analysis, installer, updater), fully covered by tests
 - `src/main/`: Electron main process and IPC (sandboxed renderer, contextIsolation)
 - `src/renderer/`: UI in plain HTML/CSS/JS, with no framework
+- `src/catalog/addons.json`: the addon catalog. The app fetches the latest copy from this repo, so catalog updates need no new release
+
+### Updating the catalog
+
+```powershell
+$env:GITHUB_TOKEN = gh auth token; node tools/build-catalog.js
+```
+
+The script searches GitHub for 3.3.5a addons and keeps only repos whose main addon has `## Interface: 30300`. It uses the same folder detection as the app. To force-include or exclude repos, or to override names and categories, edit `tools/catalog-config.json`.

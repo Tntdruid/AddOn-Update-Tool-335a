@@ -1,0 +1,2706 @@
+{
+  "generated": "2026-11-21",
+  "interface": 30300,
+  "addons": [
+    {
+      "name": "!!!ClassicAPI",
+      "url": "https://github.com/Evolvee/EvolvePWPUI-335a",
+      "folders": [
+        "!!!ClassicAPI",
+        "!!!AntiJamware",
+        "!BugGrabber",
+        "!ClassColor",
+        "ACP",
+        "ArenaEnemyClass",
+        "BigAuras",
+        "BindPad",
+        "BugSack",
+        "BulkBuy",
+        "ButtonForge",
+        "ClassPortraits",
+        "CloseUp",
+        "CombatIndicator",
+        "CombatLogFix",
+        "Cooldowns",
+        "DeBuffFilter",
+        "DiminishingReturns",
+        "DiminishingReturns_Config",
+        "Doom_CooldownPulse",
+        "FlashWindow",
+        "flyPlateBuffs",
+        "Gladdy",
+        "HideChatButton",
+        "NiceDamage",
+        "OmniBar",
+        "OmnibarAdditionalButton",
+        "OmniCC",
+        "OmniCC_Config",
+        "PartyDebuffs",
+        "SharedMedia",
+        "SimpleAuraFilter",
+        "TextureScript",
+        "TPT",
+        "TremorPulse",
+        "WeakAuras",
+        "WeakAurasArchive",
+        "WeakAurasModelPaths",
+        "WeakAurasOptions"
+      ],
+      "category": "Unit frames",
+      "description": "Evolve PWP UI for 3.3.5a client (TBC & WOTLK) || Optimized only for 2560x1600 18 inch (WQXGA) Laptop! [wow.exe patched with Classic Nameplate API + HDclient + Camera mouse glitch fix]",
+      "author": "Evolvee",
+      "stars": 4
+    },
+    {
+      "name": "!ElvinCooldowns",
+      "url": "https://github.com/bkader/ElvinCDs",
+      "folders": [
+        "!ElvinCDs"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "An advanced and enhanced rebirther-like cooldowns tracker addon for World of Warcraft 3.3.5",
+      "author": "bkader",
+      "stars": 6
+    },
+    {
+      "name": "!KRaidTools",
+      "url": "https://github.com/bkader/KRT",
+      "folders": [
+        "!KRT"
+      ],
+      "category": "Bags & inventory",
+      "description": "Master Loot, Raid Warnings, Loot History, MS Changes and LFG Spammer.",
+      "author": "bkader",
+      "stars": 18
+    },
+    {
+      "name": "!KTracker",
+      "url": "https://github.com/bkader/KTracker",
+      "folders": [
+        "!KTracker"
+      ],
+      "category": "Combat & DPS",
+      "description": "WoTLK TellMeWhen Clone with more options.",
+      "author": "bkader",
+      "stars": 6
+    },
+    {
+      "name": "Accountant Classic",
+      "url": "https://github.com/darhanger/Accountant_Classic",
+      "folders": [
+        "Accountant_Classic"
+      ],
+      "category": "Professions & economy",
+      "description": "Accountant Classic is a lightweight economy tracker that records where your money comes from and where it goes.",
+      "author": "darhanger",
+      "stars": 5
+    },
+    {
+      "name": "Achievement Tracker",
+      "url": "https://github.com/jabidan23-oss/wow-achievement-tracker",
+      "folders": [
+        "AchievementTracker"
+      ],
+      "category": "Other",
+      "description": "ToS-safe WoW achievement tracker addon (retail + WotLK 3.3.5a) — append-only SavedVariables feed for an external RustChain companion app",
+      "author": "jabidan23-oss",
+      "stars": 5
+    },
+    {
+      "name": "ActionCam",
+      "url": "https://github.com/freadblangks/ActionCam",
+      "folders": [
+        "ActionCam"
+      ],
+      "category": "Other",
+      "description": "ActionCam support for World of Warcraft 3.3.5a",
+      "author": "freadblangks",
+      "stars": 10
+    },
+    {
+      "name": "AddFriend",
+      "url": "https://github.com/NoM0Re/AddFriend-3.3.5a",
+      "folders": [
+        "AddFriend"
+      ],
+      "category": "Other",
+      "description": "AddFriend is a simple addon that adds an \"Add Friend\" and \"Invite Guild\" option to the context menu of player options.",
+      "author": "NoM0Re",
+      "stars": 6
+    },
+    {
+      "name": "AdiBags",
+      "url": "https://github.com/Sattva-108/AdiBags",
+      "folders": [
+        "AdiBags"
+      ],
+      "category": "Bags & inventory",
+      "description": "AdiBags backport with improved UI and functions for 3.3.5 WoTLK client.",
+      "author": "Sattva-108",
+      "stars": 35
+    },
+    {
+      "name": "AdiBags - Bound",
+      "url": "https://github.com/Sattva-108/AdiBags-WoTLK-3.3.5-Mods",
+      "folders": [
+        "AdiBags_Bound",
+        "AdiBags-ItemOverlayPlus"
+      ],
+      "category": "Bags & inventory",
+      "description": "This repository contains external addon-modficiation for AdiBags-WoTLK-3.3.5 backport addon.",
+      "author": "Sattva-108",
+      "stars": 6
+    },
+    {
+      "name": "Arena Numbers",
+      "url": "https://github.com/Poli93/ArenaNumbers",
+      "folders": [
+        "ArenaNumbers"
+      ],
+      "category": "Unit frames",
+      "description": "Arena nameplate numbers backport for 3.3.5",
+      "author": "Poli93",
+      "stars": 8
+    },
+    {
+      "name": "ArenaLFG",
+      "url": "https://github.com/Ahmedrn/ArenaLFG",
+      "folders": [
+        "ArenaLFG"
+      ],
+      "category": "PvP",
+      "description": "A 2v2 arena partner finder for WoW 3.3.5a (WotLK).",
+      "author": "Ahmedrn",
+      "stars": 4
+    },
+    {
+      "name": "ArenaLive3 [Core]",
+      "url": "https://github.com/Schaka/WotLK-AddOns_TBC",
+      "folders": [
+        "ArenaLive3",
+        "!!!ClassicAPI",
+        "!BugGrabber",
+        "ArenaCountDown",
+        "ArenaLiveNamePlates3",
+        "ArenaLiveUnitFrames3",
+        "ArenaPlates",
+        "ArenaTeamTracker",
+        "BigDebuffs",
+        "BugSack",
+        "CombatLogFix",
+        "Gladdy",
+        "Gladius",
+        "Icicle",
+        "Juked",
+        "OmniBar",
+        "PlateCastBar",
+        "rais_ArenaCastBar",
+        "TotemPlates"
+      ],
+      "category": "Unit frames",
+      "description": "Many TBC servers now run on the 3.3.5a client - so adapted addons are required",
+      "author": "Schaka",
+      "stars": 3
+    },
+    {
+      "name": "Ascension Subclass",
+      "url": "https://github.com/ilusixn/Custom-Race-3.3.5a",
+      "folders": [
+        "Ascension_Subclass",
+        "SpellActivationOverlay-for-CoA"
+      ],
+      "category": "Other",
+      "description": "Races: Highmountain, Earthen, Haranir, Skyborne, Vulpera, Centaur, Jinyu, Arakkoa, Darkfallen, Sethrak, Gnoll, Ogre, Sureki, Faceless, Qiraji, Dreadlord, Banshee, Titan, Wretched, Fungarian, Saberon, ",
+      "author": "ilusixn",
+      "stars": 10
+    },
+    {
+      "name": "AstronaX 22.0303",
+      "url": "https://github.com/kantmn/LUA_AstronaX",
+      "folders": [
+        "AstronaX"
+      ],
+      "category": "Other",
+      "description": "WotLK / WoW 3.3.5a Multi Character Addon Optimization",
+      "author": "kantmn",
+      "stars": 3
+    },
+    {
+      "name": "Atrox Arena Viewer Blackrock Edition",
+      "url": "https://github.com/Skylake-unreachable/Atrox_Arena_Viewer_3.3.5a._Enhanced_edition",
+      "folders": [
+        "AAVBlackrock"
+      ],
+      "category": "PvP",
+      "description": "Atrox Arena Viewer 3.3.5a Enhanced edition: Displays absolute HP by default. Fixed bug with absolute HP display.",
+      "author": "Skylake-unreachable",
+      "stars": 3
+    },
+    {
+      "name": "Auctionator",
+      "url": "https://github.com/alchem1ster/WotLK-Auctionator",
+      "folders": [
+        "Auctionator"
+      ],
+      "category": "Professions & economy",
+      "description": "Auctionator for World of Warcraft - Wrath of the Lich King (3.3.5a)",
+      "author": "alchem1ster",
+      "stars": 63
+    },
+    {
+      "name": "Auctionator_Price_Database",
+      "url": "https://github.com/Sleepywalker69/Auctionator-CoA-Ascension",
+      "folders": [
+        "Auctionator_Price_Database",
+        "Auctionator",
+        "Auctionator_Pricing_History"
+      ],
+      "category": "Professions & economy",
+      "description": "A heavily upgraded fork of Auctionator v2.9.9 for WotLK 3.3.5 clients, backporting the auction database and selling UI from Auctionator v3.2.6 (WoD 6.2) and rebuilding the scanning engine around the r",
+      "author": "Sleepywalker69",
+      "stars": 5
+    },
+    {
+      "name": "Aurora",
+      "url": "https://github.com/Bunny67/Aurora",
+      "folders": [
+        "Aurora"
+      ],
+      "category": "Other",
+      "description": "Aurora for WotLK (3.3.5a)",
+      "author": "Bunny67",
+      "stars": 5
+    },
+    {
+      "name": "aux",
+      "url": "https://github.com/nehswu/aux-addon",
+      "folders": [
+        "aux-addon"
+      ],
+      "category": "Professions & economy",
+      "description": "aux-addon edited for ChromieCraft auction house rate, Wrath of the Lich King client 3.3.5a",
+      "author": "nehswu",
+      "stars": 4
+    },
+    {
+      "name": "Awesome CVar Manager",
+      "url": "https://github.com/Keoo888/awesome_wotlk",
+      "folders": [
+        "AwesomeCVar",
+        "AWHiddenAuraProbe",
+        "AWNamePlateAPI",
+        "iTargetingFrames"
+      ],
+      "category": "Unit frames",
+      "description": "Sources of AwesomeWotlkLib.dll and AwesomeWotlkPatch.exe for WoW 3.3.5a (12340) on Warmane, plus the addons and the checks that guard them.",
+      "author": "Keoo888",
+      "stars": 6
+    },
+    {
+      "name": "AzerCore Ops",
+      "url": "https://github.com/Fersantos1975/AzerCore-Ops",
+      "folders": [
+        "AzerCoreOps"
+      ],
+      "category": "Other",
+      "description": "Operations and gameplay companion for AzerothCore administrators, Game Masters, and players, with a WoW 3.3.5a addon.",
+      "author": "Fersantos1975",
+      "stars": 15
+    },
+    {
+      "name": "Bagnon",
+      "url": "https://github.com/RichSteini/Bagnon-3.3.5",
+      "folders": [
+        "Bagnon",
+        "Bagnon_Config",
+        "Bagnon_Forever",
+        "Bagnon_GuildBank",
+        "Bagnon_Tooltips",
+        "Bagnon_VoidStorage"
+      ],
+      "category": "Bags & inventory",
+      "description": "Bagnon backport for 3.3.5 with search and sort functionality",
+      "author": "RichSteini",
+      "stars": 33
+    },
+    {
+      "name": "Bagnon ItemLevel",
+      "url": "https://github.com/LtyrantTheMultiboxer/Bagnon_ItemLevel-3.3.5",
+      "folders": [
+        "Bagnon_ItemLevel"
+      ],
+      "category": "Bags & inventory",
+      "description": "Bagnon_ItemLevel is a lightweight plugin for the **Bagnon** bag addon.   It adds a small item level number directly on top of each piece of equipable gear sitting in your bags, making it easy to see a",
+      "author": "LtyrantTheMultiboxer",
+      "stars": 3
+    },
+    {
+      "name": "Bartender4",
+      "url": "https://github.com/ZON3DEV/3.3.5_AddOns",
+      "folders": [
+        "Bartender4"
+      ],
+      "category": "Action bars",
+      "description": "AddOns for World of Warcraft Patch 3.3.5a",
+      "author": "ZON3DEV",
+      "stars": 3
+    },
+    {
+      "name": "BigDebuffs",
+      "url": "https://github.com/NeticSoul/BigDebuffs",
+      "folders": [
+        "BigDebuffs"
+      ],
+      "category": "Unit frames",
+      "description": "BigDebuffs for WoW WotLK 3.3.5a. Unified Edition merges Friskes' unit frame improvements with Tsoukie's raid frame support.",
+      "author": "NeticSoul",
+      "stars": 6
+    },
+    {
+      "name": "BiS-Tooltip",
+      "url": "https://github.com/disruption01/BiS-Tooltip_335a_backport",
+      "folders": [
+        "Bistooltip"
+      ],
+      "category": "Interface & UI",
+      "description": "Backport of the addon BiS-Tooltip for 3.3.5a https://www.curseforge.com/wow/addons/bis-tooltip",
+      "author": "disruption01",
+      "stars": 13
+    },
+    {
+      "name": "BiS-Tooltip Renewed",
+      "url": "https://github.com/ggb00/BistooltipRenewed",
+      "folders": [
+        "BistooltipRenewed"
+      ],
+      "category": "Interface & UI",
+      "description": "Reworked version of \"BiS-Tooltip\" addon for World of Warcraft: WotLK (3.3.5a)",
+      "author": "ggb00",
+      "stars": 6
+    },
+    {
+      "name": "BlackMarketUI",
+      "url": "https://github.com/Youpeoples/Black-Market-Auction-House",
+      "folders": [
+        "BlackMarketUI"
+      ],
+      "category": "Professions & economy",
+      "description": "A faithful backport of the Mists of Pandaria Black Market Auction House assets and functionality to AzerothCore 3.3.5 using the Eluna Lua engine",
+      "author": "Youpeoples",
+      "stars": 38
+    },
+    {
+      "name": "BNetToast",
+      "url": "https://github.com/Crumdidlyumshis/BNetToast",
+      "folders": [
+        "BNetToast"
+      ],
+      "category": "Interface & UI",
+      "description": "Port of Bonho's FriendsFrame addon from Valkery-WoW for 1.12.1, thanks to Bunny67 (mastermind of the ElvUI backport for 3.3.5a).",
+      "author": "Crumdidlyumshis",
+      "stars": 7
+    },
+    {
+      "name": "Body Slider",
+      "url": "https://github.com/STRHercules/WoWBodySliders",
+      "folders": [
+        "BodySlider"
+      ],
+      "category": "Interface & UI",
+      "description": "Plug and play body slider addon that communicates to other players using chat protocol",
+      "author": "STRHercules",
+      "stars": 3
+    },
+    {
+      "name": "BotBuddy UI",
+      "url": "https://github.com/DustinHendrickson/addon-ollama-bot-buddy",
+      "folders": [
+        "BotBuddyUI"
+      ],
+      "category": "Interface & UI",
+      "description": "WoW 3.3.5 Interface addon for the mod-ollama-bot-buddy module.",
+      "author": "DustinHendrickson",
+      "stars": 9
+    },
+    {
+      "name": "Carbonite 3.34",
+      "url": "https://github.com/DevScarabyte/Carbonite-3.3.5a-Remastered",
+      "folders": [
+        "Carbonite",
+        "CarboniteItems",
+        "CarboniteNodes",
+        "CarboniteTransfer"
+      ],
+      "category": "Maps & navigation",
+      "description": "Use updated carbonite code to fix bugs for 3.3.5a addon (for private servers)",
+      "author": "DevScarabyte",
+      "stars": 30
+    },
+    {
+      "name": "cargBags_Nivaya: RealUI",
+      "url": "https://github.com/nullfoxh/cargBags_Nivaya-wotlk",
+      "folders": [
+        "cargBags_Nivaya",
+        "MrPlow"
+      ],
+      "category": "Other",
+      "description": "cargBags_Nivaya backported to wotlk 3.3.5a",
+      "author": "nullfoxh",
+      "stars": 9
+    },
+    {
+      "name": "CartoMapper",
+      "url": "https://github.com/Zendevve/CartoMapper",
+      "folders": [
+        "CartoMapper"
+      ],
+      "category": "Maps & navigation",
+      "description": "A lightweight, high-performance, unified map enhancement addon for World of Warcraft: Wrath of the Lich King (3.3.5a).",
+      "author": "Zendevve",
+      "stars": 22
+    },
+    {
+      "name": "Cell",
+      "url": "https://github.com/NoM0Re/Cell-WotLK",
+      "folders": [
+        "Cell"
+      ],
+      "category": "Unit frames",
+      "description": "A World of Warcraft raid frame addon",
+      "author": "NoM0Re",
+      "stars": 22
+    },
+    {
+      "name": "Chatter",
+      "url": "https://github.com/Hokken/Chatter-Companion",
+      "folders": [
+        "Chatter"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "Hokken",
+      "stars": 9
+    },
+    {
+      "name": "Chromatic",
+      "url": "https://github.com/Drakensangs/Chromatic-WotLK",
+      "folders": [
+        "Chromatic"
+      ],
+      "category": "Combat & DPS",
+      "description": "Lightweight World of Warcraft Wrath of the Lich King 3.3.5a addon that color codes class names in item tooltips, item tooltip borders based on rarity, and damage/resistance types in item & spell toolt",
+      "author": "Drakensangs",
+      "stars": 5
+    },
+    {
+      "name": "ClassicNumbers",
+      "url": "https://github.com/NoM0Re/ClassicNumbers-WotLK",
+      "folders": [
+        "ClassicNumbers"
+      ],
+      "category": "Combat & DPS",
+      "description": "Vanilla style damage popping animation for 3.3.5a WotLK",
+      "author": "NoM0Re",
+      "stars": 11
+    },
+    {
+      "name": "CleanupBags",
+      "url": "https://github.com/silviu20092/CleanupBags",
+      "folders": [
+        "CleanupBags"
+      ],
+      "category": "Bags & inventory",
+      "description": "3.3.5a addon for mod-autosort. Adds a nice clickable broom icon on the backpack which can be used to cleanup your bags. Calls mod-autosort related commands for functionality.",
+      "author": "silviu20092",
+      "stars": 4
+    },
+    {
+      "name": "Console Port LK",
+      "url": "https://github.com/leoaviana/ConsolePortLK",
+      "folders": [
+        "ConsolePort",
+        "ConsolePortAdvanced",
+        "ConsolePortBar",
+        "ConsolePortHelp",
+        "ConsolePortKeyboard",
+        "ConsolePortLoader",
+        "ConsolePortUI_Loot",
+        "ConsolePortUI_Menu"
+      ],
+      "category": "Action bars",
+      "description": "ConsolePort for World of Warcraft - Wrath of The Lich King (3.3.5a)",
+      "author": "leoaviana",
+      "stars": 193
+    },
+    {
+      "name": "ConsoleXP by leoaviana",
+      "url": "https://github.com/leoaviana/ConsoleXP",
+      "folders": [
+        "ConsoleXP"
+      ],
+      "category": "Other",
+      "description": "ConsoleXP is a modern enhancement mod for World of Warcraft 3.3.5a (WotLK)",
+      "author": "leoaviana",
+      "stars": 23
+    },
+    {
+      "name": "Crosshairs",
+      "url": "https://github.com/bkader/Crosshairs-WotLK",
+      "folders": [
+        "Crosshairs"
+      ],
+      "category": "Unit frames",
+      "description": "Backport: Adds an animated crosshair to your target's nameplate for better visibility.",
+      "author": "bkader",
+      "stars": 5
+    },
+    {
+      "name": "DalaranAH",
+      "url": "https://github.com/NoM0Re/DalaranAH",
+      "folders": [
+        "DalaranAH"
+      ],
+      "category": "Action bars",
+      "description": "DalaranAH adds a small, movable button for fast interaction with the Engineering Auction House NPC in Dalaran. Click to target the NPC, open the Auction House using Blizzard Interact keybinds, and sel",
+      "author": "NoM0Re",
+      "stars": 7
+    },
+    {
+      "name": "Deadly Boss Mods (Warmane)",
+      "url": "https://github.com/Zidras/DBM-Warmane",
+      "folders": [
+        "DBM-Core",
+        "DBM-AQ20",
+        "DBM-AQ40",
+        "DBM-Azeroth",
+        "DBM-BlackTemple",
+        "DBM-BWL",
+        "DBM-ChamberOfAspects",
+        "DBM-Coliseum",
+        "DBM-EyeOfEternity",
+        "DBM-Gruul",
+        "DBM-GUI",
+        "DBM-Hyjal",
+        "DBM-Icecrown",
+        "DBM-Karazhan",
+        "DBM-Magtheridon",
+        "DBM-MC",
+        "DBM-Naxx",
+        "DBM-Onyxia",
+        "DBM-Outland",
+        "DBM-Party-BC",
+        "DBM-Party-Classic",
+        "DBM-Party-WotLK",
+        "DBM-PvP",
+        "DBM-Serpentshrine",
+        "DBM-SpellTimers",
+        "DBM-StatusBarTimers",
+        "DBM-Sunwell",
+        "DBM-TheEye",
+        "DBM-Ulduar",
+        "DBM-VanillaNaxx",
+        "DBM-VanillaOnyxia",
+        "DBM-VoA",
+        "DBM-VPVEM",
+        "DBM-WorldEvents",
+        "DBM-ZG",
+        "DBM-ZulAman"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "DBM for Warmane (Icecrown, Lordaeron, Frostmourne, Onyxia)",
+      "author": "Zidras",
+      "stars": 240
+    },
+    {
+      "name": "Death Recap",
+      "url": "https://github.com/5Buttons/DeathRecap",
+      "folders": [
+        "DeathRecap"
+      ],
+      "category": "Other",
+      "description": "DeathRecap addon for 3.3.5",
+      "author": "5Buttons",
+      "stars": 4
+    },
+    {
+      "name": "DefileAlert",
+      "url": "https://github.com/suprepupre/DefileAlert",
+      "folders": [
+        "DefileAlert"
+      ],
+      "category": "Combat & DPS",
+      "description": "Announces the Lich King's Defile target the same frame the server packet arrives - screen flash, center text, sound, raid warning and a whisper to the target. WoW 3.3.5a, no dependencies.",
+      "author": "suprepupre",
+      "stars": 11
+    },
+    {
+      "name": "Details! Damage Meter",
+      "url": "https://github.com/Bunny67/Details-WotLK",
+      "folders": [
+        "Details",
+        "Details_3DModelsPaths",
+        "Details_ChartViewer",
+        "Details_DataStorage",
+        "Details_DeathGraphs",
+        "Details_EncounterDetails",
+        "Details_SunderCount",
+        "Details_TimeLine",
+        "Details_TinyThreat"
+      ],
+      "category": "Combat & DPS",
+      "description": "Details Damage Meter for WotLK (3.3.5a)",
+      "author": "Bunny67",
+      "stars": 70
+    },
+    {
+      "name": "Dev Menu",
+      "url": "https://github.com/ilusixn/ilusixn-dev-menu",
+      "folders": [
+        "DevMenu"
+      ],
+      "category": "Quests & leveling",
+      "description": "In-game world editor for AzerothCore 3.3.5a: NPCs, looks, combat, paths, shops, quests and objects from /dev. Server module + client addon. Made by ilusixn.",
+      "author": "ilusixn",
+      "stars": 7
+    },
+    {
+      "name": "DialogKeyWrath",
+      "url": "https://github.com/ZythDr/DialogKeyWrath",
+      "folders": [
+        "DialogKeyWrath"
+      ],
+      "category": "Other",
+      "description": "A DialogKey recreation and extension of the modern wow DialogKey addon made to work in the 3.3.5 client.",
+      "author": "ZythDr",
+      "stars": 4
+    },
+    {
+      "name": "DialogUI",
+      "url": "https://github.com/ghbset/DialogUI-WotLK",
+      "folders": [
+        "DialogUI"
+      ],
+      "category": "Quests & leveling",
+      "description": "Immersive quest / gossip / book dialog UI for WoW 3.3.5a (WotLK) — a port of Sxus's DialogUI with dark mode, a book reader, focus mode, auto-advance and more.",
+      "author": "ghbset",
+      "stars": 11
+    },
+    {
+      "name": "Dominos",
+      "url": "https://github.com/bkader/Dominos",
+      "folders": [
+        "Dominos",
+        "Dominos_Config"
+      ],
+      "category": "Action bars",
+      "description": "Modified Dominos for WoTLK 3.3.5.",
+      "author": "bkader",
+      "stars": 16
+    },
+    {
+      "name": "DPSMate -Shino-",
+      "url": "https://github.com/tdymel/DPSMateWOTLK",
+      "folders": [
+        "DPSMate",
+        "DPSMate_Absorbs",
+        "DPSMate_AbsorbsTaken",
+        "DPSMate_Activity",
+        "DPSMate_Auras",
+        "DPSMate_Casts",
+        "DPSMate_CCBreaker",
+        "DPSMate_CureDisease",
+        "DPSMate_CureDiseaseReceived",
+        "DPSMate_CurePoison",
+        "DPSMate_CurePoisonReceived",
+        "DPSMate_DamageTaken",
+        "DPSMate_Deaths",
+        "DPSMate_Decurses",
+        "DPSMate_DecursesReceived",
+        "DPSMate_Dispels",
+        "DPSMate_DispelsReceived",
+        "DPSMate_EDD",
+        "DPSMate_EDT",
+        "DPSMate_EHealing",
+        "DPSMate_EHealingTaken",
+        "DPSMate_Fails",
+        "DPSMate_FriendlyFire",
+        "DPSMate_FriendlyFireTaken",
+        "DPSMate_Healing",
+        "DPSMate_HealingAndAbsorbs",
+        "DPSMate_HealingTaken",
+        "DPSMate_Interrupts",
+        "DPSMate_LiftMagic",
+        "DPSMate_LiftMagicReceived",
+        "DPSMate_OHealingTaken",
+        "DPSMate_Overhealing",
+        "DPSMate_Procs",
+        "DPSMate_Resurrections"
+      ],
+      "category": "Combat & DPS",
+      "description": "A wow 3.3.5 combat analyzation tool",
+      "author": "tdymel",
+      "stars": 10
+    },
+    {
+      "name": "DragonUI",
+      "url": "https://github.com/NeticSoul/DragonUI",
+      "folders": [
+        "DragonUI",
+        "DragonUI_Options"
+      ],
+      "category": "Interface & UI",
+      "description": "Retail-inspired modular UI addon for WoW 3.3.5a (WotLK).",
+      "author": "NeticSoul",
+      "stars": 221
+    },
+    {
+      "name": "DragonUI AddOnSkins",
+      "url": "https://github.com/PentSec/DragonUI_AddOnSkins",
+      "folders": [
+        "DragonUI_AddOnSkins"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "DragonUI AddOnSkins is a 3.3.5a (WotLK) addon that provides retail-style visual skins for popular third-party addons. Its primary function is to modernize the appearance of legacy addons",
+      "author": "PentSec",
+      "stars": 9
+    },
+    {
+      "name": "DragonUI New Era",
+      "url": "https://github.com/ghbset/DragonUI_NewEra",
+      "folders": [
+        "DragonUI_NewEra"
+      ],
+      "category": "Interface & UI",
+      "description": "Support module for DragonUI (WoW 3.3.5a / WotLK) — faithfully downported Dragonflight UI panels from NewEra. Includes a custom Character panel + client-side Equipment Manager with /gearset.",
+      "author": "ghbset",
+      "stars": 49
+    },
+    {
+      "name": "DressMe",
+      "url": "https://github.com/GetLocalPlayer/DressMe",
+      "folders": [
+        "DressMe"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "WotlK Addon",
+      "author": "GetLocalPlayer",
+      "stars": 20
+    },
+    {
+      "name": "DynamicCam",
+      "url": "https://github.com/leoaviana/DynamicCamLK",
+      "folders": [
+        "DynamicCam"
+      ],
+      "category": "Other",
+      "description": "DynamicCam backported to 3.3.5a (requires ConsoleXP)",
+      "author": "leoaviana",
+      "stars": 9
+    },
+    {
+      "name": "Echoes of the Worldsoul Bridge",
+      "url": "https://github.com/vibecoder99-cmd/echoes-of-the-worldsoul",
+      "folders": [
+        "EchoesOfTheWorldsoulBridge"
+      ],
+      "category": "Other",
+      "description": "Long-term AzerothCore WotLK progression overhaul with gear attunement, permanent stat growth, a graphical Client Companion, and optional Playerbots integration.",
+      "author": "vibecoder99-cmd",
+      "stars": 18
+    },
+    {
+      "name": "Eclipse Bar",
+      "url": "https://github.com/bkader/EclipseBar-WotLK",
+      "folders": [
+        "EclipseBarFrame"
+      ],
+      "category": "Combat & DPS",
+      "description": "Backported Druid EclipseBar but shows eclipses cooldowns animation.",
+      "author": "bkader",
+      "stars": 4
+    },
+    {
+      "name": "Elitist Group",
+      "url": "https://github.com/avarishd/ElitistGroup-WotLK",
+      "folders": [
+        "ElitistGroup"
+      ],
+      "category": "Interface & UI",
+      "description": "Elitist Group's goal is to shift focus away from single scores which don't tell you anything about the users, outside of gear.",
+      "author": "avarishd",
+      "stars": 4
+    },
+    {
+      "name": "ElvUI",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI",
+      "folders": [
+        "ElvUI",
+        "ElvUI_OptionsUI"
+      ],
+      "category": "Interface & UI",
+      "description": "ElvUI for World of Warcraft - Wrath of the Lich King (3.3.5a)",
+      "author": "ElvUI-WotLK",
+      "stars": 489
+    },
+    {
+      "name": "ElvUI AddOn Skins",
+      "url": "https://github.com/ElvUI-WotLK/ElvUI_AddOnSkins",
+      "folders": [
+        "ElvUI_AddOnSkins"
+      ],
+      "category": "Interface & UI",
+      "description": "",
+      "author": "ElvUI-WotLK",
+      "stars": 26
+    },
+    {
+      "name": "ElvUI Extras",
+      "url": "https://github.com/noname08662/ElvUI_Extras",
+      "folders": [
+        "ElvUI_Extras"
+      ],
+      "category": "Interface & UI",
+      "description": "A plugin for https://github.com/ElvUI-WotLK/ElvUI.",
+      "author": "noname08662",
+      "stars": 22
+    },
+    {
+      "name": "ElvUI Improved Spec Switch",
+      "url": "https://github.com/Zidras/ElvUI_ImprovedSpecSwitch",
+      "folders": [
+        "ElvUI_ImprovedSpecSwitch"
+      ],
+      "category": "Interface & UI",
+      "description": "3.3.5a - ElvUI plugin that adds a DataText to change specs and equipment sets.",
+      "author": "Zidras",
+      "stars": 8
+    },
+    {
+      "name": "ElvUI LooTManager",
+      "url": "https://github.com/unobtainable-dev/ElvUI_LootManager",
+      "folders": [
+        "ElvUI_LootManager"
+      ],
+      "category": "Bags & inventory",
+      "description": "Automated Loot Management Plugin for ElvUI v7 for World of Warcraft 3.3.5a",
+      "author": "unobtainable-dev",
+      "stars": 3
+    },
+    {
+      "name": "ElvUI Project Zidras",
+      "url": "https://github.com/Zidras/ElvUI_ProjectZidras",
+      "branch": "awesome_wotlk",
+      "folders": [
+        "ElvUI_ProjectZidras"
+      ],
+      "category": "Interface & UI",
+      "description": "Plugin for ElvUI (3.3.5a) - new features and various improvements",
+      "author": "Zidras",
+      "stars": 42
+    },
+    {
+      "name": "Emblem of Gold",
+      "url": "https://github.com/Stradios/Emblem-of-Gold",
+      "folders": [
+        "EmblemOfGold"
+      ],
+      "category": "Professions & economy",
+      "description": "Emblem of Gold is a simple World of Warcraft 3.3.5a addon that shows your gold and emblem counts (Heroism, Valor, Conquest, Triumph, Frost) when you open a vendor.",
+      "author": "Stradios",
+      "stars": 3
+    },
+    {
+      "name": "Enemy Cooldowns",
+      "url": "https://github.com/nidas-wow-oss/EnemyCooldowns",
+      "folders": [
+        "EnemyCooldowns"
+      ],
+      "category": "Combat & DPS",
+      "description": "Enhanced version of Enemy Cooldowns for WoW 3.3.5a. Rewritten core, bug fixes and a new in-game config menu (/ecd).",
+      "author": "nidas-wow-oss",
+      "stars": 5
+    },
+    {
+      "name": "EpochCN",
+      "url": "https://github.com/z980944038-dev/EpochCN",
+      "folders": [
+        "EpochCN"
+      ],
+      "category": "Other",
+      "description": "Project Epoch 中文整合插件 | Chinese Localization Addon for Project Epoch (WoW 3.3.5a)",
+      "author": "z980944038-dev",
+      "stars": 5
+    },
+    {
+      "name": "Equipence",
+      "url": "https://github.com/s0h2x/Equipence",
+      "folders": [
+        "Equipence"
+      ],
+      "category": "Other",
+      "description": "Equipence - Detailed gear overview for every character you inspect.",
+      "author": "s0h2x",
+      "stars": 6
+    },
+    {
+      "name": "Faction Free Unit Popup",
+      "url": "https://github.com/gitdalisar/addon-Faction-Free-Unit-Popup",
+      "folders": [
+        "FactionFreeUnitPopup"
+      ],
+      "category": "Other",
+      "description": "Faction Free Unit Popup is a WOTLK 3.3.5a (Azerothcore base) addon allow a player to whisper and invite a player of the opposing faction, which is hidden by default.",
+      "author": "gitdalisar",
+      "stars": 8
+    },
+    {
+      "name": "FadeFrameUI",
+      "url": "https://github.com/Bagan95/FadeFrameUI-WOTLK",
+      "folders": [
+        "FadeFrameUI"
+      ],
+      "category": "Interface & UI",
+      "description": "Immersive and OLED-safe addon that fades the UI after a few seconds when not in combat, targeting, not casting or having full health. Works on World of Warcraft version 3.3.5 WOTLK",
+      "author": "Bagan95",
+      "stars": 5
+    },
+    {
+      "name": "FadeFrameUIParty",
+      "url": "https://github.com/Bagan95/FadeFrameUIParty",
+      "folders": [
+        "FadeFrameUIParty"
+      ],
+      "category": "Unit frames",
+      "description": "Immersive and OLED-safe addon that fades the party frame when party member is above/below 80% health and if debuff is active or not. Works on World of Warcraft version 3.3.5 WOTLK",
+      "author": "Bagan95",
+      "stars": 3
+    },
+    {
+      "name": "FarmHud",
+      "url": "https://github.com/Xurkon/FarmHud",
+      "folders": [
+        "FarmHud"
+      ],
+      "category": "Maps & navigation",
+      "description": "FarmHud addon rewrite for WoW 3.3.5a Project Ascension - Turns minimap into a HUD for gathering resources.",
+      "author": "Xurkon",
+      "stars": 3
+    },
+    {
+      "name": "Felskorn Heroics",
+      "url": "https://github.com/Felskorn-WoW/HeroicFlags",
+      "folders": [
+        "Felskorn_Heroics"
+      ],
+      "category": "Other",
+      "description": "A custom Wotlk addon that adds custom Heroic flags to items.",
+      "author": "Felskorn-WoW",
+      "stars": 6
+    },
+    {
+      "name": "FixGroups",
+      "url": "https://github.com/bkader/FixGroups-WoTLK",
+      "folders": [
+        "FixGroups"
+      ],
+      "category": "Other",
+      "description": "This addon helps automate the process of organizing your raid group.",
+      "author": "bkader",
+      "stars": 7
+    },
+    {
+      "name": "Flash Window",
+      "url": "https://github.com/FrostAtom/FlashWindow_Wow12340",
+      "folders": [
+        "FlashWindow"
+      ],
+      "category": "Other",
+      "description": "Game window flashing on important events for Wow 3.3.5a",
+      "author": "FrostAtom",
+      "stars": 13
+    },
+    {
+      "name": "Flyout by lookino kff",
+      "url": "https://github.com/kornfedfred/Flyout",
+      "folders": [
+        "Flyout"
+      ],
+      "category": "Other",
+      "description": "WotLK 3.3.5a Port of Flyout",
+      "author": "kornfedfred",
+      "stars": 3
+    },
+    {
+      "name": "FonzAppraiser",
+      "url": "https://github.com/fondlez/FonzAppraiser",
+      "folders": [
+        "FonzAppraiser"
+      ],
+      "category": "Bags & inventory",
+      "description": "FonzAppraiser is an addon for World of Warcraft (1.12, 2.4.3, 3.3.5 clients) to track the value of personal loot.",
+      "author": "fondlez",
+      "stars": 12
+    },
+    {
+      "name": "FrostAtom UI",
+      "url": "https://github.com/FrostAtom/FrostAtomUI",
+      "folders": [
+        "FrostAtomUI",
+        "FrostAtomUI_Config"
+      ],
+      "category": "PvP",
+      "description": "Lightweight & flex PvP UI for private servers WoW 3.3.5a",
+      "author": "FrostAtom",
+      "stars": 9
+    },
+    {
+      "name": "GarbageProtector",
+      "url": "https://github.com/bkader/GarbageProtector",
+      "folders": [
+        "!!!GarbageProtector"
+      ],
+      "category": "Other",
+      "description": "Blocks some functions that causes the game to freeze or lag.",
+      "author": "bkader",
+      "stars": 8
+    },
+    {
+      "name": "GatherMate",
+      "url": "https://github.com/stevemcqueenz/gathermate-and-database-3.3.5a",
+      "folders": [
+        "GatherMate",
+        "GatherMate_Data"
+      ],
+      "category": "Maps & navigation",
+      "description": "GatherMate with a pre-filled node database for WotLK 3.3.5a — herbs, ore, fishing pools, and treasure pinned on your map and minimap.",
+      "author": "stevemcqueenz",
+      "stars": 12
+    },
+    {
+      "name": "GatherMate2",
+      "url": "https://github.com/Xurkon/GatherMate2",
+      "folders": [
+        "GatherMate2"
+      ],
+      "category": "Other",
+      "description": "GatherMate2 addon for WoW 3.3.5a - Complete gathering node tracker with pre-populated data",
+      "author": "Xurkon",
+      "stars": 5
+    },
+    {
+      "name": "German Dude",
+      "url": "https://github.com/Hextv/GermanDude",
+      "folders": [
+        "GermanDude"
+      ],
+      "category": "Quests & leveling",
+      "description": "An offline, lightning-fast German-to-English dictionary and full quest translator addon tailored specifically for World of Warcraft (WoTLK 3.3.5a).",
+      "author": "Hextv",
+      "stars": 3
+    },
+    {
+      "name": "Gladdy",
+      "url": "https://github.com/JedborgWoW/Gladdy-3.3.5a",
+      "folders": [
+        "Gladdy"
+      ],
+      "category": "Other",
+      "description": "Classic version of Gladdy backported to 3.3.5a",
+      "author": "JedborgWoW",
+      "stars": 3
+    },
+    {
+      "name": "GM MINI BAR[WotLK-AzerothCore]",
+      "url": "https://github.com/hilch1981-prog/azerothcore-gm-addon",
+      "branch": "preview/wrath-quest-korean",
+      "folders": [
+        "GMminibar",
+        "WrathQuestKorean"
+      ],
+      "category": "Other",
+      "description": "GM MINI BAR · Multilingual GM tools (KO/EN/CN/TW/RU) · AzerothCore / WoW 3.3.5a",
+      "author": "hilch1981-prog",
+      "stars": 4
+    },
+    {
+      "name": "Grid2",
+      "url": "https://github.com/bkader/Grid2-WoTLK",
+      "folders": [
+        "Grid2",
+        "Grid2AoeHeals",
+        "Grid2Options"
+      ],
+      "category": "Unit frames",
+      "description": "Grid2 r736 for WoTLK",
+      "author": "bkader",
+      "stars": 28
+    },
+    {
+      "name": "Group Bulletin Board",
+      "url": "https://github.com/fondlez/GroupBulletinBoard",
+      "folders": [
+        "GroupBulletinBoard"
+      ],
+      "category": "Other",
+      "description": "A World of Warcraft addon to show a bulletin board of LFG/LFM messages for WotLK content or earlier. Tested clients: 2.4.3 (TBC), and 3.3.5a (WotLK).",
+      "author": "fondlez",
+      "stars": 14
+    },
+    {
+      "name": "GSE",
+      "url": "https://github.com/cerberuscx/GSE-WotLK-3.3.5a",
+      "folders": [
+        "GSE",
+        "GSE_GUI",
+        "GSE_LDB"
+      ],
+      "category": "Class & rotation",
+      "description": "Gnome Sequencer Enhanced (GSE) - Revival for WoW 3.3.5a WotLK. Advanced macro sequencer addon originally by TimothyLuke",
+      "author": "cerberuscx",
+      "stars": 17
+    },
+    {
+      "name": "Guild Expansion",
+      "url": "https://github.com/g7138580/mod-guild-expansion",
+      "folders": [
+        "GuildExpansion"
+      ],
+      "category": "Other",
+      "description": "Guild progression for solo play on AzerothCore 3.3.5a: guild levels and perks, work orders, recruitable units and a mission table, with a client addon.",
+      "author": "g7138580",
+      "stars": 7
+    },
+    {
+      "name": "Halion Helper",
+      "url": "https://github.com/bkader/HalionHelper-WoTLK",
+      "folders": [
+        "HalionHelper"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Provides a clearer visual display of the Corporeality buff during phase 3 of the Halion encounter in Ruby Sanctum.",
+      "author": "bkader",
+      "stars": 4
+    },
+    {
+      "name": "Headsup",
+      "url": "https://github.com/tje3d/Headsup",
+      "folders": [
+        "Headsup"
+      ],
+      "category": "Combat & DPS",
+      "description": "🎯 WotLK addon that displays important buff procs in screen center. Track 100+ spells with customizable interface - never miss a proc again!",
+      "author": "tje3d",
+      "stars": 4
+    },
+    {
+      "name": "HealersMate",
+      "url": "https://github.com/i2ichardt/HealersMate",
+      "folders": [
+        "HealersMate"
+      ],
+      "category": "Other",
+      "description": "An addon for World of Warcraft client version 3.3.5a",
+      "author": "i2ichardt",
+      "stars": 25
+    },
+    {
+      "name": "Hermes [Core]",
+      "url": "https://github.com/bkader/Hermes-WotLK",
+      "folders": [
+        "Hermes",
+        "Hermes-UI"
+      ],
+      "category": "Combat & DPS",
+      "description": "Backport of Hermes, an addon that tracks your raid's cooldowns, and displays them using configurable buttons or bars.",
+      "author": "bkader",
+      "stars": 7
+    },
+    {
+      "name": "Homebrew GM by PMZFX",
+      "url": "https://github.com/PMZFX/mod-homebrew-gm",
+      "folders": [
+        "HomebrewGM"
+      ],
+      "category": "Interface & UI",
+      "description": "Homebrew GM by PMZFX: GM administration UI and RBAC-protected server bridge for AzerothCore + mod-playerbots",
+      "author": "PMZFX",
+      "stars": 6
+    },
+    {
+      "name": "HomeCheck",
+      "url": "https://github.com/Homerocker/HomeCheck",
+      "folders": [
+        "HomeCheck"
+      ],
+      "category": "Combat & DPS",
+      "description": "Raid cooldowns addon for 3.3.5a",
+      "author": "Homerocker",
+      "stars": 20
+    },
+    {
+      "name": "IdTip",
+      "url": "https://github.com/Skrylas/idTip-WotLK",
+      "folders": [
+        "IdTip"
+      ],
+      "category": "Other",
+      "description": "The addon formerly known as SpellID in 3.3.5, with backported additional ID functionality to Wrath of the Lich King",
+      "author": "Skrylas",
+      "stars": 17
+    },
+    {
+      "name": "Immersion",
+      "url": "https://github.com/s0h2x/Immersion-WotLK",
+      "folders": [
+        "Immersion"
+      ],
+      "category": "Quests & leveling",
+      "description": "Immersive questing addon for World of Warcraft (WotLK-3.3.5a Backport)",
+      "author": "s0h2x",
+      "stars": 68
+    },
+    {
+      "name": "Instance Spell Collector",
+      "url": "https://github.com/NoM0Re/Instance-Spell-Collector-WotLK",
+      "folders": [
+        "!InstanceSpellCollector"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Collect debuffs and enemy casts!",
+      "author": "NoM0Re",
+      "stars": 3
+    },
+    {
+      "name": "InternalCooldowns 1.3",
+      "url": "https://github.com/darhanger/InternalCooldowns",
+      "folders": [
+        "InternalCooldowns"
+      ],
+      "category": "Other",
+      "description": "InternalCooldowns tracks procs from your gear for WoW 3.3.5a",
+      "author": "darhanger",
+      "stars": 3
+    },
+    {
+      "name": "iTargetingFrames",
+      "url": "https://github.com/CH33T4/iTargetingFrames",
+      "folders": [
+        "iTargetingFrames"
+      ],
+      "category": "Unit frames",
+      "description": "Displays nameplate units in a clickable grid. Backport for WotLK (3.3.5a) from Retail Addon by Ironi.",
+      "author": "CH33T4",
+      "stars": 11
+    },
+    {
+      "name": "Johnny's Professions",
+      "url": "https://github.com/JohnnyL1993/JohnnysProfessions",
+      "folders": [
+        "JohnnysProfessions"
+      ],
+      "category": "Combat & DPS",
+      "description": "All-in-one profession companion for WoW 3.3.5a (Warmane): 1-450 leveling guides, shopping list, item tracker, AH price scans, profits, cooldowns and alts.",
+      "author": "JohnnyL1993",
+      "stars": 3
+    },
+    {
+      "name": "Johnny's Raid Comp",
+      "url": "https://github.com/JohnnyL1993/JohnnysRaidComp",
+      "folders": [
+        "JohnnysRaidComp"
+      ],
+      "category": "Other",
+      "description": "Raid comp planner + LFM spammer for WoW 3.3.5a (Warmane)",
+      "author": "JohnnyL1993",
+      "stars": 3
+    },
+    {
+      "name": "Kader's Raid Utilities",
+      "url": "https://github.com/bkader/KRU-WoTLK",
+      "folders": [
+        "KRU"
+      ],
+      "category": "Bags & inventory",
+      "description": "Raid Menu, Loot Method, Auto Invites, Paladin Auras, Healers Mana, Sunder Armor, Raid Cooldowns and Combat Timer.",
+      "author": "bkader",
+      "stars": 6
+    },
+    {
+      "name": "KaderPack",
+      "url": "https://github.com/bkader/KPack",
+      "folders": [
+        "KPack"
+      ],
+      "category": "Other",
+      "description": "WoTLK collection of addons turned into modules inside a single addon.",
+      "author": "bkader",
+      "stars": 61
+    },
+    {
+      "name": "Kui Nameplates",
+      "url": "https://github.com/bkader/KuiNameplates-WoTLK",
+      "folders": [
+        "Kui_Nameplates",
+        "Kui_Nameplates_Auras"
+      ],
+      "category": "Unit frames",
+      "description": "Kui_Nameplates for WoTLK.",
+      "author": "bkader",
+      "stars": 20
+    },
+    {
+      "name": "LagBar",
+      "url": "https://github.com/darhanger/LagBar",
+      "folders": [
+        "LagBar"
+      ],
+      "category": "Interface & UI",
+      "description": "Show you your current FPS and the current Latency (or Lag) that you are experiencing.",
+      "author": "darhanger",
+      "stars": 3
+    },
+    {
+      "name": "Leatrix Maps",
+      "url": "https://github.com/5Buttons/Leatrix-Maps-3.3.5",
+      "folders": [
+        "Leatrix_Maps"
+      ],
+      "category": "Maps & navigation",
+      "description": "3.3.5 backport of Leatrix Maps",
+      "author": "5Buttons",
+      "stars": 13
+    },
+    {
+      "name": "Leatrix Plus [ALPHA]",
+      "url": "https://github.com/Sattva-108/Leatrix_Plus",
+      "folders": [
+        "Leatrix_Plus"
+      ],
+      "category": "Other",
+      "description": "LeatrixPlus 3.3.5 backport from WoTLK Classic",
+      "author": "Sattva-108",
+      "stars": 61
+    },
+    {
+      "name": "Lib: Compat-1.0",
+      "url": "https://github.com/bkader/LibCompat-1.0",
+      "folders": [
+        "LibCompat-1.0"
+      ],
+      "category": "Other",
+      "description": "A utility library that provides extra useful functions to you addons, some were added in later expansions, others are useful for other things.",
+      "author": "bkader",
+      "stars": 5
+    },
+    {
+      "name": "LockMate",
+      "url": "https://github.com/EndLau/LockMate",
+      "folders": [
+        "LockMate"
+      ],
+      "category": "Class & rotation",
+      "description": "Warlock summon queue addon for WoW 3.3.5a — auto-detects players needing summons, syncs the queue across your raid, and manages Soul Shards automatically.",
+      "author": "EndLau",
+      "stars": 3
+    },
+    {
+      "name": "Lore Codex",
+      "url": "https://github.com/g7138580/mod-lore-codex",
+      "folders": [
+        "LoreCodex"
+      ],
+      "category": "Other",
+      "description": "An AzerothCore (WotLK 3.3.5a) module and addon: a codex of Azeroth's lore that fills in as you play.",
+      "author": "g7138580",
+      "stars": 9
+    },
+    {
+      "name": "Lorti UI",
+      "url": "https://github.com/Noriaela/lorti-uI",
+      "folders": [
+        "Lorti UI"
+      ],
+      "category": "Interface & UI",
+      "description": "Lorti UI for 3.3.5",
+      "author": "Noriaela",
+      "stars": 8
+    },
+    {
+      "name": "LoseControl",
+      "url": "https://github.com/JedborgWoW/LoseControl-3.3.5a",
+      "folders": [
+        "LoseControl"
+      ],
+      "category": "Other",
+      "description": "An addon that shows when you are interrupted for a specific school, silenced, stunned or CCd",
+      "author": "JedborgWoW",
+      "stars": 4
+    },
+    {
+      "name": "Loss of Control",
+      "url": "https://github.com/s0h2x/LossOfControl",
+      "folders": [
+        "LossOfControl"
+      ],
+      "category": "Other",
+      "description": "Loss of Control alert backport for Legacy & Classic",
+      "author": "s0h2x",
+      "stars": 24
+    },
+    {
+      "name": "LossOfControlSmart",
+      "url": "https://github.com/thierbig/LossOfControlSmart-3.3.5",
+      "folders": [
+        "LossOfControlSmart"
+      ],
+      "category": "Other",
+      "description": "Retail-style Loss of Control alerts backported to WoW 3.3.5a. Shows CC and school lockouts with a modern Ace3 options panel (size, position, sound), runtime auto-detect for missing CC, and saved setti",
+      "author": "thierbig",
+      "stars": 5
+    },
+    {
+      "name": "LuaBoost",
+      "url": "https://github.com/suprepupre/LuaBoost",
+      "folders": [
+        "!LuaBoost"
+      ],
+      "category": "Interface & UI",
+      "description": "Lua-side companion for WoW 3.3.5a: garbage collection control, loading-screen event suppression, and shared APIs for addon authors. Works standalone or alongside wow_optimize.",
+      "author": "suprepupre",
+      "stars": 56
+    },
+    {
+      "name": "LuxShoulderCam",
+      "url": "https://github.com/Stormhand-dev/Lux-Shoulder-Cam",
+      "folders": [
+        "LuxShoulderCam"
+      ],
+      "category": "Action bars",
+      "description": "LuxShoulderCam is a WoW 3.3.5a (build 12340) mod that adds a real-time over-the-shoulder camera offset — height and horizontal position — controlled via an in-game panel and keybindings.",
+      "author": "Stormhand-dev",
+      "stars": 7
+    },
+    {
+      "name": "MageExpress - Faction Aware Portals",
+      "url": "https://github.com/Stradios/MageExpress---Arcane-Airlines-Portal-Addon-for-WoW-3.3.5a",
+      "folders": [
+        "MageExpress"
+      ],
+      "category": "Class & rotation",
+      "description": "MageExpress - [Arcane Airlines] 3.3.5a",
+      "author": "Stradios",
+      "stars": 3
+    },
+    {
+      "name": "Magnify",
+      "url": "https://github.com/rissole/Magnify-WotLK",
+      "folders": [
+        "Magnify-WotLK"
+      ],
+      "category": "Maps & navigation",
+      "description": "World Map Zoom Addon for WoW 3.3.5a WotLK",
+      "author": "rissole",
+      "stars": 20
+    },
+    {
+      "name": "Masque",
+      "url": "https://github.com/bkader/Masque-WoTLK",
+      "folders": [
+        "Masque",
+        "Masque_Apathy",
+        "Masque_Blizzard",
+        "Masque_Caith",
+        "Masque_CleanUI",
+        "Masque_Entropy",
+        "Masque_Epix",
+        "Masque_FlatSquares",
+        "Masque_LiteStep",
+        "Masque_Qhil",
+        "Masque_Raeli",
+        "Masque_Renaitre",
+        "Masque_Shadow",
+        "Masque_Stylo"
+      ],
+      "category": "Other",
+      "description": "Masque backported and compatible with WotLK.",
+      "author": "bkader",
+      "stars": 20
+    },
+    {
+      "name": "MasterLooter",
+      "url": "https://github.com/AngelGamerZ/Ascension-MasterLooter",
+      "folders": [
+        "MasterLooter",
+        "MasterLooter_ItemData"
+      ],
+      "category": "Bags & inventory",
+      "description": "MasterLooter loot and raid management addon for Project Ascension on WoW 3.3.5a",
+      "author": "AngelGamerZ",
+      "stars": 3
+    },
+    {
+      "name": "Method Raid Tools",
+      "url": "https://github.com/ExoJdi/Method-Raid-Tools-3.3.5a",
+      "folders": [
+        "MRT"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Helpful addon for raiders, especially for raid leaders and officers.",
+      "author": "ExoJdi",
+      "stars": 20
+    },
+    {
+      "name": "MinimapButtonButton",
+      "url": "https://github.com/Gaisberg/MinimapButtonButton-3.3.5a",
+      "folders": [
+        "MinimapButtonButton"
+      ],
+      "category": "Maps & navigation",
+      "description": "3.3.5a compatible version of the addon MinimapButtonButton",
+      "author": "Gaisberg",
+      "stars": 6
+    },
+    {
+      "name": "Modern Map Markers",
+      "url": "https://github.com/Drakensangs/ModernMapMarkers-WotLK",
+      "folders": [
+        "ModernMapMarkers"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "World of Warcraft Wrath of the Lich King 3.3.5a addon that places markers on the world map to show the locations of dungeons, raids, world bosses, boats, zeppelins, trams & portals.",
+      "author": "Drakensangs",
+      "stars": 9
+    },
+    {
+      "name": "Modern Spellbook",
+      "url": "https://github.com/Drakensangs/ModernSpellBook-WotLK",
+      "folders": [
+        "ModernSpellBook"
+      ],
+      "category": "Other",
+      "description": "World of Warcraft Wrath of the Lich King 3.3.5a addon that replaces the default spellbook with a retail-inspired version.",
+      "author": "Drakensangs",
+      "stars": 4
+    },
+    {
+      "name": "MogIt",
+      "url": "https://github.com/ZhengPeiRu21/transmog-addons",
+      "folders": [
+        "MogIt",
+        "MogIt_Accessories",
+        "MogIt_Cloth",
+        "MogIt_Leather",
+        "MogIt_Mail",
+        "MogIt_OneHanded",
+        "MogIt_Other",
+        "MogIt_Plate",
+        "MogIt_Ranged",
+        "MogIt_TwoHanded",
+        "transmogTip"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "Transmog Catalogue Addons for WotLK",
+      "author": "ZhengPeiRu21",
+      "stars": 31
+    },
+    {
+      "name": "Name Spoofer",
+      "url": "https://github.com/impulseffs/NameSpoofer",
+      "folders": [
+        "NameSpoofer"
+      ],
+      "category": "Class & rotation",
+      "description": "This Addon is designed for those who want to hide their name while using a rotation bot or script.",
+      "author": "impulseffs",
+      "stars": 3
+    },
+    {
+      "name": "NameplateSCT",
+      "url": "https://github.com/bkader/NameplateSCT_WoTLK",
+      "folders": [
+        "NameplateSCT"
+      ],
+      "category": "Unit frames",
+      "description": "Nameplate Scrolling Combat Text backported to WoTLK.",
+      "author": "bkader",
+      "stars": 30
+    },
+    {
+      "name": "NetherBot",
+      "url": "https://github.com/NetherstormX/NetherBot",
+      "folders": [
+        "NetherBot"
+      ],
+      "category": "Other",
+      "description": "Netherbot wow addon is tool for NPCBots for TrinityCore and AzerothCore 3.3.5, to help you play with npcbots.",
+      "author": "NetherstormX",
+      "stars": 91
+    },
+    {
+      "name": "Nicemage",
+      "url": "https://github.com/nidas-wow-oss/NiceDamage4.0",
+      "folders": [
+        "NiceDamage4.0"
+      ],
+      "category": "Combat & DPS",
+      "description": "\"WoW 3.3.5a addon — custom font selector for floating combat text. 18+ font styles. Separate fonts for damage and heals. Type /nd to open.\"",
+      "author": "nidas-wow-oss",
+      "stars": 3
+    },
+    {
+      "name": "Nidhaus_UnitFrames",
+      "url": "https://github.com/nidas-wow-oss/Nidhaus_UnitFrames",
+      "folders": [
+        "Nidhaus_UnitFrames",
+        "Nidhaus_UnitFrames_Arena",
+        "Nidhaus_UnitFrames_Config"
+      ],
+      "category": "Unit frames",
+      "description": "PvP-focused UI addon for WoW WotLK 3.3.5a — Arena frames, trinket tracker, spec detection and more.",
+      "author": "nidas-wow-oss",
+      "stars": 5
+    },
+    {
+      "name": "NPC Info",
+      "url": "https://github.com/heyitsbench/npcinfo",
+      "folders": [
+        "NPCInfo"
+      ],
+      "category": "Other",
+      "description": "Addon for World of Warcraft build 3.3.5 12340.",
+      "author": "heyitsbench",
+      "stars": 3
+    },
+    {
+      "name": "NPCBotGMPanel",
+      "url": "https://github.com/LleguitoWoW/NPCBotGMPanel",
+      "folders": [
+        "NPCBotGMPanel"
+      ],
+      "category": "Other",
+      "description": "Un addon ligero, estético y multilenguaje para **World of Warcraft 3.3.5a (Wrath of the Lich King)** diseñado para Maestros de Juego (GMs). Facilita la gestión de **NPCBots** en emuladores como Trinit",
+      "author": "LleguitoWoW",
+      "stars": 3
+    },
+    {
+      "name": "NPCBotInventory",
+      "url": "https://github.com/Twixality/NPCBotInventory",
+      "folders": [
+        "NPCBotInventory"
+      ],
+      "category": "Other",
+      "description": "World of Warcraft 3.3.5 addon for use with NPCBots that displays bot's equipped items in a window.",
+      "author": "Twixality",
+      "stars": 16
+    },
+    {
+      "name": "NugKeyFeedback",
+      "url": "https://github.com/s0h2x/NugKeyFeedback",
+      "folders": [
+        "NugKeyFeedback"
+      ],
+      "category": "Other",
+      "description": "NugKeyFeedback (WotLK-3.3.5a Backport)",
+      "author": "s0h2x",
+      "stars": 13
+    },
+    {
+      "name": "OmniBar",
+      "url": "https://github.com/oscargforce/OmniBar_Wotlk_3.3.5",
+      "folders": [
+        "OmniBar"
+      ],
+      "category": "Other",
+      "description": "Rewritten Omnibar for Warmanes WOTLK server patch 3.3.5",
+      "author": "oscargforce",
+      "stars": 6
+    },
+    {
+      "name": "OmniInventory",
+      "url": "https://github.com/Zendevve/OmniInventory",
+      "folders": [
+        "OmniInventory"
+      ],
+      "category": "Bags & inventory",
+      "description": "The definitive inventory management addon for WoW 3.3.5a. Features smart categorization, stable sorting, and offline bank access.",
+      "author": "Zendevve",
+      "stars": 24
+    },
+    {
+      "name": "OPlates",
+      "url": "https://github.com/FreakySphere/OPlates",
+      "folders": [
+        "OPlates"
+      ],
+      "category": "Unit frames",
+      "description": "A nameplate overlay for WoW 3.3.5a: one circular icon per friendly and enemy player showing class, spec, role, live CC and whitelisted auras.",
+      "author": "FreakySphere",
+      "stars": 5
+    },
+    {
+      "name": "PallyPower",
+      "url": "https://github.com/NoM0Re/PallyPower-Improved-3.3.5",
+      "folders": [
+        "PallyPower"
+      ],
+      "category": "Class & rotation",
+      "description": "This version of PallyPower for WoW 3.3.5a introduces several new features",
+      "author": "NoM0Re",
+      "stars": 32
+    },
+    {
+      "name": "Pawn",
+      "url": "https://github.com/Road-block/Pawn",
+      "folders": [
+        "Pawn"
+      ],
+      "category": "Other",
+      "description": "Item Stat Scales AddOn (3.3.5) for WotLK",
+      "author": "Road-block",
+      "stars": 6
+    },
+    {
+      "name": "pfQuest Reforged",
+      "url": "https://github.com/stevemcqueenz/pfQuest-Reforged",
+      "branch": "awesome-wotlk-worldapi",
+      "folders": [
+        "pfQuest-Reforged"
+      ],
+      "category": "Quests & leveling",
+      "description": "pfQuest for WotLK 3.3.5a — quest helper & database browser with a complete Wrath database and a modernized UI. Companion to GW2 UI WotLK Reforged.",
+      "author": "stevemcqueenz",
+      "stars": 15
+    },
+    {
+      "name": "Plate Buffs",
+      "url": "https://github.com/bkader/PlateBuffs_WoTLK",
+      "folders": [
+        "PlateBuffs"
+      ],
+      "category": "Unit frames",
+      "description": "The last and final version of the addon backported to WoTLK.",
+      "author": "bkader",
+      "stars": 24
+    },
+    {
+      "name": "PlateCastBar",
+      "url": "https://github.com/Macumbafeh/PlateCastBar_awesome_wotlk",
+      "folders": [
+        "PlateCastBar"
+      ],
+      "category": "Unit frames",
+      "description": "Nameplate castbar addon for 3.3.5 for all nameplates",
+      "author": "Macumbafeh",
+      "stars": 7
+    },
+    {
+      "name": "PlatesClasses",
+      "url": "https://github.com/BannZay/PlatesClasses",
+      "folders": [
+        "PlatesClasses"
+      ],
+      "category": "Unit frames",
+      "description": "Wotlk addon that adds class icon to nameplates",
+      "author": "BannZay",
+      "stars": 3
+    },
+    {
+      "name": "Player Housing",
+      "url": "https://github.com/dudemcbro/mod-playerhousing",
+      "folders": [
+        "PlayerHousing"
+      ],
+      "category": "Other",
+      "description": "AzerothCore player housing: a private copy of GM Island to build on, with collectible furnishings and buildings.",
+      "author": "dudemcbro",
+      "stars": 3
+    },
+    {
+      "name": "Playerbot Chat Hide",
+      "url": "https://github.com/apw1963/PlayerbotChatHide",
+      "folders": [
+        "PlayerbotChatHide"
+      ],
+      "category": "Interface & UI",
+      "description": "Lightweight WoW 3.3.5a addon that hides recognized AzerothCore mod-playerbots command traffic from local party chat.",
+      "author": "apw1963",
+      "stars": 3
+    },
+    {
+      "name": "PlayerBot Manager",
+      "url": "https://github.com/Lichborne-AC/PlayerbotManager",
+      "folders": [
+        "PlayerBotManager"
+      ],
+      "category": "Other",
+      "description": "A World of Warcraft WotLK 3.3.5a Addon for AzerothCore Private Servers that tracks gear score, iLvL, gear slots, specs, strategies, and raid composition for your entire playerbot roster.",
+      "author": "Lichborne-AC",
+      "stars": 32
+    },
+    {
+      "name": "Possessions 3.1",
+      "url": "https://github.com/fondlez/Possessions",
+      "folders": [
+        "Possessions"
+      ],
+      "category": "Other",
+      "description": "World of Warcraft addon to keep track of all of your items. Tested for the Wrath of the Lich King client (3.3.5).",
+      "author": "fondlez",
+      "stars": 4
+    },
+    {
+      "name": "Postal",
+      "url": "https://github.com/Keoo88/Postal-3.3.5-backport",
+      "folders": [
+        "Postal"
+      ],
+      "category": "Professions & economy",
+      "description": "Postal v4.3.1 - WotLK 3.3.5 backport. Enhanced mailbox: OpenAll, Select, Express, QuickAttach, BlackBook, Forward and more.",
+      "author": "Keoo88",
+      "stars": 4
+    },
+    {
+      "name": "Postal Enhanced",
+      "url": "https://github.com/bratmage/PostalEnhanced",
+      "folders": [
+        "PostalEnhanced"
+      ],
+      "category": "Other",
+      "description": "WoW Postal addon for wotlk 3.3.5 environments",
+      "author": "bratmage",
+      "stars": 4
+    },
+    {
+      "name": "pretty_actionbar",
+      "url": "https://github.com/s0h2x/pretty_actionbar",
+      "folders": [
+        "pretty_actionbar"
+      ],
+      "category": "Action bars",
+      "description": "Actionbar Addon 3.3.5",
+      "author": "s0h2x",
+      "stars": 53
+    },
+    {
+      "name": "pretty_lootalert",
+      "url": "https://github.com/s0h2x/pretty_lootalert",
+      "folders": [
+        "pretty_lootalert"
+      ],
+      "category": "Bags & inventory",
+      "description": "Loot Alert Addon 3.3.5",
+      "author": "s0h2x",
+      "stars": 46
+    },
+    {
+      "name": "pretty_minimap",
+      "url": "https://github.com/s0h2x/pretty_minimap",
+      "folders": [
+        "pretty_minimap"
+      ],
+      "category": "Maps & navigation",
+      "description": "Minimap Addon 3.3.5",
+      "author": "s0h2x",
+      "stars": 26
+    },
+    {
+      "name": "ProcGlow",
+      "url": "https://github.com/Wotlk-3-3-5a-Addons/ProcGlowSpell",
+      "folders": [
+        "ProcGlow"
+      ],
+      "category": "Other",
+      "description": "The addon shines and glows the spell which was proced wotlk 3.3.5",
+      "author": "Wotlk-3-3-5a-Addons",
+      "stars": 3
+    },
+    {
+      "name": "Profession Capper",
+      "url": "https://github.com/SamuelLira99/Profession-Capper",
+      "folders": [
+        "Profession_Capper"
+      ],
+      "category": "Professions & economy",
+      "description": "World of Warcraft(3.3.5) addon that shows the easiest way to level a crafting profession to its cap (450)",
+      "author": "SamuelLira99",
+      "stars": 19
+    },
+    {
+      "name": "Quartz",
+      "url": "https://github.com/gareth-charles/Quartz",
+      "folders": [
+        "Quartz"
+      ],
+      "category": "Other",
+      "description": "3.3.5 Quartz addon that supports auto and melee swing timers simultaneously",
+      "author": "gareth-charles",
+      "stars": 4
+    },
+    {
+      "name": "Quest Radar",
+      "url": "https://github.com/warblups/mod-quest-radar",
+      "folders": [
+        "QuestRadar"
+      ],
+      "category": "Quests & leveling",
+      "description": "AzerothCore 3.3.5a module + client addon: shows quest objective locations on the minimap (WotLK never had this natively)",
+      "author": "warblups",
+      "stars": 4
+    },
+    {
+      "name": "Questie v11.6.0",
+      "url": "https://github.com/Javilico92/Questie-335",
+      "folders": [
+        "Questie-335"
+      ],
+      "category": "Quests & leveling",
+      "description": "WoW Classic quest helper for version 3.3.5a",
+      "author": "Javilico92",
+      "stars": 6
+    },
+    {
+      "name": "Questie-335-Epoch v9.6.0-335",
+      "url": "https://github.com/NeticSoul/questie-335-epoch",
+      "folders": [
+        "Questie-335-Epoch"
+      ],
+      "category": "Quests & leveling",
+      "description": "Questie addon fork for Project Epoch (WotLK 3.3.5a). Merges Aldori15's Questie-335 with Bennylavaa's pfQuest-epoch database at load time. Experimental.",
+      "author": "NeticSoul",
+      "stars": 6
+    },
+    {
+      "name": "Questie-X",
+      "url": "https://github.com/Dandenas/coa-questie",
+      "folders": [
+        "Questie-X",
+        "Questie-X-AscensionDB",
+        "Questie-X-CoADB",
+        "Questie-X-WotLKDB"
+      ],
+      "category": "Quests & leveling",
+      "description": "Questie-X quest helper set up for Conquest of Azeroth (Ascension-based 3.3.5a) servers: CoA server detection, CoA cave/sub-zone maps, and a CoA quest database generated from a CoA server's world DB. I",
+      "author": "Dandenas",
+      "stars": 5
+    },
+    {
+      "name": "QuestLogZones",
+      "url": "https://github.com/Souicia/wow-3.3.5a-quest50-chars15",
+      "folders": [
+        "QuestLogZones"
+      ],
+      "category": "Quests & leveling",
+      "description": "First public 3.3.5a implementation of a 25→50 quest log expansion, plus 15 characters per realm",
+      "author": "Souicia",
+      "stars": 4
+    },
+    {
+      "name": "QuestTradutor",
+      "url": "https://github.com/leoaviana/QuestTradutor",
+      "folders": [
+        "QuestTradutor"
+      ],
+      "category": "Quests & leveling",
+      "description": "Um AddOn para World of Warcraft Vanilla, TBC e WoTLK que traduz quests e textos dos NPCs para o português.",
+      "author": "leoaviana",
+      "stars": 14
+    },
+    {
+      "name": "QuestVoice",
+      "url": "https://github.com/faralaks/wow-questvoice",
+      "folders": [
+        "QuestVoice"
+      ],
+      "category": "Quests & leveling",
+      "description": "WoW 3.3.5a Addon for Audio Quests Playback",
+      "author": "faralaks",
+      "stars": 8
+    },
+    {
+      "name": "Quick DKP V2 - Core",
+      "url": "https://github.com/Homerocker/QDKPv2",
+      "folders": [
+        "QDKP_V2",
+        "QDKP2_GUI"
+      ],
+      "category": "Other",
+      "description": "QDKPv2 3.3.5a",
+      "author": "Homerocker",
+      "stars": 7
+    },
+    {
+      "name": "Quick Laser [Above Average Edtion v1.2]",
+      "url": "https://github.com/NoM0Re/QLaser",
+      "folders": [
+        "QLaser"
+      ],
+      "category": "Other",
+      "description": "Plugin for QDKP shows Alts/Mains in Toolltip",
+      "author": "NoM0Re",
+      "stars": 3
+    },
+    {
+      "name": "Raid Browser",
+      "url": "https://github.com/Ostoic/RaidBrowser",
+      "folders": [
+        "RaidBrowser"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Bringing LFR to Wrath of the Lich King (Non-Classic)",
+      "author": "Ostoic",
+      "stars": 48
+    },
+    {
+      "name": "RaidCluster",
+      "url": "https://github.com/NoM0Re/RaidCluster",
+      "folders": [
+        "RaidCluster"
+      ],
+      "category": "Other",
+      "description": "RaidCluster is an addon designed to display clusters of players as counters that increment when players are close to each other.",
+      "author": "NoM0Re",
+      "stars": 3
+    },
+    {
+      "name": "Raven",
+      "url": "https://github.com/bkader/Raven-WotLK",
+      "folders": [
+        "Raven",
+        "Raven_Options"
+      ],
+      "category": "Combat & DPS",
+      "description": "Raven tracks Buffs & Debuffs in different ways. Backported from Retail to WotLK",
+      "author": "bkader",
+      "stars": 7
+    },
+    {
+      "name": "Refactor Gear",
+      "url": "https://github.com/ProfetGit/RefactorGear",
+      "folders": [
+        "RefactorGear"
+      ],
+      "category": "Bags & inventory",
+      "description": "Weighted-stat gear comparison for Ascension (classless WotLK 3.3.5) - tooltip upgrade verdicts, bag arrows and loot alerts. The gear-compare half of Refactor, standalone.",
+      "author": "ProfetGit",
+      "stars": 6
+    },
+    {
+      "name": "RefinedBlizzPlates",
+      "url": "https://github.com/KhalGH/RefinedBlizzPlates-WotLK",
+      "folders": [
+        "!!RefinedBlizzPlates"
+      ],
+      "category": "Unit frames",
+      "description": "WoW 3.3.5a Addon",
+      "author": "KhalGH",
+      "stars": 35
+    },
+    {
+      "name": "Reputation List",
+      "url": "https://github.com/Soulibaliy/ReputationList_3.3.5a",
+      "folders": [
+        "reputation"
+      ],
+      "category": "Other",
+      "description": "A comprehensive addon for managing blacklists, whitelists, and player notes with advanced tracking capabilities",
+      "author": "Soulibaliy",
+      "stars": 4
+    },
+    {
+      "name": "RestedXP Guides",
+      "url": "https://github.com/PottedSalame/RestedXP_RXPGuides-WotLK_3.3.5a",
+      "folders": [
+        "RXPGuides"
+      ],
+      "category": "Quests & leveling",
+      "description": "A backport of the addon made by RestedXP/RXPGuides to the 3.3.5 version of WoW-WotLK",
+      "author": "PottedSalame",
+      "stars": 18
+    },
+    {
+      "name": "Ret Rotation",
+      "url": "https://github.com/tje3d/RetRotation",
+      "folders": [
+        "RetRotation"
+      ],
+      "category": "Class & rotation",
+      "description": "🚀 High-performance Retribution Paladin rotation optimizer for World of Warcraft 3.3.5a.",
+      "author": "tje3d",
+      "stars": 6
+    },
+    {
+      "name": "Retail Professions",
+      "url": "https://github.com/buildthehomelab/wow-mod-retail-professions",
+      "folders": [
+        "RetailProfessions"
+      ],
+      "category": "Professions & economy",
+      "description": "Retail-style profession window for AzerothCore 3.3.5a: search, filters, skill-up odds, unlearned recipes and where to learn them, recipe tracker, professions book (K). Server module + RetailProfession",
+      "author": "buildthehomelab",
+      "stars": 3
+    },
+    {
+      "name": "RetailUI",
+      "url": "https://github.com/a3st/RetailUI",
+      "folders": [
+        "RetailUI"
+      ],
+      "category": "Interface & UI",
+      "description": "WoW Legacy Addon - Retail UI (3.3.5a)",
+      "author": "a3st",
+      "stars": 60
+    },
+    {
+      "name": "Routes",
+      "url": "https://github.com/Xurkon/Routes",
+      "folders": [
+        "Routes"
+      ],
+      "category": "Maps & navigation",
+      "description": "Routes addon for WoW 3.3.5a - Draw optimized farming routes on your minimap and world map",
+      "author": "Xurkon",
+      "stars": 3
+    },
+    {
+      "name": "RUF [Raeli's Unit Frames]",
+      "url": "https://github.com/bkader/RUF-WoTLK",
+      "folders": [
+        "RUF"
+      ],
+      "category": "Unit frames",
+      "description": "Raeli's Unit Frames backported for Wrath of The Lich King",
+      "author": "bkader",
+      "stars": 12
+    },
+    {
+      "name": "SarychUI",
+      "url": "https://github.com/sarych3vlad/SarychUI",
+      "folders": [
+        "SarychUI",
+        "SarychUI_WoWCircle"
+      ],
+      "category": "Interface & UI",
+      "description": "Modular UI framework for WoW 3.3.5a",
+      "author": "sarych3vlad",
+      "stars": 12
+    },
+    {
+      "name": "Season Pass UI",
+      "url": "https://github.com/teodorgross/mod-seasonpass",
+      "folders": [
+        "SeasonPassUI"
+      ],
+      "category": "Interface & UI",
+      "description": "Dream Path (Traumpfad): free seasonal Season Pass for AzerothCore 3.3.5a — 11-tab in-game UI, dream chests, SoD-style runes, prestige/paragon endgame up to 300. Alpha, built in one day.",
+      "author": "teodorgross",
+      "stars": 5
+    },
+    {
+      "name": "Server Radio",
+      "url": "https://github.com/Ildourol/mod-radio-3.3.5",
+      "folders": [
+        "ServerRadio"
+      ],
+      "category": "Other",
+      "description": "Crash-safe client-side live audio streaming mod and in-game radio player for WoW 3.3.5a with Turtle WoW relays,   web streams, and auto-pause on minimize.",
+      "author": "Ildourol",
+      "stars": 4
+    },
+    {
+      "name": "SetXpBar",
+      "url": "https://github.com/brian8544/SetXpBar",
+      "folders": [
+        "SetXpBar"
+      ],
+      "category": "Other",
+      "description": "An addon that enables players to control their experience gain rate by right-clicking their XP bar. This feature requires the realm to have the mod-individual-xp module installed.",
+      "author": "brian8544",
+      "stars": 7
+    },
+    {
+      "name": "Shapeshifter",
+      "url": "https://github.com/Sass42/Shapeshifter",
+      "folders": [
+        "Shapeshifter"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Become Ragnaros, Hogger or the Lich King on your AzerothCore 3.3.5a server: 569 boss and creature forms with their own spells, gear and talents. One-click Setup.",
+      "author": "Sass42",
+      "stars": 8
+    },
+    {
+      "name": "Shard",
+      "url": "https://github.com/NotHawthorne/Shard-Emulation",
+      "folders": [
+        "Shard",
+        "AIO",
+        "Shard_UI"
+      ],
+      "category": "Other",
+      "description": "An extreme cMaNGOS/Eluna based client and server modification for World of Warcraft 3.3.5a",
+      "author": "NotHawthorne",
+      "stars": 11
+    },
+    {
+      "name": "ShardKeeper",
+      "url": "https://github.com/andreash-dev/ShardKeeper-WotLK",
+      "folders": [
+        "ShardKeeper"
+      ],
+      "category": "Other",
+      "description": "A World of Warcraft 3.3.5 addon to manage Soul Shards automatically.",
+      "author": "andreash-dev",
+      "stars": 3
+    },
+    {
+      "name": "Simple Cast Bar",
+      "url": "https://github.com/oxbar/SimpleCastBar",
+      "folders": [
+        "SimpleCastBar"
+      ],
+      "category": "PvP",
+      "description": "SimpleCastBar is a WoW 3.3.5a (Warmane)  addon that provides a customizable cast bar for detecting and tracking important enemy spells, particularly crowd control abilities.",
+      "author": "oxbar",
+      "stars": 3
+    },
+    {
+      "name": "Simple Quest Abandoner",
+      "url": "https://github.com/zimbabd/SimpleQuestAbandoner",
+      "folders": [
+        "SimpleQuestAbandoner"
+      ],
+      "category": "Quests & leveling",
+      "description": "Instantly abandon quests in WoW 3.3.5a with Ctrl + Right-click. No confirmation dialog required.",
+      "author": "zimbabd",
+      "stars": 5
+    },
+    {
+      "name": "Skada",
+      "url": "https://github.com/bkader/Skada-WoTLK",
+      "folders": [
+        "Skada",
+        "SkadaImprovement",
+        "SkadaStorage"
+      ],
+      "category": "Combat & DPS",
+      "description": "Skada for WoTLK, Revisited. If you have issues, suggestions or ideas, feel free to use GitHub issues or to report them on Discord.",
+      "author": "bkader",
+      "stars": 147
+    },
+    {
+      "name": "SlyBars",
+      "url": "https://github.com/nullfoxh/SlyBars-WOTLK-custom",
+      "folders": [
+        "SlyBars"
+      ],
+      "category": "Other",
+      "description": "A combopoint and energy tracker AddOn for WoW WOTLK 3.3.5a",
+      "author": "nullfoxh",
+      "stars": 4
+    },
+    {
+      "name": "SmartBuff by Aeldra",
+      "url": "https://github.com/robgha01/SmartBuff",
+      "folders": [
+        "SmartBuff"
+      ],
+      "category": "Other",
+      "description": "Backport to 3.3.5",
+      "author": "robgha01",
+      "stars": 4
+    },
+    {
+      "name": "SoundAlerter Enhanced",
+      "url": "https://github.com/Cortes-Jeremy/SoundAlerter",
+      "folders": [
+        "SoundAlerter"
+      ],
+      "category": "Interface & UI",
+      "description": "SoundAlerter 3.3.5 Enhanced Version",
+      "author": "Cortes-Jeremy",
+      "stars": 19
+    },
+    {
+      "name": "Speedy AutoLoot",
+      "url": "https://github.com/tje3d/SpeedyAutoLoot-Wotlk",
+      "folders": [
+        "SpeedyAutoLoot"
+      ],
+      "category": "Bags & inventory",
+      "description": "Blazing-fast auto-loot addon for WoW WotLK 3.3.5a — ported from TBC. Loot at ludicrous speed with smart inventory checks, ElvUI support, and zero configuration",
+      "author": "tje3d",
+      "stars": 6
+    },
+    {
+      "name": "SquadControl AzerothCore Playerbot Control",
+      "url": "https://github.com/dandulox/SquadControl-Playerbot-Addon-",
+      "folders": [
+        "SquadControl"
+      ],
+      "category": "Other",
+      "description": "An in-game control addon for the AzerothCore Playerbot module, enabling players to command, manage, and coordinate their Playerbot squad through clear controls and quick actions.",
+      "author": "dandulox",
+      "stars": 3
+    },
+    {
+      "name": "Storyline",
+      "url": "https://github.com/shadovvs/WotLK-Storyline",
+      "folders": [
+        "Storyline"
+      ],
+      "category": "Quests & leveling",
+      "description": "Backport of Storyline addon for WotLK 3.3.5a",
+      "author": "shadovvs",
+      "stars": 24
+    },
+    {
+      "name": "StriLi",
+      "url": "https://github.com/sba5827/StriLi",
+      "folders": [
+        "StriLi"
+      ],
+      "category": "Bags & inventory",
+      "description": "World of Warecraft WotLK Raid Addon Raidlead Addon Strichliste",
+      "author": "sba5827",
+      "stars": 3
+    },
+    {
+      "name": "TheCollector",
+      "url": "https://github.com/heyitsbench/thecollector",
+      "folders": [
+        "TheCollector"
+      ],
+      "category": "Other",
+      "description": "Addon for World of Warcraft build 3.3.5 12340.",
+      "author": "heyitsbench",
+      "stars": 5
+    },
+    {
+      "name": "Tidy Plates",
+      "url": "https://github.com/bkader/TidyPlates_WoTLK",
+      "folders": [
+        "TidyPlates",
+        "TidyPlates_Graphite",
+        "TidyPlates_Grey",
+        "TidyPlates_Neon",
+        "TidyPlates_Quatre",
+        "TidyPlates_ThreatPlates"
+      ],
+      "category": "Unit frames",
+      "description": "Backported TidyPlates & TidyPlates_ThreatPlates.",
+      "author": "bkader",
+      "stars": 52
+    },
+    {
+      "name": "TradeSkillMaster",
+      "url": "https://github.com/Keoo88/TradeSkillMaster-3.3.5-backport",
+      "folders": [
+        "TradeSkillMaster",
+        "TradeSkillMaster_Accounting",
+        "TradeSkillMaster_AuctionDB",
+        "TradeSkillMaster_Banking",
+        "TradeSkillMaster_Crafting",
+        "TradeSkillMaster_Mailing",
+        "TradeSkillMaster_Vendoring"
+      ],
+      "category": "Professions & economy",
+      "description": "TSM v4.14.66 - WotLK 3.3.5a backport. TradeSkillMaster suite for WoW 3.3.5a: auction house scanning, crafting, mailing, groups and more.",
+      "author": "Keoo88",
+      "stars": 16
+    },
+    {
+      "name": "Transcriptor",
+      "url": "https://github.com/Zidras/Transcriptor-WOTLK",
+      "folders": [
+        "Transcriptor"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Event logging addon for 3.3.5a, suitable for boss encounters",
+      "author": "Zidras",
+      "stars": 10
+    },
+    {
+      "name": "Transmog",
+      "url": "https://github.com/buildthehomelab/wow-mod-transmog-plus",
+      "folders": [
+        "Transmog"
+      ],
+      "category": "Bags & inventory",
+      "description": "Retail-style slot-based transmog for AzerothCore: account-wide collection, transmog window addon, sets, outfits, collect on loot/disenchant",
+      "author": "buildthehomelab",
+      "stars": 6
+    },
+    {
+      "name": "Transmoggy",
+      "url": "https://github.com/hannes121/Transmoggy",
+      "folders": [
+        "Transmoggy"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "Transmog, appearances and dressing room features for WotLK 3.3.5a.",
+      "author": "hannes121",
+      "stars": 3
+    },
+    {
+      "name": "Transmogrification",
+      "url": "https://github.com/DanieltheDeveloper/azerothcore-transmog-3.3.5a",
+      "folders": [
+        "Transmogrification"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "Transmog system created with AIO and Eluna for AzerothCore.",
+      "author": "DanieltheDeveloper",
+      "stars": 50
+    },
+    {
+      "name": "Transmorpher",
+      "url": "https://github.com/Kirazul/Transmorpher",
+      "folders": [
+        "Transmorpher"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "Transmorpher is a full client-side appearance and morphing suite for World of Warcraft: Wrath of the Lich King 3.3.5a",
+      "author": "Kirazul",
+      "stars": 36
+    },
+    {
+      "name": "TrinketCDs",
+      "url": "https://github.com/Ridepad/TrinketCDs",
+      "folders": [
+        "TrinketCDs"
+      ],
+      "category": "Combat & DPS",
+      "description": "Trinket cooldowns addon for WotLK",
+      "author": "Ridepad",
+      "stars": 13
+    },
+    {
+      "name": "TrufiGCD",
+      "url": "https://github.com/robgha01/TrufiGCD",
+      "folders": [
+        "TrufiGCD"
+      ],
+      "category": "Other",
+      "description": "Backport of TrufiGCD for 3.3.5",
+      "author": "robgha01",
+      "stars": 9
+    },
+    {
+      "name": "TurboPlates",
+      "url": "https://github.com/esurm/TurboPlates335",
+      "folders": [
+        "TurboPlates"
+      ],
+      "category": "Other",
+      "description": "TurboPlates for 3.3.5a WOTLK client",
+      "author": "esurm",
+      "stars": 4
+    },
+    {
+      "name": "UltimateLoot",
+      "url": "https://github.com/Xerrion/UltimateLoot",
+      "folders": [
+        "UltimateLoot"
+      ],
+      "category": "Bags & inventory",
+      "description": "Ultimate loot management system for World of Warcraft 3.3.5a",
+      "author": "Xerrion",
+      "stars": 3
+    },
+    {
+      "name": "VeilHUD",
+      "url": "https://github.com/Zendevve/VeilHUD",
+      "folders": [
+        "VeilHUD"
+      ],
+      "category": "Interface & UI",
+      "description": "An addon that automatically hides and fades UI elements, revealing them only when needed to provide a cleaner, more immersive gameplay experience.",
+      "author": "Zendevve",
+      "stars": 9
+    },
+    {
+      "name": "Virag's WoW Dev Tool",
+      "url": "https://github.com/robgha01/ViragDevTool",
+      "folders": [
+        "ViragDevTool"
+      ],
+      "category": "Other",
+      "description": "Backport 3.3.5",
+      "author": "robgha01",
+      "stars": 5
+    },
+    {
+      "name": "VirtualPlates",
+      "url": "https://github.com/Macumbafeh/VirtualPlates-modified",
+      "folders": [
+        "!!!_VirtualPlates"
+      ],
+      "category": "Unit frames",
+      "description": "Addon to modify the size of 3.3.5 default nameplates",
+      "author": "Macumbafeh",
+      "stars": 3
+    },
+    {
+      "name": "VuhDo ['vu:du:]",
+      "url": "https://github.com/cucchi10/VuhDo",
+      "folders": [
+        "VuhDo",
+        "VuhDoOptions"
+      ],
+      "category": "Unit frames",
+      "description": "VuhDo - WoW 3.3.5a",
+      "author": "cucchi10",
+      "stars": 5
+    },
+    {
+      "name": "WA SafeGuard",
+      "url": "https://github.com/suprepupre/WA_SafeGuard",
+      "folders": [
+        "WA_SafeGuard"
+      ],
+      "category": "Combat & DPS",
+      "description": "Backs up your WeakAuras every login, so a forced disconnect corrupting SavedVariables cannot wipe your auras. Auto-detects corruption and restores. WoW 3.3.5a.",
+      "author": "suprepupre",
+      "stars": 19
+    },
+    {
+      "name": "WeakAuras",
+      "url": "https://github.com/Bunny67/WeakAuras-WotLK",
+      "folders": [
+        "WeakAuras",
+        "WeakAurasArchive",
+        "WeakAurasModelPaths",
+        "WeakAurasOptions"
+      ],
+      "category": "Combat & DPS",
+      "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
+      "author": "Bunny67",
+      "stars": 184
+    },
+    {
+      "name": "Why Can't I Hold All These Macro Icons?",
+      "url": "https://github.com/Drakensangs/WhyCantIHoldAllTheseMacroIcons-WotLK",
+      "folders": [
+        "WhyCantIHoldAllTheseMacroIcons"
+      ],
+      "category": "Interface & UI",
+      "description": "World of Warcraft Wrath of the Lich King 3.3.5a addon that expands the macro creation frame and adds a search bar.",
+      "author": "Drakensangs",
+      "stars": 3
+    },
+    {
+      "name": "WIM",
+      "url": "https://github.com/nogoodlife/WIM",
+      "folders": [
+        "WIM"
+      ],
+      "category": "Other",
+      "description": "WIM-3.3.7 for wow 3.3.5a (30300) with some random changes/bugfixes ?",
+      "author": "nogoodlife",
+      "stars": 3
+    },
+    {
+      "name": "WoW Dungeon Maps",
+      "url": "https://github.com/Trimitor/WDM-addons",
+      "folders": [
+        "WDM",
+        "!Astrolabe",
+        "GatherMate",
+        "Mapster",
+        "QuestHelper"
+      ],
+      "category": "Boss mods & raiding",
+      "description": "Collection of addons compatible with Classic & TBC Dungeon Maps patch for WoW WotLK (3.3.5a)",
+      "author": "Trimitor",
+      "stars": 57
+    },
+    {
+      "name": "WoW Legends GM",
+      "url": "https://github.com/WOWLegendsHQ/wow-legends-gm-addon",
+      "folders": [
+        "WoWLegends_GM"
+      ],
+      "category": "Other",
+      "description": "WOW Legends — GM addon: in-game admin tools (spawning, teleport, account/character & server controls) for WotLK 3.3.5a.",
+      "author": "WOWLegendsHQ",
+      "stars": 3
+    },
+    {
+      "name": "Wowhead Quick Link v1.0.0",
+      "url": "https://github.com/disruption01/WowheadQuickLink_335a_backport",
+      "folders": [
+        "WowheadQuickLink"
+      ],
+      "category": "Other",
+      "description": "WoW 3.3.5a (build 12340) backport of Wowhead Quick Link by Niels Heltner (Blurish), maintained by Disruption01.",
+      "author": "disruption01",
+      "stars": 3
+    },
+    {
+      "name": "WowPad",
+      "url": "https://github.com/Oddity-git/WoW-Pad",
+      "folders": [
+        "WowPad"
+      ],
+      "category": "Other",
+      "description": "Native controller support intended for use with personal Azerothcore WotLK servers",
+      "author": "Oddity-git",
+      "stars": 18
+    },
+    {
+      "name": "WowSimsExporter v2.3 WOTLK",
+      "url": "https://github.com/napnapnapnap/wowsimsexporter-wotlk-335",
+      "folders": [
+        "WowSimsExporter"
+      ],
+      "category": "Other",
+      "description": "An exporter addon for World Of Warcraft: WotLK 3.3.5. Sim at https://poli93.github.io/wotlk/",
+      "author": "napnapnapnap",
+      "stars": 9
+    },
+    {
+      "name": "xCT+",
+      "url": "https://github.com/Barsoomx/xCT_Plus_wotlk",
+      "folders": [
+        "xCT+"
+      ],
+      "category": "Other",
+      "description": "xCT+ 3.7.1 backport",
+      "author": "Barsoomx",
+      "stars": 15
+    },
+    {
+      "name": "XP Rate Control",
+      "url": "https://github.com/Zendevve/XPRateControl",
+      "folders": [
+        "XPRateControl"
+      ],
+      "category": "Other",
+      "description": "A modern GUI addon for managing XP rates, automation, and Joyous Journeys on WoW 3.3.5a ChromieCraft servers.",
+      "author": "Zendevve",
+      "stars": 8
+    },
+    {
+      "name": "Zygor Guides Viewer",
+      "url": "https://github.com/danaton/ZygorGuidesWoTLK-ClassicPlus",
+      "folders": [
+        "ZygorGuidesViewer"
+      ],
+      "category": "Quests & leveling",
+      "description": "The repository contains the original ZygorGuidesViewer 3.3.5a addon and many author's improvements.",
+      "author": "danaton",
+      "stars": 7
+    },
+    {
+      "name": "Zygor Guides Viewer Remastered",
+      "url": "https://github.com/ErebusAres/ZygorGuidesRemaster-3.3.5a_WOTLK",
+      "folders": [
+        "ZygorGuidesViewerRM"
+      ],
+      "category": "Quests & leveling",
+      "description": "An attempt to Remaster ZygorGuides in a more modernized way, while retaining the soul of the addon.",
+      "author": "ErebusAres",
+      "stars": 92
+    }
+  ]
+}

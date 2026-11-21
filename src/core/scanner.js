@@ -112,4 +112,23 @@ function findParent(f, names) {
   return null;
 }
 
-module.exports = { scanAddons, groupFolders };
+/**
+ * Required dependencies that are not installed.
+ * Blizzard_* addons ship with the client, so they are never reported.
+ * @param {Array<{folder:string, dependencies:string[]}>} folders installed folders
+ * @returns {Map<string, string[]>} missing dependency name -> folders that need it
+ */
+function missingDependencies(folders) {
+  const present = new Set(folders.map((f) => f.folder.toLowerCase()));
+  const missing = new Map();
+  for (const f of folders) {
+    for (const dep of f.dependencies || []) {
+      if (BLIZZARD.test(dep) || present.has(dep.toLowerCase())) continue;
+      const key = [...missing.keys()].find((k) => k.toLowerCase() === dep.toLowerCase()) || dep;
+      missing.set(key, [...(missing.get(key) || []), f.folder]);
+    }
+  }
+  return missing;
+}
+
+module.exports = { scanAddons, groupFolders, missingDependencies };

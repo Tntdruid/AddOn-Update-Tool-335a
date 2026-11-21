@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.0] - 2026-11-21
+
+### Added
+- **Browse** tab: a catalog of 225 verified 3.3.5a addons with categories, search, popularity sorting and one-click install. Addons you already have can be linked with "Link installed".
+- The catalog is fetched from the repository, so it can grow without a new app release. Without a connection the bundled copy is used.
+- `tools/build-catalog.js` builds the catalog from GitHub. It keeps only repos whose main addon has `## Interface: 30300`, and `tools/catalog-config.json` holds overrides.
+- **Changes** button: shows the commits between the installed version and the new one before you update, and explains it when a force-push has rewritten the history.
+- Missing dependencies: warns when a required `## Dependencies` entry is not installed and installs it from the catalog with one click, including right after an install.
+- Repo links: a "Repo ↗" button on each addon, a GitHub link with the version in the status bar, and an About section in Settings.
+- "Find repo…" suggests catalog matches first.
+
+### Fixed
+- The version in the app no longer shows Electron's version when the app is started via a custom entry point.
+
 ## [0.1.0] - 2026-11-21
 
 First release.

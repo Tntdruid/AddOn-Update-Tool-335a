@@ -120,3 +120,31 @@ tr:hover td { background: #171a20; }
 .log time { color: #5d6472; margin-right: 8px; }
 .toast { position: fixed; right: 18px; bottom: 50px; background: var(--panel-2); border: 1px solid var(--line); padding: 10px 14px; border-radius: var(--radius); max-width: 420px; box-shadow: 0 8px 24px rgba(0,0,0,.4); z-index: 20; }
 .toast.error { border-color: var(--red); }
+
+/* dependencies */
+.dep-warn { display: flex; align-items: center; gap: 8px; color: var(--orange); font-size: 12px; margin-top: 6px; }
+.dep-warn b { color: var(--text); font-weight: 600; }
+
+/* changes */
+.changes { gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.commit { padding: 9px 12px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.commit:last-child { border-bottom: 0; }
+.commit .mono { margin-right: 6px; }
+.desc.wrap, .wrap { white-space: pre-wrap; overflow: visible; text-overflow: clip; }
+
+/* catalog */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; align-items: center; }
+.chip { font: inherit; font-size: 12px; background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); border-radius: 14px; padding: 4px 11px; cursor: pointer; }
+.chip:hover { color: var(--text); }
+.chip.active { background: rgba(227, 179, 65, .12); color: var(--gold); border-color: var(--gold-dim); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.card:hover { border-color: #3a4150; }
+.card-head { display: flex; gap: 10px; align-items: flex-start; }
+.card-head .grow { flex: 1; min-width: 0; }
+.card .desc { color: var(--muted); font-size: 12px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+.logline { display: flex; align-items: center; }
+.logline .log-toggle { flex: 1; min-width: 0; }
+.repo-link { font-size: 12px; color: var(--muted); padding: 7px 18px 7px 12px; white-space: nowrap; border-left: 1px solid var(--line); }
+.repo-link:hover { color: var(--gold); text-decoration: none; }

@@ -26,6 +26,7 @@
   <nav class="tabs" role="tablist">
     <button class="tab active" data-tab="managed" role="tab">Managed <span class="count" id="countManaged">0</span></button>
     <button class="tab" data-tab="local" role="tab">Installed, not linked <span class="count" id="countLocal">0</span></button>
+    <button class="tab" data-tab="catalog" role="tab">Browse <span class="count" id="countCatalog">0</span></button>
     <button class="tab" data-tab="settings" role="tab">Settings</button>
     <div class="tab-tools">
       <input id="filter" type="search" placeholder="Filter…" />
@@ -37,6 +38,7 @@
   <main>
     <section id="view-managed" class="view active"></section>
     <section id="view-local" class="view"></section>
+    <section id="view-catalog" class="view"></section>
     <section id="view-settings" class="view"></section>
     <section id="welcome" class="welcome" hidden>
       <h1>Point me at your 3.3.5a client</h1>
@@ -46,7 +48,10 @@
   </main>
 
   <footer class="logbar">
-    <button id="logToggle" class="log-toggle"><span id="logLast">Ready</span><span class="rate" id="rate"></span></button>
+    <div class="logline">
+      <button id="logToggle" class="log-toggle"><span id="logLast">Ready</span><span class="rate" id="rate"></span></button>
+      <a id="repoLink" class="repo-link" data-act="open" title="Source code, releases and issues on GitHub">GitHub</a>
+    </div>
     <div id="log" class="log" hidden></div>
   </footer>
 

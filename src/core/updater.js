@@ -4,7 +4,8 @@ const path = require('node:path');
 const src = require('./source');
 const { readArchive, findAddons, filesForAddon } = require('./archive');
 const installer = require('./installer');
-const { scanAddons, groupFolders } = require('./scanner');
+const { scanAddons, groupFolders, missingDependencies } = require('./scanner');
+const { catalogFor } = require('./catalog');
 const { loadState, saveState } = require('./state');
 const { HttpClient, mapLimit } = require('./http');
 
@@ -25,6 +26,7 @@ class Updater {
     this.log = opts.log || (() => {});
     this.state = null;
     this.http = opts.http || null;
+    this.catalog = opts.catalog || [];
   }
 
   async load() {
@@ -76,8 +78,43 @@ class Updater {
         hints: [...g.main.hints, ...g.modules.flatMap((m) => m.hints)].filter(isRepoUrl),
         notes: g.main.notes,
         author: g.main.author,
+        catalog: catalogFor(this.catalog, [g.main.folder, ...g.modules.map((m) => m.folder)]),
       }));
-    return { wowDir: this.wowDir, addons, unmanaged, rateLimit: this.http.rateLimit };
+
+    // Missing required dependencies, attached to the addon that needs them.
+    const missingDeps = [...missingDependencies(folders)].map(([name, neededBy]) => ({
+      name,
+      neededBy,
+      catalog: catalogFor(this.catalog, [name]),
+    }));
+    const depsFor = (folderNames) => {
+      const own = new Set(folderNames.map((f) => f.toLowerCase()));
+      return missingDeps.filter((d) => d.neededBy.some((n) => own.has(n.toLowerCase())));
+    };
+    for (const a of addons) a.missingDeps = depsFor(a.folders);
+    for (const u of unmanaged) u.missingDeps = depsFor([u.folder, ...u.modules]);
+
+    const managedUrls = new Set(this.state.addons.map((a) => a.id));
+    return {
+      wowDir: this.wowDir,
+      addons,
+      unmanaged,
+      missingDeps,
+      catalog: this.catalog.map((c) => ({ ...c, installed: managedUrls.has(c.id) })),
+      rateLimit: this.http.rateLimit,
+    };
+  }
+
+  /** Install whatever provides a missing dependency, using the catalog. */
+  async installDependency(name) {
+    const entry = catalogFor(this.catalog, [name]);
+    if (!entry) throw new Error(`${name} is not in the catalog. Use "Add from URL" instead.`);
+    if (this.find(entry.id)) return this.update([entry.id]);
+    return this.add(entry.url, { branch: entry.branch || undefined });
+  }
+
+  setCatalog(entries) {
+    this.catalog = Array.isArray(entries) ? entries : [];
   }
 
   /** Resolve repo metadata and the best branch for 3.3.5a. */
@@ -120,7 +157,8 @@ class Updater {
       branchPinned: r.branchPinned,
       folders: opts.adoptFolders || [],
       // When linking local folders, only install those from the repo (collection repos).
-      include: opts.adoptFolders && opts.adoptFolders.length ? opts.adoptFolders : null,
+      // Callers that know the repo's full folder list (the catalog) pass include: null.
+      include: opts.include !== undefined ? opts.include : opts.adoptFolders && opts.adoptFolders.length ? opts.adoptFolders : null,
       installedSha: null,
       installedAt: null,
       commitDate: null,
@@ -168,7 +206,15 @@ class Updater {
       remoteDate: head.date || null,
       lastError: null,
     });
-    return { installed: result.installed, removed: result.removed, warnings };
+    const missing = missingDependencies(await scanAddons(this.addonsDir));
+    const mine = new Set(result.installed.map((n) => n.toLowerCase()));
+    const missingDeps = [];
+    for (const [dep, neededBy] of missing) {
+      if (!neededBy.some((n) => mine.has(n.toLowerCase()))) continue;
+      missingDeps.push({ name: dep, neededBy, catalog: catalogFor(this.catalog, [dep]) });
+      warnings.push(`${neededBy[0]} requires ${dep}, which is not installed`);
+    }
+    return { installed: result.installed, removed: result.removed, warnings, missingDeps };
   }
 
   /** Check all managed addons for updates (cheap: ETag-cached commit lookups). */
@@ -219,6 +265,37 @@ class Updater {
     const result = await this.install(a);
     await this.save();
     return result;
+  }
+
+  /**
+   * Commits between the installed version and the latest remote version.
+   * @returns {Promise<{commits:Array<{sha:string, title:string, body:string, author:string|null, date:string|null, url:string}>,
+   *   total:number, unavailable?:string}>}
+   */
+  async changes(id) {
+    const a = this.find(id);
+    if (!a) throw new Error('Unknown addon');
+    if (!a.installedSha) return { commits: [], total: 0, unavailable: 'Nothing installed yet' };
+    const head = a.remoteSha || (await this.headOf(a)).sha;
+    if (head === a.installedSha) return { commits: [], total: 0 };
+    const s = src.parseRepoUrl(a.url);
+    const ep = src.endpoints(s);
+    let json;
+    try {
+      json = await this.http.json(ep.compare(a.installedSha, head));
+    } catch (err) {
+      // Typically a force-push removed the installed commit from history.
+      if (err.status === 404) return { commits: [], total: 0, unavailable: 'The installed commit is no longer in the branch history (force-push?)' };
+      throw err;
+    }
+    const { commits, total } = src.compareOf(s, json);
+    return {
+      total,
+      commits: commits.map((c) => {
+        const [title, ...rest] = String(c.message).split(/\r?\n/);
+        return { sha: c.sha, title, body: rest.join('\n').trim(), author: c.author, date: c.date, url: ep.commitUrl(c.sha) };
+      }),
+    };
   }
 
   async branches(id) {
@@ -274,6 +351,8 @@ class Updater {
         out.push(c);
       }
     };
+    const known = catalogFor(this.catalog, [folder]);
+    if (known) push({ url: known.url, name: known.name, description: known.description || 'From the addon catalog', stars: null, source: 'catalog', score: 200 });
     for (const h of hints) {
       try {
         const s = src.parseRepoUrl(h);

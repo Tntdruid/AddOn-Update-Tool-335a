@@ -1,0 +1,16 @@
+{
+  "include": [],
+  "exclude": [],
+  "overrides": {
+    "Zidras/DBM-Warmane": {
+      "name": "Deadly Boss Mods (Warmane)",
+      "category": "Boss mods & raiding"
+    },
+    "Bunny67/Details-WotLK": {
+      "category": "Combat & DPS"
+    },
+    "KhalGH/RefinedBlizzPlates-WotLK": {
+      "category": "Unit frames"
+    }
+  }
+}

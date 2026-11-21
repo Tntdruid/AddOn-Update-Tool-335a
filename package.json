@@ -1,7 +1,7 @@
 {
   "name": "addon-update-tool-335",
   "productName": "AddOn Update Tool 3.3.5a",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Smart desktop updater for World of Warcraft 3.3.5a AddOns hosted on GitHub, GitLab or Gitea/Codeberg",
   "main": "src/main/main.js",
   "license": "MIT",

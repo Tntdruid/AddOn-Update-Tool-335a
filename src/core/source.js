@@ -83,6 +83,8 @@ function endpoints(src) {
       branches: `${api}/repos/${path}/branches?per_page=100`,
       commit: (ref) => `${api}/repos/${path}/commits/${encodeURIComponent(ref)}`,
       archive: (sha) => `https://codeload.github.com/${path}/zip/${sha}`,
+      compare: (base, head) => `${api}/repos/${path}/compare/${base}...${head}`,
+      commitUrl: (sha) => `https://github.com/${path}/commit/${sha}`,
     };
   }
   if (provider === 'gitlab') {
@@ -92,6 +94,8 @@ function endpoints(src) {
       branches: `${api}/repository/branches?per_page=100`,
       commit: (ref) => `${api}/repository/commits/${encodeURIComponent(ref)}`,
       archive: (sha) => `${api}/repository/archive.zip?sha=${sha}`,
+      compare: (base, head) => `${api}/repository/compare?from=${base}&to=${head}`,
+      commitUrl: (sha) => `https://${host}/${path}/-/commit/${sha}`,
     };
   }
   const api = `https://${host}/api/v1/repos/${path}`;
@@ -100,6 +104,8 @@ function endpoints(src) {
     branches: `${api}/branches?limit=50`,
     commit: (ref) => `${api}/commits/${encodeURIComponent(ref)}`,
     archive: (sha) => `https://${host}/${path}/archive/${sha}.zip`,
+    compare: (base, head) => `${api}/compare/${base}...${head}`,
+    commitUrl: (sha) => `https://${host}/${path}/commit/${sha}`,
   };
 }
 
@@ -129,6 +135,28 @@ function commitOf(src, json) {
 }
 
 /** Branch names from a branches API response. */
+/**
+ * Commits from a compare API response, newest first.
+ * @returns {{commits:Array<{sha:string, message:string, author:string|null, date:string|null}>, total:number}}
+ */
+function compareOf(src, json) {
+  const raw = (json && json.commits) || [];
+  const commits = raw.map((c) => {
+    if (src.provider === 'gitlab') {
+      return { sha: c.id, message: c.message || c.title || '', author: c.author_name || null, date: c.committed_date || c.created_at || null };
+    }
+    const inner = c.commit || {};
+    return {
+      sha: c.sha,
+      message: inner.message || '',
+      author: (c.author && c.author.login) || (inner.author && inner.author.name) || null,
+      date: (inner.committer && inner.committer.date) || (inner.author && inner.author.date) || null,
+    };
+  });
+  const total = json && Number.isFinite(json.total_commits) ? json.total_commits : commits.length;
+  return { commits: commits.reverse(), total };
+}
+
 function branchNamesOf(json) {
   return Array.isArray(json) ? json.map((b) => b.name).filter(Boolean) : [];
 }
@@ -163,5 +191,6 @@ module.exports = {
   defaultBranchOf,
   commitOf,
   branchNamesOf,
+  compareOf,
   pickBranch,
 };
