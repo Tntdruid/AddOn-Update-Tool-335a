@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'" />
+  <title>AddOn Update Tool 3.3.5a</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◆</span>
+      <div>
+        <div class="brand-name">AddOn Update Tool</div>
+        <div class="brand-sub">World of Warcraft 3.3.5a</div>
+      </div>
+    </div>
+    <button class="wow-path" id="wowPath" title="Change WoW folder"></button>
+    <div class="top-actions">
+      <button id="btnCheck" class="btn">Check for updates</button>
+      <button id="btnUpdateAll" class="btn primary" disabled>Update all</button>
+      <button id="btnLaunch" class="btn launch" title="Start Wow.exe">▶ Play</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="managed" role="tab">Managed <span class="count" id="countManaged">0</span></button>
+    <button class="tab" data-tab="local" role="tab">Installed, not linked <span class="count" id="countLocal">0</span></button>
+    <button class="tab" data-tab="settings" role="tab">Settings</button>
+    <div class="tab-tools">
+      <input id="filter" type="search" placeholder="Filter…" />
+      <button id="btnAdd" class="btn">+ Add from URL</button>
+      <button id="btnImport" class="btn ghost" title="Import config.yaml / config.json from the original AddOns-Update-Tool">Import config</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="view-managed" class="view active"></section>
+    <section id="view-local" class="view"></section>
+    <section id="view-settings" class="view"></section>
+    <section id="welcome" class="welcome" hidden>
+      <h1>Point me at your 3.3.5a client</h1>
+      <p>Select <code>Wow.exe</code>. AddOns are installed into <code>Interface/AddOns</code>, and backups are stored in <code>Interface/AddOns.backups</code>.</p>
+      <button id="btnPickWelcome" class="btn primary big">Select Wow.exe…</button>
+    </section>
+  </main>
+
+  <footer class="logbar">
+    <button id="logToggle" class="log-toggle"><span id="logLast">Ready</span><span class="rate" id="rate"></span></button>
+    <div id="log" class="log" hidden></div>
+  </footer>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-head"><h2 id="modalTitle"></h2><button class="icon" id="modalClose" aria-label="Close">✕</button></div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
