@@ -66,7 +66,7 @@ td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: middle
 tr:hover td { background: #171a20; }
 .name { font-weight: 600; }
 .sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
-.mono { font-family: Consolas, "Cascadia Mono", monospace; font-size: 12px; }
+.mono { font-family: Consolas, "Cascadia Mono", monospace; font-size: 12px; white-space: nowrap; }
 .actions { text-align: right; white-space: nowrap; }
 .actions .btn { margin-left: 4px; }
 .empty { color: var(--muted); text-align: center; padding: 60px 20px; }

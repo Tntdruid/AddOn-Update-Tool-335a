@@ -4,6 +4,19 @@
 
 A desktop app that keeps World of Warcraft **3.3.5a (WotLK)** addons up to date from GitHub, GitLab and Gitea/Codeberg. It is a modern take on [alchem1ster/AddOns-Update-Tool](https://github.com/alchem1ster/AddOns-Update-Tool).
 
+<p align="center"><img src="assets/screenshots/managed.png" alt="Managed addons with available updates" width="900" /></p>
+
+<table>
+<tr>
+<td width="50%"><img src="assets/screenshots/browse.png" alt="Browse the catalog of 3.3.5a addons" /><br /><b>Browse</b>: 200+ verified 3.3.5a addons, one-click install</td>
+<td width="50%"><img src="assets/screenshots/changes.png" alt="Changes since your version" /><br /><b>Changes</b>: see what's new before you update</td>
+</tr>
+<tr>
+<td width="50%"><img src="assets/screenshots/dependencies.png" alt="Unlinked addons and missing dependencies" /><br /><b>Installed, not linked</b>: link addons you already have, and fix missing dependencies</td>
+<td width="50%"></td>
+</tr>
+</table>
+
 ## What it does better
 
 | | Original | This tool |
