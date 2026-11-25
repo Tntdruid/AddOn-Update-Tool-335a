@@ -9,6 +9,9 @@ Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a
 
 ## [Unreleased]
 
+### 🧰 For contributors
+- The build tools no longer pull in a vulnerable `minimatch` (CVE-2026-118764). An npm override lifts only the affected versions to 11.0.1 or newer. It only touched the tooling that builds the exe; the app itself was never affected.
+
 ---
 
 ## [0.3.0] — 2026-11-21
