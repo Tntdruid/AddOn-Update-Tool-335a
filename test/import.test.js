@@ -118,3 +118,61 @@ test('importMany installs in order, skips managed ones and keeps going after fai
   assert.deepEqual(r.map((x) => [x.ok, Boolean(x.skipped)]), [[true, true], [false, false], [true, false]]);
   assert.equal(u.state.addons.length, 2);
 });
+
+/* ---------- links to a folder inside a repo ---------- */
+
+const { splitRefPath } = require('../src/core/source');
+
+test('splitRefPath separates branch and folder using the real branch list', () => {
+  assert.deepEqual(splitRefPath('main/addon/PocketVendor', ['main', 'dev']), { ref: 'main', subpath: 'addon/PocketVendor' });
+  // Branch names with "/" win over shorter prefixes.
+  assert.deepEqual(splitRefPath('feature/x/addon/Foo', ['feature', 'feature/x']), { ref: 'feature/x', subpath: 'addon/Foo' });
+  assert.deepEqual(splitRefPath('feature/x', ['feature', 'feature/x']), { ref: 'feature/x', subpath: null });
+  assert.deepEqual(splitRefPath('main/addon/', ['main']), { ref: 'main', subpath: 'addon' });
+  // Without a branch list, nothing can be split safely.
+  assert.deepEqual(splitRefPath('main/addon', []), { ref: 'main/addon', subpath: null });
+  assert.deepEqual(splitRefPath(null, ['main']), { ref: null, subpath: null });
+});
+
+test('a /tree/<branch>/<folder> link installs only that folder, with no branch warning (regression)', async () => {
+  const wow = await makeWow();
+  const fetch = fakeFetch([
+    [/repos\/o\/mod-thing\/branches/, () => response(200, [{ name: 'main' }])],
+    [/repos\/o\/mod-thing\/commits\/main$/, () => response(200, { sha: 's', commit: {} })],
+    [
+      /codeload/,
+      () =>
+        response(
+          200,
+          makeZip({
+            'm-s/addon/PocketVendor/PocketVendor.toc': toc('PocketVendor'),
+            'm-s/addon/PocketVendor/a.lua': '',
+            'm-s/tools/Other/Other.toc': toc('Other'),
+            'm-s/src/server.cpp': '',
+          }),
+        ),
+    ],
+  ]);
+  const u = await new Updater(wow, { fetch }).load();
+  const r = await u.add('https://github.com/o/mod-thing/tree/main/addon/PocketVendor');
+  assert.equal(r.addon.branch, 'main');
+  assert.equal(r.addon.subpath, 'addon/PocketVendor');
+  assert.deepEqual(r.installed, ['PocketVendor']);
+  assert.deepEqual(r.warnings, []);
+  // Updates keep using the folder.
+  const again = await u.update([r.addon.id]);
+  assert.ok(again[0].ok);
+  assert.deepEqual(u.find(r.addon.id).folders, ['PocketVendor']);
+});
+
+test('the missing-dependency warning names the addon just installed (regression)', async () => {
+  const wow = await makeWow({ Other: { 'Other.toc': toc('Other', 30300, '## Dependencies: Ace3') } });
+  const fetch = fakeFetch([
+    [/commits/, () => response(200, { sha: 's', commit: {} })],
+    [/codeload/, () => response(200, makeZip({ 'M-s/MyAutoVendor.toc': toc('MyAutoVendor', 30300, '## Dependencies: Ace3') }))],
+  ]);
+  const u = await new Updater(wow, { fetch }).load();
+  const r = await u.add('https://github.com/o/MyAutoVendor', { branch: 'main' });
+  assert.deepEqual(r.warnings, ['MyAutoVendor requires Ace3, which is not installed']);
+  assert.deepEqual(r.missingDeps[0].neededBy, ['MyAutoVendor']);
+});

@@ -161,6 +161,23 @@ function branchNamesOf(json) {
   return Array.isArray(json) ? json.map((b) => b.name).filter(Boolean) : [];
 }
 
+/**
+ * Split "main/addon/PocketVendor" (from a /tree/ link) into branch and folder.
+ * The longest existing branch that prefixes the string wins, since branch names
+ * may contain "/" themselves. Without a branch list nothing can be split safely.
+ * @returns {{ref:string|null, subpath:string|null}}
+ */
+function splitRefPath(refAndPath, branches = []) {
+  if (!refAndPath) return { ref: null, subpath: null };
+  if (branches.includes(refAndPath) || !branches.length) return { ref: refAndPath, subpath: null };
+  const hit = branches
+    .filter((b) => refAndPath.startsWith(`${b}/`))
+    .sort((a, b) => b.length - a.length)[0];
+  if (!hit) return { ref: refAndPath, subpath: null };
+  const subpath = refAndPath.slice(hit.length + 1).replace(/\/+$/, '');
+  return { ref: hit, subpath: subpath || null };
+}
+
 /** Branch names that signal a 3.3.5a / WotLK build, strongest first. */
 const WOTLK_BRANCH_PATTERNS = [
   /^(3\.?3\.?5a?|335a?)$/i,
@@ -193,4 +210,5 @@ module.exports = {
   branchNamesOf,
   compareOf,
   pickBranch,
+  splitRefPath,
 };

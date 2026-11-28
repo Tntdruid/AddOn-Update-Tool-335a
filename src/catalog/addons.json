@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T17:58:20.206Z",
+  "generated": "2026-11-28T08:33:49.426Z",
   "interface": 30300,
   "addons": [
     {
@@ -107,6 +107,17 @@
       "stars": 5
     },
     {
+      "name": "Ace3",
+      "url": "https://github.com/Tntdruid/Ace3",
+      "folders": [
+        "Ace3"
+      ],
+      "category": "Libraries",
+      "description": "The Ace3 addon framework for 3.3.5a: the official Release-r960, the last Ace3 release for WotLK. Required by many addons.",
+      "author": "Tntdruid",
+      "stars": 0
+    },
+    {
       "name": "Achievement Tracker",
       "url": "https://github.com/jabidan23-oss/wow-achievement-tracker",
       "folders": [
@@ -116,6 +127,26 @@
       "description": "ToS-safe WoW achievement tracker addon (retail + WotLK 3.3.5a) — append-only SavedVariables feed for an external RustChain companion app",
       "author": "jabidan23-oss",
       "stars": 5
+    },
+    {
+      "name": "AcoreLib",
+      "url": "https://github.com/catastrophic-impact/azerothcore-linux-server",
+      "folders": [
+        "AcoreLib",
+        "transmog",
+        "wotlk_botmanager",
+        "wotlk_garrison",
+        "wotlk_garrison_admin",
+        "wotlk_jukebox",
+        "wotlk_minimap",
+        "wotlk_petbattle",
+        "wotlk_pets",
+        "wotlk_shop"
+      ],
+      "category": "Transmog & cosmetics",
+      "description": "Portable one-script AzerothCore 3.3.5a server with an admin TUI, plus open-source player housing (garrison), jukebox, shop and bot-manager addons that need no core changes or client patch.",
+      "author": "catastrophic-impact",
+      "stars": 8
     },
     {
       "name": "ActionCam",
@@ -474,7 +505,7 @@
       "category": "Professions & economy",
       "description": "A faithful backport of the Mists of Pandaria Black Market Auction House assets and functionality to AzerothCore 3.3.5 using the Eluna Lua engine",
       "author": "Youpeoples",
-      "stars": 38
+      "stars": 37
     },
     {
       "name": "Bloody Mask rev 1.0.2",
@@ -635,6 +666,17 @@
       "stars": 11
     },
     {
+      "name": "CleanerChat",
+      "url": "https://github.com/migwynkriid/CleanerChat-WotLK",
+      "folders": [
+        "CleanerChat"
+      ],
+      "category": "Interface & UI",
+      "description": "WoW 3.3.5a addon that cleans up chat clutter and replaces the default chat frame with a sleek, immersive UI. Backported Glass + ChatCleaner in one package.",
+      "author": "migwynkriid",
+      "stars": 23
+    },
+    {
       "name": "CleanupBags",
       "url": "https://github.com/silviu20092/CleanupBags",
       "folders": [
@@ -762,7 +804,7 @@
       "category": "Boss mods & raiding",
       "description": "DBM for Warmane (Icecrown, Lordaeron, Frostmourne, Onyxia)",
       "author": "Zidras",
-      "stars": 240
+      "stars": 239
     },
     {
       "name": "Death Recap",
@@ -814,7 +856,7 @@
       "category": "Quests & leveling",
       "description": "In-game world editor for AzerothCore 3.3.5a: NPCs, looks, combat, paths, shops, quests and objects from /dev. Server module + client addon. Made by ilusixn.",
       "author": "ilusixn",
-      "stars": 7
+      "stars": 8
     },
     {
       "name": "DialogKeyWrath",
@@ -836,7 +878,7 @@
       "category": "Quests & leveling",
       "description": "Immersive quest / gossip / book dialog UI for WoW 3.3.5a (WotLK) — a port of Sxus's DialogUI with dark mode, a book reader, focus mode, auto-advance and more.",
       "author": "ghbset",
-      "stars": 11
+      "stars": 12
     },
     {
       "name": "Dominos",
@@ -904,7 +946,7 @@
       "category": "Interface & UI",
       "description": "Retail-inspired modular UI addon for WoW 3.3.5a (WotLK).",
       "author": "NeticSoul",
-      "stars": 221
+      "stars": 227
     },
     {
       "name": "DragonUI AddOnSkins",
@@ -926,7 +968,7 @@
       "category": "Interface & UI",
       "description": "Support module for DragonUI (WoW 3.3.5a / WotLK) — faithfully downported Dragonflight UI panels from NewEra. Includes a custom Character panel + client-side Equipment Manager with /gearset.",
       "author": "ghbset",
-      "stars": 49
+      "stars": 50
     },
     {
       "name": "DressMe",
@@ -1290,7 +1332,7 @@
       "category": "Other",
       "description": "A World of Warcraft addon to view detailed information on tracked events. Tested clients: 2.4.3 (TBC), 3.3.5a (WotLK), 4.3.4 (Cata), 5.4.8 (MoP)",
       "author": "fondlez",
-      "stars": 1
+      "stars": 2
     },
     {
       "name": "EveryQuest",
@@ -1413,7 +1455,7 @@
       "category": "Bags & inventory",
       "description": "FonzAppraiser is an addon for World of Warcraft (1.12, 2.4.3, 3.3.5 clients) to track the value of personal loot.",
       "author": "fondlez",
-      "stars": 12
+      "stars": 13
     },
     {
       "name": "FonzTracking",
@@ -1645,6 +1687,18 @@
       "stars": 20
     },
     {
+      "name": "HUI",
+      "url": "https://github.com/helinhof/HUI",
+      "folders": [
+        "HUI",
+        "HUI_Options"
+      ],
+      "category": "Interface & UI",
+      "description": "Complete UI for WotLK 3.3.5a",
+      "author": "helinhof",
+      "stars": 3
+    },
+    {
       "name": "IdTip",
       "url": "https://github.com/Skrylas/idTip-WotLK",
       "folders": [
@@ -1819,7 +1873,7 @@
       "category": "Other",
       "description": "An AzerothCore (WotLK 3.3.5a) module and addon: a codex of Azeroth's lore that fills in as you play.",
       "author": "g7138580",
-      "stars": 9
+      "stars": 10
     },
     {
       "name": "Lorti UI",
@@ -1990,6 +2044,17 @@
       "stars": 1
     },
     {
+      "name": "MobLootTracker",
+      "url": "https://github.com/Tntdruid/MobLootTracker",
+      "folders": [
+        "MobLootTracker"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "Tntdruid",
+      "stars": 1
+    },
+    {
       "name": "Modern Map Markers",
       "url": "https://github.com/Drakensangs/ModernMapMarkers-WotLK",
       "folders": [
@@ -2030,7 +2095,7 @@
       "category": "Transmog & cosmetics",
       "description": "Transmog Catalogue Addons for WotLK",
       "author": "ZhengPeiRu21",
-      "stars": 31
+      "stars": 32
     },
     {
       "name": "MoveAnything",
@@ -2052,7 +2117,18 @@
       "category": "Other",
       "description": "A simple World of Warcraft addon to mute system message \"You can only whisper to members of your alliance.\". Tested clients: 3.3.5a (WotLK) and 2.4.3 (TBC).",
       "author": "fondlez",
-      "stars": 2
+      "stars": 3
+    },
+    {
+      "name": "MyAutoVendor",
+      "url": "https://github.com/Tntdruid/MyAutoVendor",
+      "folders": [
+        "MyAutoVendor"
+      ],
+      "category": "Other",
+      "description": "",
+      "author": "Tntdruid",
+      "stars": 1
     },
     {
       "name": "Name Spoofer",
@@ -2209,7 +2285,7 @@
       "category": "Class & rotation",
       "description": "This version of PallyPower for WoW 3.3.5a introduces several new features",
       "author": "NoM0Re",
-      "stars": 32
+      "stars": 33
     },
     {
       "name": "Pawn",
@@ -2301,6 +2377,28 @@
       "stars": 32
     },
     {
+      "name": "Pocket Storage",
+      "url": "https://github.com/Tntdruid/mod-pocket-storage",
+      "folders": [
+        "PocketStorage"
+      ],
+      "category": "Professions & economy",
+      "description": "AzerothCore module allowing auto-deposit to a limitless vault, account wide, with support for auto-withdrawal for crafting.",
+      "author": "Tntdruid",
+      "stars": 1
+    },
+    {
+      "name": "PocketVendor",
+      "url": "https://github.com/Tntdruid/mod-pocket-vendor",
+      "folders": [
+        "PocketVendor"
+      ],
+      "category": "Bags & inventory",
+      "description": "AzerothCore module that sells junk on loot, with an addon for personal sell and keep lists",
+      "author": "Tntdruid",
+      "stars": 1
+    },
+    {
       "name": "Possessions 3.1",
       "url": "https://github.com/fondlez/Possessions",
       "folders": [
@@ -2309,7 +2407,7 @@
       "category": "Other",
       "description": "World of Warcraft addon to keep track of all of your items. Tested for the Wrath of the Lich King client (3.3.5).",
       "author": "fondlez",
-      "stars": 4
+      "stars": 5
     },
     {
       "name": "Postal",
@@ -2386,7 +2484,7 @@
       "category": "Professions & economy",
       "description": "World of Warcraft(3.3.5) addon that shows the easiest way to level a crafting profession to its cap (450)",
       "author": "SamuelLira99",
-      "stars": 19
+      "stars": 20
     },
     {
       "name": "pw_unitframes",
@@ -2477,7 +2575,7 @@
       "category": "Quests & leveling",
       "description": "Um AddOn para World of Warcraft Vanilla, TBC e WoTLK que traduz quests e textos dos NPCs para o português.",
       "author": "leoaviana",
-      "stars": 14
+      "stars": 16
     },
     {
       "name": "QuestVoice",
@@ -2630,7 +2728,7 @@
       "category": "Quests & leveling",
       "description": "A backport of the addon made by RestedXP/RXPGuides to the 3.3.5 version of WoW-WotLK",
       "author": "PottedSalame",
-      "stars": 18
+      "stars": 20
     },
     {
       "name": "Ret Rotation",
@@ -2776,7 +2874,7 @@
       "category": "Other",
       "description": "SharedMedia, with lots of backgrounds, borders, fonts, statusbars and sounds.",
       "author": "bkader",
-      "stars": 27
+      "stars": 28
     },
     {
       "name": "SharedMedia Additional Fonts",
@@ -2787,7 +2885,7 @@
       "category": "Other",
       "description": "Inserts more than 30 additional fonts into LibSharedMedia's storage.",
       "author": "NoM0Re",
-      "stars": 3
+      "stars": 4
     },
     {
       "name": "SharedMediaRetail",
@@ -2798,7 +2896,7 @@
       "category": "Other",
       "description": "Inserts media(fonts, bars, borders, etc) into LibSharedMedia's storage. They can then be selected by any addon that supports LibSharedMedia, a lot of them do.",
       "author": "NoM0Re",
-      "stars": 3
+      "stars": 4
     },
     {
       "name": "Simple Cast Bar",
@@ -2820,7 +2918,7 @@
       "category": "Quests & leveling",
       "description": "Instantly abandon quests in WoW 3.3.5a with Ctrl + Right-click. No confirmation dialog required.",
       "author": "zimbabd",
-      "stars": 5
+      "stars": 4
     },
     {
       "name": "Skada",
@@ -2877,7 +2975,7 @@
       "category": "Interface & UI",
       "description": "SoundAlerter 3.3.5 Enhanced Version",
       "author": "Cortes-Jeremy",
-      "stars": 19
+      "stars": 20
     },
     {
       "name": "Speedy AutoLoot",
@@ -3020,7 +3118,7 @@
       "category": "Bags & inventory",
       "description": "Retail-style slot-based transmog for AzerothCore: account-wide collection, transmog window addon, sets, outfits, collect on loot/disenchant",
       "author": "buildthehomelab",
-      "stars": 6
+      "stars": 7
     },
     {
       "name": "Transmoggy",
@@ -3042,7 +3140,7 @@
       "category": "Transmog & cosmetics",
       "description": "Transmog system created with AIO and Eluna for AzerothCore.",
       "author": "DanieltheDeveloper",
-      "stars": 50
+      "stars": 51
     },
     {
       "name": "Transmorpher",
@@ -3270,7 +3368,7 @@
       "category": "Other",
       "description": "Native controller support intended for use with personal Azerothcore WotLK servers",
       "author": "Oddity-git",
-      "stars": 18
+      "stars": 19
     },
     {
       "name": "WowSimsExporter v2.3 WOTLK",
@@ -3325,7 +3423,7 @@
       "category": "Quests & leveling",
       "description": "An attempt to Remaster ZygorGuides in a more modernized way, while retaining the soul of the addon.",
       "author": "ErebusAres",
-      "stars": 92
+      "stars": 93
     }
   ]
 }

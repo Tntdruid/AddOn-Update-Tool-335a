@@ -176,17 +176,20 @@ class Updater {
   async resolve(url, branch) {
     const s = src.parseRepoUrl(url);
     const ep = src.endpoints(s);
-    const wanted = branch || s.branch;
     const branches = src.branchNamesOf(await this.http.json(ep.branches).catch(() => []));
+    // A link like ".../tree/main/addon/PocketVendor" names a branch *and* a folder.
+    // Branch names may contain "/", so split using the real branch list.
+    const { ref, subpath } = src.splitRefPath(branch || s.branch, branches);
+    const wanted = ref;
     // An explicit branch that exists (or that we can't verify) is used as-is.
     if (wanted && (!branches.length || branches.includes(wanted))) {
-      return { source: s, branch: wanted, branchPinned: true, branches };
+      return { source: s, branch: wanted, branchPinned: true, branches, subpath };
     }
     // Shared configs often name a branch that was later renamed (e.g. "main" vs "master"):
     // fall back to the best existing branch instead of failing with "Not found".
     const repo = await this.http.json(ep.repo);
     const chosen = src.pickBranch(branches, src.defaultBranchOf(s, repo), null);
-    return { source: s, branch: chosen, branchPinned: false, branches, ...(wanted ? { fallbackFrom: wanted } : {}) };
+    return { source: s, branch: chosen, branchPinned: false, branches, subpath, ...(wanted ? { fallbackFrom: wanted } : {}) };
   }
 
   async headOf(addon) {
@@ -212,6 +215,8 @@ class Updater {
       provider: r.source.provider,
       branch: r.branch,
       branchPinned: r.branchPinned,
+      // Only install from this folder of the repo (e.g. the addon inside a server module).
+      subpath: r.subpath || null,
       folders: opts.adoptFolders || [],
       // When linking local folders, only install those from the repo (collection repos).
       // Callers that know the repo's full folder list (the catalog) pass include: null.
@@ -240,9 +245,11 @@ class Updater {
     const s = src.parseRepoUrl(addon.url);
     this.log(`Downloading ${addon.id}@${addon.branch} (${head.sha.slice(0, 7)})`);
     const bytes = await this.http.buffer(src.endpoints(s).archive(head.sha));
-    const files = readArchive(bytes);
+    const files = limitToSubpath(readArchive(bytes), addon.subpath);
     const all = findAddons(files, { repoName: s.repo });
-    if (!all.length) throw new Error('No addon (.toc file) found in the repository');
+    if (!all.length) {
+      throw new Error(addon.subpath ? `No addon (.toc file) found in ${addon.subpath}/` : 'No addon (.toc file) found in the repository');
+    }
     const found = applyInclude(all, addon.include);
     const warnings = [];
     for (const f of found) {
@@ -268,9 +275,11 @@ class Updater {
     const mine = new Set(result.installed.map((n) => n.toLowerCase()));
     const missingDeps = [];
     for (const [dep, neededBy] of missing) {
-      if (!neededBy.some((n) => mine.has(n.toLowerCase()))) continue;
-      missingDeps.push({ name: dep, neededBy, catalog: catalogFor(this.catalog, [dep]) });
-      warnings.push(`${neededBy[0]} requires ${dep}, which is not installed`);
+      // Name the folder we just installed, not whichever other addon also lacks the dependency.
+      const ours = neededBy.filter((n) => mine.has(n.toLowerCase()));
+      if (!ours.length) continue;
+      missingDeps.push({ name: dep, neededBy: ours, catalog: catalogFor(this.catalog, [dep]) });
+      warnings.push(`${ours[0]} requires ${dep}, which is not installed`);
     }
     return { installed: result.installed, removed: result.removed, warnings, missingDeps };
   }
@@ -458,6 +467,15 @@ function scoreRepo(item, name) {
     score,
     source: 'search',
   };
+}
+
+/** Keep only the files under `subpath` (paths stay as they are). */
+function limitToSubpath(files, subpath) {
+  if (!subpath) return files;
+  const pre = `${subpath.replace(/^\/+|\/+$/g, '')}/`;
+  const out = {};
+  for (const [p, data] of Object.entries(files)) if (p.startsWith(pre)) out[p] = data;
+  return out;
 }
 
 function looksLikeWowAddon(item) {

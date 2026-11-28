@@ -1,5 +1,11 @@
 {
-  "include": [],
+  "include": [
+    "https://github.com/Tntdruid/Ace3",
+    "https://github.com/Tntdruid/MobLootTracker",
+    "https://github.com/Tntdruid/MyAutoVendor",
+    "https://github.com/Tntdruid/mod-pocket-vendor",
+    "https://github.com/Tntdruid/mod-pocket-storage"
+  ],
   "exclude": [],
   "seedConfigs": [
     "https://github.com/NoM0Re/WoW-3.3.5a-Addons/blob/main/src/Addons/config.yaml"
@@ -14,6 +20,11 @@
     },
     "KhalGH/RefinedBlizzPlates-WotLK": {
       "category": "Unit frames"
+    },
+    "Tntdruid/Ace3": {
+      "name": "Ace3",
+      "category": "Libraries",
+      "description": "The Ace3 addon framework for 3.3.5a: the official Release-r960, the last Ace3 release for WotLK. Required by many addons."
     }
   }
 }

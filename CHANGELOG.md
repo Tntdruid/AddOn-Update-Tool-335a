@@ -9,6 +9,21 @@ Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a
 
 ## [Unreleased]
 
+---
+
+## [0.4.0] — 2026-11-28
+
+> **Modules and libraries.** Install the client addon that sits inside a server module straight from its folder link, and fix a missing Ace3 with one click. The catalog grows to 287 addons.
+
+### ✨ New
+- **Links to a folder inside a repo.** Paste a link such as `…/tree/main/addon/PocketVendor`, and only that folder is installed and updated. This suits AzerothCore modules that ship a client addon next to the server code.
+- **Ace3 in the catalog.** It comes from [Tntdruid/Ace3](https://github.com/Tntdruid/Ace3), the official Release-r960 (the last Ace3 release for WotLK), so a missing Ace3 dependency installs with one click.
+- New in the catalog: MobLootTracker, MyAutoVendor, PocketVendor and PocketStorage. **The catalog grows from 279 to 287 addons.**
+
+### 🐛 Fixed
+- A folder link was read as a branch name, which caused a misleading "branch does not exist" warning.
+- The missing-dependency warning after an install named another addon that also lacked the dependency, instead of the one just installed.
+
 ### 🧰 For contributors
 - The build tools no longer pull in a vulnerable `minimatch` (CVE-2026-118764). An npm override lifts only the affected versions to 11.0.1 or newer. It only touched the tooling that builds the exe; the app itself was never affected.
 
@@ -82,7 +97,8 @@ Downloads are on the <a href="https://github.com/Tntdruid/AddOn-Update-Tool-335a
 ### 🧰 For contributors
 - GitHub Actions run the tests on every push and build a portable `.exe` release for every `v*` tag.
 
-[Unreleased]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Tntdruid/AddOn-Update-Tool-335a/releases/tag/v0.1.0
